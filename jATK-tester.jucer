@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="pVGpCy" name="jATK-tester" projectType="guiapp" version="1.0.0"
+              bundleIdentifier="com.yourcompany.jATKtester" includeBinaryInAppConfig="1"
+              jucerVersion="3.1.0">
+  <MAINGROUP id="UcQUM0" name="jATK-tester">
+    <GROUP id="{8AE64A1E-E308-26CC-F50D-C3555A69BA49}" name="Source">
+      <FILE id="ccUDzL" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+      <FILE id="l7HdXq" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="1" optimisation="1" targetName="jATK-tester"/>
+        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="0" optimisation="2" targetName="jATK-tester"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_video" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../usr/include/juce/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2015 targetFolder="Builds/VisualStudio2015">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="jATK-tester"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="jATK-tester"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_video" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../usr/include/juce/modules"/>
+      </MODULEPATHS>
+    </VS2015>
+    <CODEBLOCKS targetFolder="Builds/CodeBlocks">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="jATK-tester"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="jATK-tester"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_video" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../usr/include/juce/modules"/>
+      </MODULEPATHS>
+    </CODEBLOCKS>
+    <LINUX_MAKE targetFolder="Builds/Linux">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/" isDebug="1" optimisation="1"
+                       targetName="jATK-tester"/>
+        <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib/" isDebug="0" optimisation="2"
+                       targetName="jATK-tester"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_video" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../usr/include/juce/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_video" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
