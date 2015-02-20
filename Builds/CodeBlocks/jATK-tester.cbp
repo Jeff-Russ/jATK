@@ -94,8 +94,22 @@
       <Add library="kernel32"/>
       <Add library="comctl32"/>
     </Linker>
-    <Unit filename="../../Source/MainComponent.cpp"/>
-    <Unit filename="../../Source/Main.cpp"/>
+    <Unit filename="../../Source/jATK/Types.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../Source/jATK/Sine.cpp"/>
+    <Unit filename="../../Source/jATK/Sine.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../Source/jATK/Phase.cpp"/>
+    <Unit filename="../../Source/jATK/Phase.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../Source/Testing/Main.cpp"/>
+    <Unit filename="../../Source/Testing/MainComponent.cpp"/>
     <Unit filename="../../../../../../usr/include/juce/modules/juce_audio_basics/buffers/juce_AudioDataConverters.cpp">
       <Option compile="0"/>
       <Option link="0"/>

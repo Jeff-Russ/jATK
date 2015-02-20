@@ -131,8 +131,10 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\MainComponent.cpp"/>
-    <ClCompile Include="..\..\Source\Main.cpp"/>
+    <ClCompile Include="..\..\Source\jATK\Sine.cpp"/>
+    <ClCompile Include="..\..\Source\jATK\Phase.cpp"/>
+    <ClCompile Include="..\..\Source\Testing\Main.cpp"/>
+    <ClCompile Include="..\..\Source\Testing\MainComponent.cpp"/>
     <ClCompile Include="..\..\..\..\..\..\usr\include\juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1256,6 +1258,9 @@
     <ClCompile Include="..\..\..\..\..\..\usr\include\juce\modules\juce_video\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\jATK\Types.h"/>
+    <ClInclude Include="..\..\Source\jATK\Sine.h"/>
+    <ClInclude Include="..\..\Source\jATK\Phase.h"/>
     <ClInclude Include="..\..\..\..\..\..\usr\include\juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\..\..\..\..\usr\include\juce\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
     <ClInclude Include="..\..\..\..\..\..\usr\include\juce\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h"/>

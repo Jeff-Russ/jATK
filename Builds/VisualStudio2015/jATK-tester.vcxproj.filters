@@ -8,6 +8,12 @@
     <Filter Include="jATK-tester\Source">
       <UniqueIdentifier>{EF61A707-533A-EB2B-05E5-76D017EEF4E7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="jATK-tester\Source\jATK">
+      <UniqueIdentifier>{47285889-7857-E2B0-BECF-1DD99D67D8E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jATK-tester\Source\Testing">
+      <UniqueIdentifier>{B1ACA36A-3DFB-8784-47DF-D602AF2453E3}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules">
       <UniqueIdentifier>{422C46B7-0467-2DB0-BF3C-16DFCAFD69AC}</UniqueIdentifier>
     </Filter>
@@ -310,11 +316,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\MainComponent.cpp">
-      <Filter>jATK-tester\Source</Filter>
+    <ClCompile Include="..\..\Source\jATK\Sine.cpp">
+      <Filter>jATK-tester\Source\jATK</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Main.cpp">
-      <Filter>jATK-tester\Source</Filter>
+    <ClCompile Include="..\..\Source\jATK\Phase.cpp">
+      <Filter>jATK-tester\Source\jATK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Testing\Main.cpp">
+      <Filter>jATK-tester\Source\Testing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Testing\MainComponent.cpp">
+      <Filter>jATK-tester\Source\Testing</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\usr\include\juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -1542,6 +1554,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\jATK\Types.h">
+      <Filter>jATK-tester\Source\jATK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\jATK\Sine.h">
+      <Filter>jATK-tester\Source\jATK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\jATK\Phase.h">
+      <Filter>jATK-tester\Source\jATK</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\usr\include\juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
     </ClInclude>

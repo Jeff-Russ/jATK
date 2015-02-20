@@ -5,9 +5,18 @@
               jucerVersion="3.1.0">
   <MAINGROUP id="UcQUM0" name="jATK-tester">
     <GROUP id="{8AE64A1E-E308-26CC-F50D-C3555A69BA49}" name="Source">
-      <FILE id="ccUDzL" name="MainComponent.cpp" compile="1" resource="0"
-            file="Source/MainComponent.cpp"/>
-      <FILE id="l7HdXq" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <GROUP id="{585D5710-B78A-700D-99EC-91EBE1C384DE}" name="jATK">
+        <FILE id="utxQdk" name="Types.h" compile="0" resource="0" file="Source/jATK/Types.h"/>
+        <FILE id="aJ50dD" name="Sine.cpp" compile="1" resource="0" file="Source/jATK/Sine.cpp"/>
+        <FILE id="pWFgOg" name="Sine.h" compile="0" resource="0" file="Source/jATK/Sine.h"/>
+        <FILE id="aJGYBm" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
+        <FILE id="IcOODo" name="Phase.h" compile="0" resource="0" file="Source/jATK/Phase.h"/>
+      </GROUP>
+      <GROUP id="{3B256ACA-B225-4B15-E979-278EB8CB4B4C}" name="Testing">
+        <FILE id="mUF8gA" name="Main.cpp" compile="1" resource="0" file="Source/Testing/Main.cpp"/>
+        <FILE id="H0XEYM" name="MainComponent.cpp" compile="1" resource="0"
+              file="Source/Testing/MainComponent.cpp"/>
+      </GROUP>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>

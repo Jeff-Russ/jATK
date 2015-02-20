@@ -51,8 +51,10 @@ ifeq ($(CONFIG),Release)
 endif
 
 OBJECTS := \
-  $(OBJDIR)/MainComponent_a6ffb4a5.o \
-  $(OBJDIR)/Main_90ebc5c2.o \
+  $(OBJDIR)/Sine_d7ab74cf.o \
+  $(OBJDIR)/Phase_64364643.o \
+  $(OBJDIR)/Main_6a719701.o \
+  $(OBJDIR)/MainComponent_c687da46.o \
   $(OBJDIR)/juce_audio_basics_1fd3cbfe.o \
   $(OBJDIR)/juce_audio_devices_ffbc193c.o \
   $(OBJDIR)/juce_audio_formats_2e3d62dc.o \
@@ -85,14 +87,24 @@ strip:
 	@echo Stripping jATK-tester
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
 
-$(OBJDIR)/MainComponent_a6ffb4a5.o: ../../Source/MainComponent.cpp
+$(OBJDIR)/Sine_d7ab74cf.o: ../../Source/jATK/Sine.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling MainComponent.cpp"
+	@echo "Compiling Sine.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/Main_90ebc5c2.o: ../../Source/Main.cpp
+$(OBJDIR)/Phase_64364643.o: ../../Source/jATK/Phase.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Phase.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Main_6a719701.o: ../../Source/Testing/Main.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Main.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/MainComponent_c687da46.o: ../../Source/Testing/MainComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling MainComponent.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/juce_audio_basics_1fd3cbfe.o: ../../../../../../usr/include/juce/modules/juce_audio_basics/juce_audio_basics.cpp
