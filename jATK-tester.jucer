@@ -6,9 +6,9 @@
   <MAINGROUP id="UcQUM0" name="jATK-tester">
     <GROUP id="{8AE64A1E-E308-26CC-F50D-C3555A69BA49}" name="Source">
       <GROUP id="{585D5710-B78A-700D-99EC-91EBE1C384DE}" name="jATK">
-        <FILE id="utxQdk" name="Types.h" compile="0" resource="0" file="Source/jATK/Types.h"/>
-        <FILE id="aJ50dD" name="Sine.cpp" compile="1" resource="0" file="Source/jATK/Sine.cpp"/>
-        <FILE id="pWFgOg" name="Sine.h" compile="0" resource="0" file="Source/jATK/Sine.h"/>
+        <FILE id="jqK577" name="DelayBuffer.cpp" compile="1" resource="0" file="Source/jATK/DelayBuffer.cpp"/>
+        <FILE id="RdeSwY" name="DelayBuffer.h" compile="0" resource="0" file="Source/jATK/DelayBuffer.h"/>
+        <FILE id="pWFgOg" name="SineMath.h" compile="0" resource="0" file="Source/jATK/SineMath.h"/>
         <FILE id="aJGYBm" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
         <FILE id="IcOODo" name="Phase.h" compile="0" resource="0" file="Source/jATK/Phase.h"/>
       </GROUP>

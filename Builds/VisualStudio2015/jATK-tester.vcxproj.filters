@@ -316,7 +316,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\jATK\Sine.cpp">
+    <ClCompile Include="..\..\Source\jATK\DelayBuffer.cpp">
       <Filter>jATK-tester\Source\jATK</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\jATK\Phase.cpp">
@@ -1554,10 +1554,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\jATK\Types.h">
+    <ClInclude Include="..\..\Source\jATK\DelayBuffer.h">
       <Filter>jATK-tester\Source\jATK</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\jATK\Sine.h">
+    <ClInclude Include="..\..\Source\jATK\SineMath.h">
       <Filter>jATK-tester\Source\jATK</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\jATK\Phase.h">

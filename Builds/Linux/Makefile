@@ -51,7 +51,7 @@ ifeq ($(CONFIG),Release)
 endif
 
 OBJECTS := \
-  $(OBJDIR)/Sine_d7ab74cf.o \
+  $(OBJDIR)/DelayBuffer_40c37a2b.o \
   $(OBJDIR)/Phase_64364643.o \
   $(OBJDIR)/Main_6a719701.o \
   $(OBJDIR)/MainComponent_c687da46.o \
@@ -87,9 +87,9 @@ strip:
 	@echo Stripping jATK-tester
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
 
-$(OBJDIR)/Sine_d7ab74cf.o: ../../Source/jATK/Sine.cpp
+$(OBJDIR)/DelayBuffer_40c37a2b.o: ../../Source/jATK/DelayBuffer.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling Sine.cpp"
+	@echo "Compiling DelayBuffer.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/Phase_64364643.o: ../../Source/jATK/Phase.cpp

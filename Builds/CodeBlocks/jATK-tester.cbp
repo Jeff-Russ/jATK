@@ -94,12 +94,12 @@
       <Add library="kernel32"/>
       <Add library="comctl32"/>
     </Linker>
-    <Unit filename="../../Source/jATK/Types.h">
+    <Unit filename="../../Source/jATK/DelayBuffer.cpp"/>
+    <Unit filename="../../Source/jATK/DelayBuffer.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../Source/jATK/Sine.cpp"/>
-    <Unit filename="../../Source/jATK/Sine.h">
+    <Unit filename="../../Source/jATK/SineMath.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
