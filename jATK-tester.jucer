@@ -12,19 +12,24 @@
               companyName="Jeff-Russ">
   <MAINGROUP id="GEJrBd" name="jATK-tester">
     <GROUP id="{ECC8F3A3-5114-A707-DD55-4E763E6BC16C}" name="jATK">
-      <FILE id="WgczpS" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
-      <FILE id="q3Me3c" name="Phase.h" compile="0" resource="0" file="Source/jATK/Phase.h"/>
-      <FILE id="Gkmm4R" name="Sine.h" compile="0" resource="0" file="Source/jATK/Sine.h"/>
-      <FILE id="mziOmU" name="Types.h" compile="0" resource="0" file="Source/jATK/Types.h"/>
+      <FILE id="l9tbb6" name="DelayBuffer.cpp" compile="1" resource="0" file="Source/jATK/DelayBuffer.cpp"/>
+      <FILE id="XIQG1K" name="DelayBuffer.h" compile="0" resource="0" file="Source/jATK/DelayBuffer.h"/>
+      <FILE id="fq966E" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
+      <FILE id="sHYOhV" name="Phase.h" compile="0" resource="0" file="Source/jATK/Phase.h"/>
+      <FILE id="fgtW1S" name="SineMath.h" compile="0" resource="0" file="Source/jATK/SineMath.h"/>
     </GROUP>
     <GROUP id="{40C76746-197A-458F-1CAB-C3656DE023F8}" name="Testing">
-      <FILE id="RJmFR3" name="PluginProcessor.cpp" compile="1" resource="0"
-            file="Source/PluginProcessor.cpp"/>
-      <FILE id="guZk5d" name="PluginProcessor.h" compile="0" resource="0"
-            file="Source/PluginProcessor.h"/>
-      <FILE id="LXnaKB" name="PluginEditor.cpp" compile="1" resource="0"
-            file="Source/PluginEditor.cpp"/>
-      <FILE id="gErnR3" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="J90yeq" name="PluginEditor-old.cpp" compile="1" resource="0"
+            file="Source/Test_plugin/PluginEditor-old.cpp"/>
+      <FILE id="lLaaK8" name="PluginEditor-old.h" compile="0" resource="0"
+            file="Source/Test_plugin/PluginEditor-old.h"/>
+      <FILE id="eicqdL" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/Test_plugin/PluginEditor.cpp"/>
+      <FILE id="i9z1iq" name="PluginEditor.h" compile="0" resource="0" file="Source/Test_plugin/PluginEditor.h"/>
+      <FILE id="ZTwWKz" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/Test_plugin/PluginProcessor.cpp"/>
+      <FILE id="RlA8QN" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/Test_plugin/PluginProcessor.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
