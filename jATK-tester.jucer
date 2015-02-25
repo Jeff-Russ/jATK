@@ -1,126 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="pVGpCy" name="jATK-tester" projectType="guiapp" version="1.0.0"
+<JUCERPROJECT id="bPEg5s" name="jATK-tester" projectType="audioplug" version="1.0.0"
               bundleIdentifier="com.yourcompany.jATKtester" includeBinaryInAppConfig="1"
-              jucerVersion="3.1.0">
-  <MAINGROUP id="UcQUM0" name="jATK-tester">
-    <GROUP id="{8AE64A1E-E308-26CC-F50D-C3555A69BA49}" name="Source">
-      <GROUP id="{585D5710-B78A-700D-99EC-91EBE1C384DE}" name="jATK">
-        <FILE id="jqK577" name="DelayBuffer.cpp" compile="1" resource="0" file="Source/jATK/DelayBuffer.cpp"/>
-        <FILE id="RdeSwY" name="DelayBuffer.h" compile="0" resource="0" file="Source/jATK/DelayBuffer.h"/>
-        <FILE id="pWFgOg" name="SineMath.h" compile="0" resource="0" file="Source/jATK/SineMath.h"/>
-        <FILE id="aJGYBm" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
-        <FILE id="IcOODo" name="Phase.h" compile="0" resource="0" file="Source/jATK/Phase.h"/>
-      </GROUP>
-      <GROUP id="{3B256ACA-B225-4B15-E979-278EB8CB4B4C}" name="Testing">
-        <FILE id="mUF8gA" name="Main.cpp" compile="1" resource="0" file="Source/Testing/Main.cpp"/>
-        <FILE id="H0XEYM" name="MainComponent.cpp" compile="1" resource="0"
-              file="Source/Testing/MainComponent.cpp"/>
-      </GROUP>
+              buildVST="1" buildVST3="0" buildAU="1" buildRTAS="0" buildAAX="0"
+              pluginName="jATK-tester" pluginDesc="jATK-tester" pluginManufacturer="yourcompany"
+              pluginManufacturerCode="Russ" pluginCode="Bpeg" pluginChannelConfigs="{1, 1}, {2, 2}"
+              pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
+              pluginSilenceInIsSilenceOut="0" pluginEditorRequiresKeys="0"
+              pluginAUExportPrefix="jATKtesterAU" pluginRTASCategory="" aaxIdentifier="com.yourcompany.jATKtester"
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="3.1.1"
+              companyName="Jeff-Russ">
+  <MAINGROUP id="GEJrBd" name="jATK-tester">
+    <GROUP id="{ECC8F3A3-5114-A707-DD55-4E763E6BC16C}" name="jATK">
+      <FILE id="WgczpS" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
+      <FILE id="q3Me3c" name="Phase.h" compile="0" resource="0" file="Source/jATK/Phase.h"/>
+      <FILE id="Gkmm4R" name="Sine.h" compile="0" resource="0" file="Source/jATK/Sine.h"/>
+      <FILE id="mziOmU" name="Types.h" compile="0" resource="0" file="Source/jATK/Types.h"/>
+    </GROUP>
+    <GROUP id="{40C76746-197A-458F-1CAB-C3656DE023F8}" name="Testing">
+      <FILE id="RJmFR3" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="guZk5d" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="LXnaKB" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="gErnR3" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
-                       isDebug="1" optimisation="1" targetName="jATK-tester"/>
+                       isDebug="1" optimisation="1" targetName="jATK-AU-tester"/>
         <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
-                       isDebug="0" optimisation="2" targetName="jATK-tester"/>
+                       isDebug="0" optimisation="2" targetName="jATK-AU-tester"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_events" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_video" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../../usr/include/juce/modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <VS2015 targetFolder="Builds/VisualStudio2015">
-      <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="jATK-tester"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="2" targetName="jATK-tester"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_video" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_events" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_core" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../../usr/include/juce/modules"/>
-      </MODULEPATHS>
-    </VS2015>
-    <CODEBLOCKS targetFolder="Builds/CodeBlocks">
-      <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="jATK-tester"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="jATK-tester"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_video" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_events" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_core" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../../usr/include/juce/modules"/>
-      </MODULEPATHS>
-    </CODEBLOCKS>
-    <LINUX_MAKE targetFolder="Builds/Linux">
-      <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/" isDebug="1" optimisation="1"
-                       targetName="jATK-tester"/>
-        <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib/" isDebug="0" optimisation="2"
-                       targetName="jATK-tester"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_video" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_events" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_core" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../../usr/include/juce/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../../usr/include/juce/modules"/>
-      </MODULEPATHS>
-    </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
     <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_core" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
@@ -131,5 +69,5 @@
     <MODULES id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_video" showAllCode="1" useLocalCopy="0"/>
   </MODULES>
-  <JUCEOPTIONS/>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
 </JUCERPROJECT>
