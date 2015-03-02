@@ -12,12 +12,8 @@
 
 ### Goals: ###
 1) Both math and table based sine oscilators that are capable of phase modululation, phase distortion, FM and additive networks... with very low CPU use
-
 2) Math based analog-style oscillators with anti-aliasing, using the same phasors used by the sine generators
-
 3) Envelopes, LFOs and LSDJ-style tables
-
 4) High quality ZDF and biquad filters for synthesizers and effects
-
 5) Delay/AllPass-based functions for delay, chorus and reverb creation.
 
