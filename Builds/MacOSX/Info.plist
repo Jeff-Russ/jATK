@@ -12,35 +12,16 @@
     <key>CFBundleName</key>
     <string>jATK-tester</string>
     <key>CFBundlePackageType</key>
-    <string>TDMw</string>
+    <string>APPL</string>
     <key>CFBundleSignature</key>
-    <string>PTul</string>
+    <string>????</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0.0</string>
     <key>CFBundleVersion</key>
     <string>1.0.0</string>
     <key>NSHumanReadableCopyright</key>
-    <string>Jeff-Russ</string>
+    <string></string>
     <key>NSHighResolutionCapable</key>
     <true/>
-    <key>AudioComponents</key>
-    <array>
-      <dict>
-        <key>name</key>
-        <string>yourcompany: jATK-tester</string>
-        <key>description</key>
-        <string>jATK-tester</string>
-        <key>factoryFunction</key>
-        <string>jATKtesterAUFactory</string>
-        <key>manufacturer</key>
-        <string>Russ</string>
-        <key>type</key>
-        <string>aumu</string>
-        <key>subtype</key>
-        <string>Bpeg</string>
-        <key>version</key>
-        <integer>65536</integer>
-      </dict>
-    </array>
   </dict>
 </plist>
