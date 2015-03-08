@@ -1,27 +1,28 @@
 /*
  ==============================================================================
  
- Delay.h
+ AudioBuffer.h
  Created: 20 Feb 2015 3:59:03pm
  Author:  Jeff-Russ
  
  ==============================================================================
  */
 
-#ifndef DELAY_H_INCLUDED
-#define DELAY_H_INCLUDED
+#ifndef AUDIOBUFFFER_H_INCLUDED
+#define AUDIOBUFFER_H_INCLUDED
 
-#include "types.h"
+#include "helpers.h"
 
 namespace jATK
 {
     ///=========================================================================
     
-    class DelayBuffer  // circular delay buffer
+    class AudioBuffer
     {
     public:
-        DelayBuffer (int maxBufSize);
-        ~DelayBuffer();
+        AudioBuffer();
+        AudioBuffer (int maxBufSize);
+        ~AudioBuffer();
         int  getMax();
         void setMax (int maxBufSize);
         void clear();
@@ -39,4 +40,4 @@ namespace jATK
     
 } // end namespace jATK
 
-#endif  // DELAY_H_INCLUDED
+#endif  // AUDIOBUFFFER_H_INCLUDED

@@ -12,41 +12,10 @@
 #define PHASE_H_INCLUDED
 #include <cmath>
 
-//#include "Types.h"
+#include "helpers.h"
 
 namespace jATK
 {
-    ///=============================================================================
-    
-    inline float wrap1 (float phase)
-    {   return fmodf(phase, 1.0f);
-    }
-    inline double wrap1 (double phase)
-    {   return fmodf(phase, 1.0);
-    }
-    ///=============================================================================
-    
-    inline float ratio1 (float phase, float ratio)
-    {   return fmodf((phase * ratio),1.0f);
-    }
-    inline float ratio1 (float phase, double ratio)
-    {   return fmodf((phase * (float)ratio),1.0f);
-    }
-    inline double ratio1 (double phase, double ratio)
-    {   return fmodf((phase * ratio),1.0);
-    }
-    ///=============================================================================
-    
-    inline float phaseDistort (float phase, float knee)
-    {   if (phase < knee) return (1 / knee) * phase * 0.5f;
-    else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
-    }
-    inline double phaseDistort (double phase, double knee)
-    {   if (phase < knee) return (1 / knee) * phase * 0.5;
-    else return ( (1 / (1 - knee)) * (phase - knee) * 0.5 ) + 0.5;
-    }
-    ///=============================================================================
-    
     class Phase1Float 	// 0...1 phasor
     {
     public:
@@ -67,7 +36,7 @@ namespace jATK
         double srX;		// srX * fq = incr
         float  incr;    // increment value per sample
     };
-    ///=============================================================================
+    ///=========================================================================
     
     class Phase1Double 	// 0...1 phasor
     {
