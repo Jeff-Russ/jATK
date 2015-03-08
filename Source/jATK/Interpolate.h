@@ -1,40 +1,38 @@
 /*
-  ==============================================================================
-
-    Interpolate.h
-    Created: 8 Mar 2015 12:46:12pm
-    Author:  Jeff-Russ
-
-  ==============================================================================
-*/
+ ==============================================================================
+ 
+ Interpolate.h
+ Created: 8 Mar 2015 12:46:12pm
+ Author:  Jeff-Russ
+ 
+ ==============================================================================
+ */
 
 #ifndef INTERPOLATE_H_INCLUDED
 #define INTERPOLATE_H_INCLUDED
 
+#include "types.h"
+
 namespace jATK
 {
     ///=========================================================================
-
-inline float Interp4_fArray (float index,
-                             float iMinus1Sample,
-                             float iSample,
-                             float iPlus1Sample,
-                             float iPlus2Sample )
+    
+    inline audio Interp4_fArray (audio index,
+                                 audio iMinus1Sample,
+                                 audio iSample,
+                                 audio iPlus1Sample,
+                                 audio iPlus2Sample )
     {
-        float var1 = (iPlus1Sample - iMinus1Sample) * 0.5;
-        float var2 = iSample - iPlus1Sample;
-        float var3 = var1 + var2;
-        float var4 = var3 + ((iPlus2Sample - iSample) * 0.5);
-        float var5 = var4 + var2;
-        float var6 = ((index * var5) - var3 - var5) * index;
+        audio var1 = (iPlus1Sample - iMinus1Sample) * 0.5;
+        audio var2 = iSample - iPlus1Sample;
+        audio var3 = var1 + var2;
+        audio var4 = var3 + ((iPlus2Sample - iSample) * 0.5);
+        audio var5 = var4 + var2;
+        audio var6 = ((index * var5) - var3 - var5) * index;
         
         return (var6 + var1) * index + iSample;
     }
     
-
-
-
-    ///=========================================================================
     
 } // end namespace jATK
 #endif  // INTERPOLATE_H_INCLUDED

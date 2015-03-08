@@ -3,7 +3,7 @@
  
  Delay.h
  Created: 20 Feb 2015 3:59:03pm
- Author:  jefrus
+ Author:  Jeff-Russ
  
  ==============================================================================
  */
@@ -11,47 +11,29 @@
 #ifndef DELAY_H_INCLUDED
 #define DELAY_H_INCLUDED
 
+#include "types.h"
+
 namespace jATK
 {
     ///=========================================================================
     
-    class DelayBufferFloat  // circular delay buffer
+    class DelayBuffer  // circular delay buffer
     {
     public:
-        DelayBufferFloat (int maxBufSize);
-        ~DelayBufferFloat();
+        DelayBuffer (int maxBufSize);
+        ~DelayBuffer();
         int  getMax();
         void setMax (int maxBufSize);
         void clear();
         void  write (int index);
-        void  write (float sample);
-        void  write (float sample, int index);
-        float read();
-        float read  (int index);
+        void  write (audio sample);
+        void  write (audio sample, int index);
+        audio read();
+        audio read  (int index);
     private:
         void deleteBuffer();
-        float* array;
+        audio* array;
         int reserveSize, usedSize, readIdx, writeIdx;
-    };
-    ///=========================================================================
-    
-    class DelayBufferDouble  // circular delay buffer
-    {
-    public:
-        DelayBufferDouble (int maxBufSize);
-        ~DelayBufferDouble();
-        int  getMax();
-        void setMax (int maxBufSize);
-        void clear();
-        void  write (int index);
-        void  write (double sample);
-        void  write (double sample, int index);
-        double read();
-        double read  (int index);
-    private:
-        void deleteBuffer();
-        double* array;
-        int reserveSize, readIdx, writeIdx;
     };
     ///=========================================================================
     
