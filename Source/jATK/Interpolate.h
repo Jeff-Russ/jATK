@@ -21,12 +21,12 @@ inline float Interp4_fArray (float index,
                              float iPlus1Sample,
                              float iPlus2Sample )
     {
-        var1 = (iPlus1Sample - iMinus1Sample) * 0.5;
-        var2 = iSample - iPlus1Sample;
-        var3 = var1 + var2;
-        var4 = var3 + ((iPlus2Sample - iSample) * 0.5);
-        var5 = var4 + var2;
-        var6 = ((index * var5) - var3 - var5) * index;
+        float var1 = (iPlus1Sample - iMinus1Sample) * 0.5;
+        float var2 = iSample - iPlus1Sample;
+        float var3 = var1 + var2;
+        float var4 = var3 + ((iPlus2Sample - iSample) * 0.5);
+        float var5 = var4 + var2;
+        float var6 = ((index * var5) - var3 - var5) * index;
         
         return (var6 + var1) * index + iSample;
     }
