@@ -28,7 +28,7 @@ namespace jATK
     void AudioBuffer::clear()
     {   for (int i = 0; i < reserveSize; i++) array[i] = 0.0f;
     }
-    void AudioBuffer::write (int index)    { writeIdx = index;            }
+    void AudioBuffer::index (int index)    { writeIdx = index;            }
     void AudioBuffer::write (audio sample) {this->write(sample, writeIdx);}
     
     void AudioBuffer::write (audio sample, int index)

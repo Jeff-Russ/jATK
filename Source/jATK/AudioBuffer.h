@@ -26,7 +26,7 @@ namespace jATK
         int  getMax();
         void setMax (int maxBufSize);
         void clear();
-        void  write (int index);
+        void  index (int index);
         void  write (audio sample);
         void  write (audio sample, int index);
         audio read();

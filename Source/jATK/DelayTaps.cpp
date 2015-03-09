@@ -9,7 +9,7 @@
  */
 
 #include "DelayTaps.h"
-#include "CircularBuffer.h"
+#include "AudioBuffer.h"
 
 namespace jATK
 {
@@ -24,32 +24,36 @@ namespace jATK
         srate = samplerate;
         numOfTaps = numberOfTaps;
         interp.resize (numberOfTaps, interpolation);
-        delayBuffer.setMax(bufSize);
+        delayBuffer.setMax(MaxBufSize);
+        delayBuffer.write(0);
         currentIdx = 0;
     };
     DelayTaps::~DelayTaps(){
     };
     void DelayTaps::toggleInterp (bool interpolation, int tap)
-    {
-        interp[tap] = interpolation;
+    {   interp[tap] = interpolation;
     };
-    void DelayTaps::record (audio audioIn)
-    {
+    void DelayTaps::record(audio audioIn)
+    {   delayBuffer.write(audioIn);
+        currentIdx = wrapIndex(currentIdx, bufSize);
+        delayBuffer.index(currentIdx);
     };
-    audio DelayTaps::getDelayTapInMs (audio millisec, int tap)
-    {
-    };
-    audio DelayTaps::getDelayLineByIdx (audio index, int tap)
+    void DelayTaps::setDelayTapInMs (audio millisec, int tap)
     {   
     };
-    audio DelayTaps::getDelayTap (int tap)
+    void DelayTaps::setDelayLineByIdx (audio indexOffset, int tap)
+    {   iOffsets[tap] = indexOffset;
+    };
+    audio DelayTaps::getDelayedSample (int tap)
     {
     };
     void DelayTaps::resize (int bufferSize)
-    {
+    {   bufSize = bufferSize;
+        delayBuffer.clear();
+        currentIdx = 0;
     };
     void DelayTaps::setNumOfTaps (int numOfTaps)
-    {
+    {   
     };
     void DelayTaps::clear()
     {
@@ -58,11 +62,9 @@ namespace jATK
     {
     };
     
-    int MaxBufSize;
-    int bufSize;
+
     float srate;
     int numOfTaps;
-    int currentIdx;
     vector<bool> interp;
     vector<audio> iOffsets;
     
