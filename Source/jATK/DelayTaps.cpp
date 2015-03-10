@@ -68,7 +68,9 @@ namespace jATK
     };
     audio DelayTaps::getDelayedSample (int tap)
     {   if (!interp[tap])
-        return delayBuffer.read ( (int)iOffsets[tap] ); // change this
+        {   //return delayBuffer.read ( (int)iOffsets[tap] ); // change this
+        
+        }
         else
         {
             
