@@ -22,15 +22,40 @@ namespace jATK
     /// inline functions: ======================================================
     
     inline audio audioClip0 (audio inlet)
-    {   if (inlet >= 0.0) { return inlet;}
-        else              { return 0.0;  }
+    {   if (inlet >= 0.0) { return inlet; }
+         else             { return 0.0;   }
+    }
+    inline audio audioClipMin (audio inlet, audio min = -1.0)
+    {   if (inlet >= min) { return inlet; }
+         else             { return min;   }
+    }
+    inline audio audioClipMax (audio inlet, audio max = 1.0)
+    {   if (inlet <= max) { return inlet; }
+         else             { return max;   }
+    }
+    inline int intClipMin (int inlet, int min = 0)
+    {   if (inlet >= min) { return inlet; }
+         else             { return min;   }
+    }
+    inline int intClipMax (int inlet, int max)
+    {   if (inlet <= max) { return inlet; }
+         else             { return max;   }
+    }
+    inline int intWrapMin (int inlet, int size, int min = 0)
+    {   if (inlet >= min) { return inlet;        }
+         else             { return inlet + size; }
+    }
+    inline int intWrapMax (int inlet, int max, int size)
+    {   if (inlet <= max) { return inlet;        }
+         else             { return inlet - size; }
+    }
+    inline int intWrapMax (int inlet, int max)
+    {   if (inlet <= max) { return inlet;       }
+         else             { return inlet - max; }
     }
     //==========================================================================
-    inline audio Interp4_fArray (audio index,
-                                 audio iMinus1Sample,
-                                 audio iSample,
-                                 audio iPlus1Sample,
-                                 audio iPlus2Sample )
+    inline audio Interp4_AudioArr (audio index, audio iMinus1Sample, audio iSample,
+                                   audio iPlus1Sample, audio iPlus2Sample )
     {   audio var1 = (iPlus1Sample - iMinus1Sample) * 0.5;
         audio var2 = iSample - iPlus1Sample;
         audio var3 = var1 + var2;
@@ -56,7 +81,7 @@ namespace jATK
     inline double wrap1 (double phase) { return fmodf(phase, 1.0);  }
     inline int wrapIndex (int inlet, int size)
     {   if (inlet < size) { return inlet; }
-        else { return inlet - size; }
+    else { return inlet - size; }
     }
     //==========================================================================
     inline float ratio1 (float phase, float ratio)
@@ -71,26 +96,12 @@ namespace jATK
     //==========================================================================
     inline float phaseDistort (float phase, float knee)
     {   if (phase < knee) return (1 / knee) * phase * 0.5f;
-        else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
+    else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
     }
     inline double phaseDistort (double phase, double knee)
     {   if (phase < knee) return (1 / knee) * phase * 0.5;
-        else return ( (1 / (1 - knee)) * (phase - knee) * 0.5 ) + 0.5;
-    }    
-    /// Classes: ===============================================================
-    
-    class BoundsClipper
-    {
-        int max;
-        int min;
-        // UNFINISHED
-    };
-    
-    
+    else return ( (1 / (1 - knee)) * (phase - knee) * 0.5 ) + 0.5;
+    }
+    // UNFINISHED
 } // end namespace jATK
-
-
-
-
-
 #endif  // INLINE_H_INCLUDED
