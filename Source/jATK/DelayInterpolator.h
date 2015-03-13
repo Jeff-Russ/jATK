@@ -16,7 +16,6 @@
 namespace jATK
 {
     ///=========================================================================
-    
     class DelayInterpolator
     {
       public:
@@ -51,6 +50,4 @@ namespace jATK
     };
     ///=========================================================================
 } // end namespace jATK
-
-
 #endif  // DELAYINTERPOLATOR_H_INCLUDED

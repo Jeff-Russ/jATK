@@ -18,42 +18,8 @@ namespace jATK
     /// typedefs: ==============================================================
     
     typedef float audio;
-    
-    /// overloaded inline functions: ===========================================
-    
-    inline audio audioClip0 (audio inlet)  /// deprecated for template version
-    {   if (inlet >= 0.0) { return inlet; }
-         else             { return 0.0;   }
-    }
-    inline audio audioClipMin (audio inlet, audio min = -1.0) /// deprecated for template version
-    {   if (inlet >= min) { return inlet; }
-         else             { return min;   }
-    }
-    inline audio audioClipMax (audio inlet, audio max = 1.0) /// deprecated for template version
-    {   if (inlet <= max) { return inlet; }
-         else             { return max;   }
-    }
-    inline int intClipMin (int inlet, int min = 0) /// deprecated for template version
-    {   if (inlet >= min) { return inlet; }
-         else             { return min;   }
-    }
-    inline int intClipMax (int inlet, int max) /// deprecated for template version
-    {   if (inlet <= max) { return inlet; }
-         else             { return max;   }
-    }
-    inline int intWrapMin (int inlet, int size, int min = 0) /// deprecated for template version
-    {   if (inlet >= min) { return inlet;        }
-         else             { return inlet + size; }
-    }
-    inline int intWrapMax (int inlet, int max, int size) /// deprecated for template version
-    {   if (inlet <= max) { return inlet;        }
-         else             { return inlet - size; }
-    }
-    inline int intWrapMax (int inlet, int max) /// deprecated for template version
-    {   if (inlet <= max) { return inlet;       }
-         else             { return inlet - max; }
-    }
-    /// template inline functions: ============================================
+
+    ///  inline functions: =====================================================
     template<typename T> inline T clipMin (T inlet, T min = 0)
     {   if (inlet >= min) { return inlet; }
          else             { return min;   }
@@ -98,31 +64,17 @@ namespace jATK
         (absPh - 0.5) * (absPh - 0.924933);
     }
     //==========================================================================
-    inline float wrap1 (float phase)   { return fmodf(phase, 1.0f); }
-    inline double wrap1 (double phase) { return fmodf(phase, 1.0);  }
-    inline int wrapIndex (int inlet, int size)
-    {   if (inlet < size) { return inlet; }
-    else { return inlet - size; }
+    inline audio wrap1 (audio phase)   { return fmodf(phase, 1.0); }
+    //==========================================================================
+    inline audio ratio1 (audio phase, audio ratio)
+    {   return fmodf((phase * ratio), 1.0);
     }
     //==========================================================================
-    inline float ratio1 (float phase, float ratio)
-    {   return fmodf((phase * ratio),1.0f);
-    }
-    inline float ratio1 (float phase, double ratio)
-    {   return fmodf((phase * (float)ratio),1.0f);
-    }
-    inline double ratio1 (double phase, double ratio)
-    {   return fmodf((phase * ratio),1.0);
-    }
-    //==========================================================================
-    inline float phaseDistort (float phase, float knee)
+    inline audio phaseDistort (audio phase, audio knee)
     {   if (phase < knee) return (1 / knee) * phase * 0.5f;
     else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
     }
-    inline double phaseDistort (double phase, double knee)
-    {   if (phase < knee) return (1 / knee) * phase * 0.5;
-    else return ( (1 / (1 - knee)) * (phase - knee) * 0.5 ) + 0.5;
-    }
+
     // UNFINISHED
 } // end namespace jATK
 #endif  // INLINE_H_INCLUDED
