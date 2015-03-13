@@ -49,7 +49,7 @@ namespace jATK
     void DelayInterpolator::interpolateIndexes()
     {   dlyInSampInt = (int)dlyInSampFlt;
         
-        idxMin1Offs = (intClipMin (dlyInSampInt - 1));
+        idxMin1Offs = (clipMin (dlyInSampInt - 1));
         idxPlus0Offs = dlyInSampInt;
         idxPlus1Offs = dlyInSampInt + 1;
         idxPlus2Offs = dlyInSampInt + 2;

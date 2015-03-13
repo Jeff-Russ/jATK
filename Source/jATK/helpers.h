@@ -21,39 +21,47 @@ namespace jATK
     
     /// overloaded inline functions: ===========================================
     
-    inline audio audioClip0 (audio inlet)
+    inline audio audioClip0 (audio inlet)  /// deprecated for template version
     {   if (inlet >= 0.0) { return inlet; }
          else             { return 0.0;   }
     }
-    inline audio audioClipMin (audio inlet, audio min = -1.0)
+    inline audio audioClipMin (audio inlet, audio min = -1.0) /// deprecated for template version
     {   if (inlet >= min) { return inlet; }
          else             { return min;   }
     }
-    inline audio audioClipMax (audio inlet, audio max = 1.0)
+    inline audio audioClipMax (audio inlet, audio max = 1.0) /// deprecated for template version
     {   if (inlet <= max) { return inlet; }
          else             { return max;   }
     }
-    inline int intClipMin (int inlet, int min = 0)
+    inline int intClipMin (int inlet, int min = 0) /// deprecated for template version
     {   if (inlet >= min) { return inlet; }
          else             { return min;   }
     }
-    inline int intClipMax (int inlet, int max)
+    inline int intClipMax (int inlet, int max) /// deprecated for template version
     {   if (inlet <= max) { return inlet; }
          else             { return max;   }
     }
-    inline int intWrapMin (int inlet, int size, int min = 0)
+    inline int intWrapMin (int inlet, int size, int min = 0) /// deprecated for template version
     {   if (inlet >= min) { return inlet;        }
          else             { return inlet + size; }
     }
-    inline int intWrapMax (int inlet, int max, int size)
+    inline int intWrapMax (int inlet, int max, int size) /// deprecated for template version
     {   if (inlet <= max) { return inlet;        }
          else             { return inlet - size; }
     }
-    inline int intWrapMax (int inlet, int max)
+    inline int intWrapMax (int inlet, int max) /// deprecated for template version
     {   if (inlet <= max) { return inlet;       }
          else             { return inlet - max; }
     }
-    /// template inline functions: ===========================================
+    /// template inline functions: ============================================
+    template<typename T> inline T clipMin (T inlet, T min = 0)
+    {   if (inlet >= min) { return inlet; }
+         else             { return min;   }
+    }
+    template<typename T> inline T clipMax (T inlet, T max)
+    {   if (inlet <= max) { return inlet; }
+         else             { return max;   }
+    }
     template<typename T> inline T wrapMax (T inlet, T max)
     {   if (inlet <= max) { return inlet;       }
          else             { return inlet - max; }
