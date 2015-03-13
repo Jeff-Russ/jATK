@@ -1,27 +1,20 @@
-/*
- ==============================================================================
- 
- Phase.cpp
+/*==============================================================================
+ Phase.cpp  :   Jeff's (Juce) Audio ToolKit 
  Created: 20 Feb 2015 12:24:49pm
- Author:  Jeff-Russ
- 
- ==============================================================================
- */
-
+ Author:  Jeff-Russ     https://github.com/Jeff-Russ
+ =============================================================================*/
 #include "Phase.h"
 //#include "Types.h"
 
-namespace {
-    double TWOPI = 6.283185307179586476925286766559;
+namespace
+{   double TWOPI = 6.283185307179586476925286766559;
     double PI = 6.283185307179586476925286766559 * 0.5;
     float TWOPIf = 6.283185307179586476925286766559;
     float PIf = 6.283185307179586476925286766559 * 0.5;
 }
-
 namespace jATK
 {
     ///=========================================================================
-    
     Phase1Float::Phase1Float() { sr = 0; fq = 0; ph = 0; }
     Phase1Float::~Phase1Float() {}
     void Phase1Float::setPhase (float phase) { ph = phase;}
@@ -55,7 +48,6 @@ namespace jATK
         return ph;
     }
     ///=========================================================================
-    
     Phase1Double::Phase1Double(){ sr = 0; fq = 0; ph = 0; }
     Phase1Double::~Phase1Double() {}
     void Phase1Double::setPhase (double phase) { ph = phase; }

@@ -1,33 +1,22 @@
-/*
- ==============================================================================
- 
- helpers.h
+/*==============================================================================
+ helpers.h  :   Jeff's (Juce) Audio ToolKit
  Created: 8 Mar 2015 2:22:45pm
- Author:  Jeff-Russ
- 
- ==============================================================================
- */
-
+ Author:  Jeff-Russ     https://github.com/Jeff-Russ
+ =============================================================================*/
 #ifndef INLINE_H_INCLUDED
 #define INLINE_H_INCLUDED
 
 #include <cmath>
 
-//namespace {
-//    double TWOPI = 6.283185307179586476925286766559;
-//    double PI = 6.283185307179586476925286766559 * 0.5;
-//    float TWOPIf = 6.283185307179586476925286766559;
-//    float PIf = 6.283185307179586476925286766559 * 0.5;
-//}
-
 namespace jATK
 {
+    /// classes: ===============================================================
+    
+    
     /// typedefs: ==============================================================
-    
     typedef float audio;
-
-    ///  template inline functions: ============================================
     
+    ///  template inline functions: ============================================
     template<typename T> inline T clipMin (T inlet, T min = 0)
     {   if (inlet >= min) { return inlet; }
          else             { return min;   }
@@ -54,16 +43,9 @@ namespace jATK
          else
              return -(L - ( ( L / (L + abs(inlet)) ) * L ));
     }
-    template<typename T> inline T polySat31 (T inlet, T L) /// UNFINISHED!!!
-    {   T LMax = L * 1.5;                                  /// this should be
-        T LMin = -LMax;                                    /// a class
-        
-        if (inlet > LMax)      { return L;  }
-        else if (inlet < LMin) { return -L; }
-        else 
-    }
+//    template<typename T> class polySat31 
+
     ///  audio inline functions: ===============================================
-    
     inline audio Interp4_AudioArr (audio index, audio iMinus1Sample, audio iSample,
                                    audio iPlus1Sample, audio iPlus2Sample )
     {   audio var1 = (iPlus1Sample - iMinus1Sample) * 0.5;
@@ -97,5 +79,6 @@ namespace jATK
     {   if (phase < knee) return (1 / knee) * phase * 0.5f;
          else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
     }
+    
 } // end namespace jATK
 #endif  // INLINE_H_INCLUDED

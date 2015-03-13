@@ -1,13 +1,8 @@
-/*
-  ==============================================================================
-
-    DelayInterpolator.h
-    Created: 12 Mar 2015 5:56:23pm
-    Author:  Jeff-Russ
-
-  ==============================================================================
-*/
-
+/*==============================================================================
+ DelayInterpolator.h    :   Jeff's (Juce) Audio ToolKit
+ Created: 12 Mar 2015 5:56:23pm
+ Author:  Jeff-Russ     https://github.com/Jeff-Russ
+  ============================================================================*/
 #ifndef DELAYINTERPOLATOR_H_INCLUDED
 #define DELAYINTERPOLATOR_H_INCLUDED
 

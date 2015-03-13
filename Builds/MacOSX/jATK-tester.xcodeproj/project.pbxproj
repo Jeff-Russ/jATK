@@ -20,6 +20,7 @@
 		618435B2218137D01F64F218 /* juce_gui_basics.mm in Sources */ = {isa = PBXBuildFile; fileRef = E92FF0BA59447B65EEF89F85 /* juce_gui_basics.mm */; };
 		61AE09F417E6D65744A5DF45 /* juce_opengl.mm in Sources */ = {isa = PBXBuildFile; fileRef = CCF60EC7AFF0C530601762B2 /* juce_opengl.mm */; };
 		63A146AA974BA214BBBE6D81 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFED74A4FC592AB225976AA /* CoreMIDI.framework */; };
+		698BC79C9F79D48B7D0664DD /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A59E135AD7AB9FD45CE4EDC /* helpers.cpp */; };
 		7B88A003B29B1E4764483090 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719E78B78498C0709A604C77 /* OpenGL.framework */; };
 		7E9D15AE29C6619C21CF421C /* juce_core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 728A5EAA1052FA308BE365CA /* juce_core.mm */; };
 		84D9475785B9D19920AFDA92 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D136DAE824F2A82C3E3FF05F /* QuartzCore.framework */; };
@@ -127,6 +128,7 @@
 		196609F3FC39C64223A5CAB9 /* juce_win32_FileChooser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_win32_FileChooser.cpp; path = ../../../../../../usr/include/juce/modules/juce_gui_basics/native/juce_win32_FileChooser.cpp; sourceTree = SOURCE_ROOT; };
 		19A9D3D21CE4653D79592ED0 /* juce_BooleanPropertyComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_BooleanPropertyComponent.h; path = ../../../../../../usr/include/juce/modules/juce_gui_basics/properties/juce_BooleanPropertyComponent.h; sourceTree = SOURCE_ROOT; };
 		19E028D3176679BAFD29A505 /* juce_win32_QuickTimeMovieComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_win32_QuickTimeMovieComponent.cpp; path = ../../../../../../usr/include/juce/modules/juce_video/native/juce_win32_QuickTimeMovieComponent.cpp; sourceTree = SOURCE_ROOT; };
+		1A59E135AD7AB9FD45CE4EDC /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = helpers.cpp; path = ../../Source/jATK/helpers.cpp; sourceTree = SOURCE_ROOT; };
 		1AE7944F986AE3ECAB5AEF12 /* juce_win32_DirectWriteTypeface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_win32_DirectWriteTypeface.cpp; path = ../../../../../../usr/include/juce/modules/juce_graphics/native/juce_win32_DirectWriteTypeface.cpp; sourceTree = SOURCE_ROOT; };
 		1B061E1066175DA680B29243 /* juce_VST3Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_VST3Common.h; path = ../../../../../../usr/include/juce/modules/juce_audio_processors/format_types/juce_VST3Common.h; sourceTree = SOURCE_ROOT; };
 		1B55860AEECA39087E9108C5 /* juce_Javascript.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_Javascript.cpp; path = ../../../../../../usr/include/juce/modules/juce_core/javascript/juce_Javascript.cpp; sourceTree = SOURCE_ROOT; };
@@ -2305,11 +2307,12 @@
 				6D00D383C6BC7F4E9E5CF884 /* DelayInterpolator.cpp */,
 				D1060CE113B376FB05069883 /* DelayInterpolator.h */,
 				4A0F889463901B43C95EB077 /* DelayTaps.cpp */,
-				8B590DF70DCDAF0D50E9764D /* DelayTaps.h */,
 				D57FE226EAA9810511BFC6D9 /* AudioBuffer.h */,
 				8D895371EB9F01941DBE55C1 /* AudioBuffer.cpp */,
 				0EC08B9A03603AA1B58F8967 /* helpers.h */,
+				1A59E135AD7AB9FD45CE4EDC /* helpers.cpp */,
 				424C1ACA910AC5FC82CFE077 /* Phase.h */,
+				8B590DF70DCDAF0D50E9764D /* DelayTaps.h */,
 				CD65BBFE2EB5F4A1F7A912BB /* Phase.cpp */,
 			);
 			name = jATK;
@@ -2800,6 +2803,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				698BC79C9F79D48B7D0664DD /* helpers.cpp in Sources */,
 				3D7D0CADAA25FD6A7D6A849A /* DelayInterpolator.cpp in Sources */,
 				F5AB00A0E36972F8799E6B52 /* DelayTaps.cpp in Sources */,
 				C9604DC65752703A6F7A5F23 /* AudioBuffer.cpp in Sources */,

@@ -1,17 +1,12 @@
-/*
- ==============================================================================
- 
- Phase.h
+/*==============================================================================
+ Phase.h    :   Jeff's (Juce) Audio ToolKit
  Created: 20 Feb 2015 12:24:49pm
- Author:  Jeff-Russ
- 
- ==============================================================================
- */
-
+ Author:  Jeff-Russ     https://github.com/Jeff-Russ
+ ==============================================================================*/
 #ifndef PHASE_H_INCLUDED
 #define PHASE_H_INCLUDED
-#include <cmath>
 
+#include <cmath>
 #include "helpers.h"
 
 namespace jATK

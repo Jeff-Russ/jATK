@@ -6,6 +6,7 @@
   <MAINGROUP id="UcQUM0" name="jATK-tester">
     <GROUP id="{8AE64A1E-E308-26CC-F50D-C3555A69BA49}" name="Source">
       <GROUP id="{585D5710-B78A-700D-99EC-91EBE1C384DE}" name="jATK">
+        <FILE id="D8UAk3" name="helpers.cpp" compile="1" resource="0" file="Source/jATK/helpers.cpp"/>
         <FILE id="TuHTYE" name="DelayInterpolator.cpp" compile="1" resource="0"
               file="Source/jATK/DelayInterpolator.cpp"/>
         <FILE id="ELvA3h" name="DelayInterpolator.h" compile="0" resource="0"
