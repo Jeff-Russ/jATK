@@ -13,6 +13,13 @@
 
 #include <cmath>
 
+//namespace {
+//    double TWOPI = 6.283185307179586476925286766559;
+//    double PI = 6.283185307179586476925286766559 * 0.5;
+//    float TWOPIf = 6.283185307179586476925286766559;
+//    float PIf = 6.283185307179586476925286766559 * 0.5;
+//}
+
 namespace jATK
 {
     /// typedefs: ==============================================================
@@ -41,6 +48,20 @@ namespace jATK
     {   if (inlet >= min) { return inlet;        }
          else             { return inlet + size; }
     }
+    template<typename T> inline T hyperbolSat (T inlet, T L)
+    {   if (inlet >= 0)
+            return L - ( ( L / (L + abs(inlet)) ) * L );
+         else
+             return -(L - ( ( L / (L + abs(inlet)) ) * L ));
+    }
+    template<typename T> inline T polySat31 (T inlet, T L) /// UNFINISHED!!!
+    {   T LMax = L * 1.5;                                  /// this should be
+        T LMin = -LMax;                                    /// a class
+        
+        if (inlet > LMax)      { return L;  }
+        else if (inlet < LMin) { return -L; }
+        else 
+    }
     ///  audio inline functions: ===============================================
     
     inline audio Interp4_AudioArr (audio index, audio iMinus1Sample, audio iSample,
@@ -53,7 +74,7 @@ namespace jATK
         audio var6 = ((index * var5) - var3 - var5) * index;
         return (var6 + var1) * index + iSample;
     }
-    //==========================================================================
+    //== Mathematics: ==========================================================
     inline audio sine4 (audio phase)
     {   float absPh = fabs(phase);
         return (phase * 68.5949) * (absPh + 0.232963) *
