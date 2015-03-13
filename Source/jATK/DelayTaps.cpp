@@ -32,7 +32,7 @@ namespace jATK
     };
     void DelayTaps::record (audio audioIn)
     {   delayBuffer.write(audioIn);
-        currentIdx = wrapIndex(currentIdx, bufSize);
+        currentIdx = wrapMax(currentIdx, bufSize);
         delayBuffer.index(currentIdx);
     };
     void DelayTaps::setDelayTapInMs (audio millisec, int tap)
@@ -68,7 +68,8 @@ namespace jATK
     };
     audio DelayTaps::getDelayedSample (int tap)
     {   if (!interp[tap])
-        {   //return delayBuffer.read ( (int)iOffsets[tap] ); // change this
+        {   
+            return delayBuffer.read ( (int)iOffsets[tap] ); // change this
         
         }
         else

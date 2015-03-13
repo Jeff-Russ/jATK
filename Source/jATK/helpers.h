@@ -19,7 +19,8 @@ namespace jATK
     
     typedef float audio;
 
-    ///  inline functions: =====================================================
+    ///  template inline functions: ============================================
+    
     template<typename T> inline T clipMin (T inlet, T min = 0)
     {   if (inlet >= min) { return inlet; }
          else             { return min;   }
@@ -40,7 +41,8 @@ namespace jATK
     {   if (inlet >= min) { return inlet;        }
          else             { return inlet + size; }
     }
-    //==========================================================================
+    ///  audio inline functions: ===============================================
+    
     inline audio Interp4_AudioArr (audio index, audio iMinus1Sample, audio iSample,
                                    audio iPlus1Sample, audio iPlus2Sample )
     {   audio var1 = (iPlus1Sample - iMinus1Sample) * 0.5;
@@ -72,9 +74,7 @@ namespace jATK
     //==========================================================================
     inline audio phaseDistort (audio phase, audio knee)
     {   if (phase < knee) return (1 / knee) * phase * 0.5f;
-    else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
+         else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
     }
-
-    // UNFINISHED
 } // end namespace jATK
 #endif  // INLINE_H_INCLUDED

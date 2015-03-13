@@ -13,6 +13,7 @@
 
 #include "helpers.h"
 #include "AudioBuffer.h"
+#include "DelayInterpolator.h"
 
 #include <vector>
 using namespace std;
@@ -47,6 +48,7 @@ namespace jATK
         int MaxBufSize;
         int bufSize;
         AudioBuffer delayBuffer;
+        DelayInterpolator bufferShell;
         float srate;
         int numOfTaps;
         int currentIdx;
