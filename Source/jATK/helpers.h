@@ -19,7 +19,7 @@ namespace jATK
     
     typedef float audio;
     
-    /// inline functions: ======================================================
+    /// overloaded inline functions: ===========================================
     
     inline audio audioClip0 (audio inlet)
     {   if (inlet >= 0.0) { return inlet; }
@@ -52,6 +52,19 @@ namespace jATK
     inline int intWrapMax (int inlet, int max)
     {   if (inlet <= max) { return inlet;       }
          else             { return inlet - max; }
+    }
+    /// template inline functions: ===========================================
+    template<typename T> inline T wrapMax (T inlet, T max)
+    {   if (inlet <= max) { return inlet;       }
+         else             { return inlet - max; }
+    }
+    template<typename T> inline T wrapMax (T inlet, T max, T size)
+    {   if (inlet <= max) { return inlet;       }
+         else             { return inlet - size; }
+    }
+    template<typename T> inline T wrapMin (T inlet, T size, T min = 0)
+    {   if (inlet >= min) { return inlet;        }
+         else             { return inlet + size; }
     }
     //==========================================================================
     inline audio Interp4_AudioArr (audio index, audio iMinus1Sample, audio iSample,
