@@ -15,70 +15,36 @@ namespace
 namespace jATK
 {
     ///=========================================================================
-    Phase1Float::Phase1Float() { sr = 0; fq = 0; ph = 0; }
-    Phase1Float::~Phase1Float() {}
-    void Phase1Float::setPhase (float phase) { ph = phase;}
-    float Phase1Float::get() { return ph; }
+    Phase1::Phase1() { sr = 0; fq = 0; ph = 0; }
+    Phase1::~Phase1() {}
+    void Phase1::setPhase (float phase) { ph = phase;}
+    float Phase1::get() { return ph; }
 
-    Phase1Float::Phase1Float (double samplerate)
+    Phase1::Phase1 (preAudio samplerate)
     {	sr = samplerate;
         fq = 0;
         ph = 0.5;
         srX = 1 / samplerate;
         incr = (float)(srX * fq);
     }
-    void Phase1Float::setSR (double samplerate)
+    void Phase1::setSR (preAudio samplerate)
     {	sr = samplerate;
         srX = 1 / samplerate;
         incr = (float)(srX * fq);
     }
-    void Phase1Float::setFreq (double frequency)
+    void Phase1::setFreq (preAudio frequency)
     {	fq = frequency;
         incr = (float)(srX * fq);
     }
-    float Phase1Float::next()
+    audioHQ Phase1::next()
     {	ph += incr;
         if (ph > 1.0f)
             ph -= 1.0f;
         return ph;
     }
-    float Phase1Float::next (double frequency)
+    audioHQ Phase1::next (preAudio frequency)
     {	fq = frequency;
         incr = (float)(srX * fq);
-        return ph;
-    }
-    ///=========================================================================
-    Phase1Double::Phase1Double(){ sr = 0; fq = 0; ph = 0; }
-    Phase1Double::~Phase1Double() {}
-    void Phase1Double::setPhase (double phase) { ph = phase; }
-    double Phase1Double::get() { return ph; }
-    
-    Phase1Double::Phase1Double (double samplerate)
-    {	sr = samplerate;
-        fq = 0;
-        ph = 0.5;
-        srX = 1 / samplerate;
-        incr = srX * fq;
-    }
-    void Phase1Double::setSR (double samplerate)
-    {	sr = samplerate;
-        srX = 1 / samplerate;
-        incr = srX * fq;
-    }
-    void Phase1Double::setFreq (double frequency)
-    {	fq = frequency;
-        incr = srX * fq;
-    }
-    
-    double Phase1Double::next()
-    {	ph += incr;
-        if (ph > 1.0)
-            ph -= 1.0;
-        return ph;
-    }
-    double Phase1Double::next (double frequency)
-    {	fq = frequency;
-        incr = srX * fq;
         return ph;
     }
     ///=========================================================================

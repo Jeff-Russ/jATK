@@ -15,6 +15,8 @@ namespace jATK
     
     /// typedefs: ==============================================================
     typedef float audio;
+    typedef float audioHQ;
+    typedef double preAudio;
     
     ///  template inline functions: ============================================
     template<typename T> inline T clipMin (T inlet, T min = 0)
@@ -30,7 +32,7 @@ namespace jATK
          else             { return inlet - max; }
     }
     template<typename T> inline T wrapMax (T inlet, T max, T size)
-    {   if (inlet <= max) { return inlet;       }
+    {   if (inlet <= max) { return inlet;        }
          else             { return inlet - size; }
     }
     template<typename T> inline T wrapMin (T inlet, T size, T min = 0)

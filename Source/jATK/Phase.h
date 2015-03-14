@@ -11,48 +11,48 @@
 
 namespace jATK
 {
-    class Phase1Float 	// 0...1 phasor
+    class Phase1 	// 0...1 phasor
     {
     public:
-        Phase1Float();                   // constructor
-        Phase1Float (double samplerate); // constructor with float samplerate
-        ~Phase1Float();                  // destructor
+        Phase1();                    // constructor
+        Phase1 (preAudio samplerate); // constructor with float samplerate
+        ~Phase1();                   // destructor
         
-        void setSR   (double samplerate);// set sample rate
-        void setFreq (double freqency);  // set freq but don't advance
+        void setSR   (preAudio samplerate);// set sample rate
+        void setFreq (preAudio freqency);  // set freq but don't advance
         void setPhase(float phase);      // set phase but don't advance
-        float next   (double frequency); // set freq, advance and get
+        audioHQ next   (preAudio frequency); // set freq, advance and get
         float next();				  	 // get next phase position
         float get();                     // get phase without advancement
     private: 			// private variables
         float  ph;		// current state
-        double sr; 		// sample rate
-        double fq;		// frequency
-        double srX;		// srX * fq = incr
+        audioHQ sr; 		// sample rate
+        audioHQ fq;		// frequency
+        audioHQ srX;		// srX * fq = incr
         float  incr;    // increment value per sample
     };
     ///=========================================================================
     
-    class Phase1Double 	// 0...1 phasor
-    {
-    public:
-        Phase1Double();                   // constructor
-        Phase1Double (double samplerate); // constructor with float samplerate
-        ~Phase1Double();                  // destructor
-        
-        void setSR   (double samplerate); // set sample rate
-        void setFreq (double freqency);   // set freq but don't advance
-        void setPhase(double phase);      // set phase but don't advance
-        double next  (double frequency);  // set freq, advance and get
-        double next();				  	  // get next phase position
-        double get();                     // get phase without advancement
-    private: 			// private variables
-        double ph;		// current state
-        double sr; 		// sample rate
-        double fq;		// frequency
-        double srX;		// srX * fq = incr
-        double incr;    // increment value per sample
-    };
+//    class Phase1Double 	// 0...1 phasor
+//    {
+//    public:
+//        Phase1Double();                   // constructor
+//        Phase1Double (double samplerate); // constructor with float samplerate
+//        ~Phase1Double();                  // destructor
+//        
+//        void setSR   (double samplerate); // set sample rate
+//        void setFreq (double freqency);   // set freq but don't advance
+//        void setPhase(double phase);      // set phase but don't advance
+//        double next  (double frequency);  // set freq, advance and get
+//        double next();				  	  // get next phase position
+//        double get();                     // get phase without advancement
+//    private: 			// private variables
+//        double ph;		// current state
+//        double sr; 		// sample rate
+//        double fq;		// frequency
+//        double srX;		// srX * fq = incr
+//        double incr;    // increment value per sample
+//    };
     ///=========================================================================
     
     class PhaseBipFloat 	// -0.5...0.5 phasor

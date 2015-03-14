@@ -33,7 +33,7 @@ namespace jATK
     }
     audio AudioBuffer::getDelayedSample (int offSet)
     {   if (offSet <= bufSize && offSet >= 0)
-            /*everything was fine*/{ /* do nothing */  }
+        /*  everything was fine  */{ /* do nothing */  }
         else if (offSet > bufSize) { offSet = bufSize; }
         else /* offSet was neg. */ { offSet = -offSet; }
         return array [wrapMin (writeIdx - offSet, bufN)];
