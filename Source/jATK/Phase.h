@@ -2,7 +2,7 @@
  Phase.h    :   Jeff's (Juce) Audio ToolKit
  Created: 20 Feb 2015 12:24:49pm
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
- ==============================================================================*/
+ =============================================================================*/
 #ifndef PHASE_H_INCLUDED
 #define PHASE_H_INCLUDED
 
@@ -54,7 +54,6 @@ namespace jATK
         double incr;    // increment value per sample
     };
     ///=========================================================================
-    
     
     class PhaseBipFloat 	// -0.5...0.5 phasor
     {
