@@ -3,8 +3,8 @@
  Created: 8 Mar 2015 2:22:45pm
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
  =============================================================================*/
-#ifndef INLINE_H_INCLUDED
-#define INLINE_H_INCLUDED
+#ifndef HELPERS_H_INCLUDED
+#define HELPERS_H_INCLUDED
 
 #include <cmath>
 
@@ -81,6 +81,5 @@ namespace jATK
     {   if (phase < knee) return (1 / knee) * phase * 0.5f;
          else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
     }
-    
 } // end namespace jATK
 #endif  // INLINE_H_INCLUDED

@@ -2311,11 +2311,11 @@
 				0EC08B9A03603AA1B58F8967 /* helpers.h */,
 				1A59E135AD7AB9FD45CE4EDC /* helpers.cpp */,
 				D57FE226EAA9810511BFC6D9 /* AudioBuffer.h */,
-				4A0F889463901B43C95EB077 /* DelayTaps.cpp */,
 				8D895371EB9F01941DBE55C1 /* AudioBuffer.cpp */,
+				8B590DF70DCDAF0D50E9764D /* DelayTaps.h */,
+				4A0F889463901B43C95EB077 /* DelayTaps.cpp */,
 				424C1ACA910AC5FC82CFE077 /* Phase.h */,
 				CD65BBFE2EB5F4A1F7A912BB /* Phase.cpp */,
-				8B590DF70DCDAF0D50E9764D /* DelayTaps.h */,
 			);
 			name = jATK;
 			sourceTree = "<group>";
