@@ -26,6 +26,7 @@ namespace jATK
         audio getDelaySample2x  (audio offSet);
         audio getDelaySample4x  (audio offSet);
         audio getSample (int index);
+        audio getSample2x (audio index);
         audio getSample4x (audio index);
     private:
         int getIndexMin1();
