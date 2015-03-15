@@ -949,17 +949,21 @@
 		FF0D926654DD4402B20E206A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_StringArray.h"; path = "../../../../../../usr/include/juce/modules/juce_core/text/juce_StringArray.h"; sourceTree = "SOURCE_ROOT"; };
 		FF5AF7ACA298F687D4AF37E2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_Colour.cpp"; path = "../../../../../../usr/include/juce/modules/juce_graphics/colour/juce_Colour.cpp"; sourceTree = "SOURCE_ROOT"; };
 		FF6FBE3ABC6C5D0AA08663AB = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_AudioCDReader.cpp"; path = "../../../../../../usr/include/juce/modules/juce_audio_devices/audio_cd/juce_AudioCDReader.cpp"; sourceTree = "SOURCE_ROOT"; };
-		C2F37D23B59C8640DF7E8AF6 = {isa = PBXGroup; children = (
+		807A4689589A0906F0C894A7 = {isa = PBXGroup; children = (
 					78890BB0E9CCF446856327FB,
-					24D8F0ACE4E4F701A2B70F2E,
 					CE95B34EBA44F1CED105F03E,
-					7A8251F305624B4E6D883648,
 					1A59E135AD7AB9FD45CE4EDC,
 					4A0F889463901B43C95EB077,
+					CD65BBFE2EB5F4A1F7A912BB, ); name = sources; sourceTree = "<group>"; };
+		61A247B59CDE3814C308BD0B = {isa = PBXGroup; children = (
+					24D8F0ACE4E4F701A2B70F2E,
+					7A8251F305624B4E6D883648,
 					0EC08B9A03603AA1B58F8967,
 					424C1ACA910AC5FC82CFE077,
-					8B590DF70DCDAF0D50E9764D,
-					CD65BBFE2EB5F4A1F7A912BB, ); name = jATK; sourceTree = "<group>"; };
+					8B590DF70DCDAF0D50E9764D, ); name = include; sourceTree = "<group>"; };
+		C2F37D23B59C8640DF7E8AF6 = {isa = PBXGroup; children = (
+					807A4689589A0906F0C894A7,
+					61A247B59CDE3814C308BD0B, ); name = jATK; sourceTree = "<group>"; };
 		F6225138BB06228BADD4B7CB = {isa = PBXGroup; children = (
 					0FFEF46E841D416A9362844A,
 					9CE5827113D00176154AD608, ); name = Testing; sourceTree = "<group>"; };
