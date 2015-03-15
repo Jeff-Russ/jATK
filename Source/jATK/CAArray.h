@@ -23,6 +23,8 @@ namespace jATK
         void  writeRT (audio sample);
         audio getDelaySample  (int offSet);
         audio getDelaySample4x  (audio offSet);
+        audio getSample (int index);
+        audio getSample4x (audio index);
     private:
         int getIndexMin1();
         int getIndexPlus0();
@@ -30,12 +32,12 @@ namespace jATK
         int getIndexPlus2();
         void deleteBuffer();
         audio* array;
-        int bufSize, bufN, writeIdx, dlyInteger;
+        int bufSize, bufN, writeIdx, dlyInteger, readInteger;
         
-        int idxMin1Offs, idxPlus0Offs,idxPlus1Offs,
-        idxPlus2Offs, idxMin1, idxPlus0, idxPlus1, idxPlus2, dlyIdx;
+        int idxMin1Offs, idxPlus0Offs,idxPlus1Offs, idxPlus2Offs,
+            idxMin1,     idxPlus0,    idxPlus1,     idxPlus2;
         
-        audio bufSizeFlt, maxIntrDly, writeIdxFlt, dlyFractional, inMin1, inPlus0, inPlus1, inPlus2, output;
+        audio bufSizeFlt, maxIntrDly, writeIdxFlt, dlyFractional, readFractional;
     };
 
     ///=========================================================================
