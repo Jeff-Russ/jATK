@@ -84,7 +84,10 @@ namespace jATK
     private:
         audio a0, a1, a2, a3, a4, result, x1, x2, y1, y2;
     };
-
+    class APFilter
+    {
+        
+    };
     
     
 } // end namespace jATK

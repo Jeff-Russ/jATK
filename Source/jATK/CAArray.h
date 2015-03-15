@@ -23,6 +23,7 @@ namespace jATK
         void  writeRT (audio sample);
         void  write (audio sample, int index);
         audio getDelaySample  (int offSet);
+        audio getDelaySample2x  (audio offSet);
         audio getDelaySample4x  (audio offSet);
         audio getSample (int index);
         audio getSample4x (audio index);
@@ -38,7 +39,8 @@ namespace jATK
         int idxMin1Offs, idxPlus0Offs,idxPlus1Offs, idxPlus2Offs,
             idxMin1,     idxPlus0,    idxPlus1,     idxPlus2;
         
-        audio bufSizeFlt, maxIntrDly, writeIdxFlt, dlyFractional, readFractional;
+        audio bufSizeFlt, max2xDly, max4xDly, writeIdxFlt,
+                dlyFractional, readFractional;
     };
 
     ///=========================================================================

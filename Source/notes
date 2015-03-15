@@ -2,3 +2,22 @@ CABuffer - Cicular Audio Buffer
 
 An audio buffer with particular use for multi-tap delays (with optional 
 interpolation)
+
+
+modules:
+
+    StaticFilters
+    ZDFFilters
+    TVBiquadFilters
+    SineOsc
+    CABuffer
+    Legato
+    Portamento
+    Envelope
+    LFO
+    Phase
+    FMOperator
+    AdditiveCarrier
+    EnvelopeFollower
+
+

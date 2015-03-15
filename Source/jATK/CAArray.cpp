@@ -18,7 +18,7 @@ namespace jATK
     {   bufSize = bufferSize;
         bufSizeFlt = (audio)bufSize;
         bufN = bufSize - 1;
-        maxIntrDly = (audio)(bufN - 2);
+        max4xDly = (audio)(bufN - 2);
         array = new audio [bufSize];
         this->clear();
     }
@@ -51,11 +51,32 @@ namespace jATK
         else                               { return array[0];      }
         
     }
+    audio CAArray::getDelaySample2x (audio offSet)
+    {   // check bounds:
+        if (offSet <= max2xDly && offSet >= 0)
+        /*  everything was fine  */{ /* do nothing */  }
+        else if (offSet > max2xDly) { offSet = max2xDly; }
+        else /* offSet was neg. */ { offSet = -offSet; }
+        
+        // define corrected offset as integer + fractional:
+        dlyInteger = (int)offSet;
+        dlyFractional = offSet - (audio)dlyInteger;
+        
+        // get offset for each pre-interpolated sample:
+        idxPlus0Offs = dlyInteger;
+        idxPlus1Offs = dlyInteger + 1;
+        
+        // get indexes from those offsets:
+        idxPlus0 = wrapMin (writeIdx - idxPlus0Offs, bufSize);
+        idxPlus1 = wrapMin (writeIdx - idxPlus1Offs, bufSize);
+        
+        return xFade(dlyFractional, array[idxPlus0], array[idxPlus1]);
+    }
     audio CAArray::getDelaySample4x (audio offSet)
     {   // check bounds:
-        if (offSet <= maxIntrDly && offSet >= 0)
+        if (offSet <= max4xDly && offSet >= 0)
         /*  everything was fine  */{ /* do nothing */  }
-        else if (offSet > maxIntrDly) { offSet = maxIntrDly; }
+        else if (offSet > max4xDly) { offSet = max4xDly; }
         else /* offSet was neg. */ { offSet = -offSet; }
         
         // define corrected offset as integer + fractional:
@@ -74,10 +95,10 @@ namespace jATK
         idxPlus1 = wrapMin (writeIdx - idxPlus1Offs, bufSize);
         idxPlus2 = wrapMin (writeIdx - idxPlus2Offs, bufSize);
         
-        return Interp4_AudioArr (dlyFractional, array[idxMin1],
-                                                array[idxPlus0],
-                                                array[idxPlus1],
-                                                array[idxPlus2]);
+        return interpolate4 (dlyFractional, array[idxMin1],
+                                            array[idxPlus0],
+                                            array[idxPlus1],
+                                            array[idxPlus2]);
     };
     audio CAArray::getSample4x (audio index) // this still has out of bounds
     {                                        // issues.

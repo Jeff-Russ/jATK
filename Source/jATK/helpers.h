@@ -57,7 +57,7 @@ namespace jATK
     //    template<typename T> class polySat31
     
     ///  audio inline functions: ===============================================
-    inline audio Interp4_AudioArr (audio index, audio iMinus1Sample, audio iSample,
+    inline audio interpolate4 (audio index, audio iMinus1Sample, audio iSample,
                                    audio iPlus1Sample, audio iPlus2Sample )
     {   audio var1 = (iPlus1Sample - iMinus1Sample) * 0.5;
         audio var2 = iSample - iPlus1Sample;
@@ -66,6 +66,9 @@ namespace jATK
         audio var5 = var4 + var2;
         audio var6 = ((index * var5) - var3 - var5) * index;
         return (var6 + var1) * index + iSample;
+    }
+    inline audio xFade (audio x, audio in0, audio in1)
+    {   return ( (1 - x) * in0 ) + (x * in1);
     }
     //== Mathematics: ==========================================================
     inline audio sine4 (audio phase)
