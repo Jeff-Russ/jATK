@@ -7,12 +7,10 @@
     <FILE id="PHaYgu" name="README.md" compile="0" resource="1" file="README.md"/>
     <GROUP id="{8AE64A1E-E308-26CC-F50D-C3555A69BA49}" name="Source">
       <GROUP id="{585D5710-B78A-700D-99EC-91EBE1C384DE}" name="jATK">
-        <FILE id="t22j2S" name="CAArray.cpp" compile="1" resource="0" file="Source/CAArray.cpp"/>
-        <FILE id="ENOuFc" name="CAArray.h" compile="0" resource="0" file="Source/CAArray.h"/>
+        <FILE id="ywIXSp" name="CAArray.cpp" compile="1" resource="0" file="Source/jATK/CAArray.cpp"/>
+        <FILE id="yzIzaM" name="CAArray.h" compile="0" resource="0" file="Source/jATK/CAArray.h"/>
         <FILE id="D8UAk3" name="helpers.cpp" compile="1" resource="0" file="Source/jATK/helpers.cpp"/>
         <FILE id="uhb0Ng" name="DelayTaps.cpp" compile="1" resource="0" file="Source/jATK/DelayTaps.cpp"/>
-        <FILE id="FMRX8a" name="AudioBuffer.h" compile="0" resource="0" file="Source/jATK/AudioBuffer.h"/>
-        <FILE id="usrWWa" name="AudioBuffer.cpp" compile="1" resource="0" file="Source/jATK/AudioBuffer.cpp"/>
         <FILE id="FNm5kg" name="helpers.h" compile="0" resource="0" file="Source/jATK/helpers.h"/>
         <FILE id="hWEF4c" name="Phase.h" compile="0" resource="0" file="Source/jATK/Phase.h"/>
         <FILE id="coLhCj" name="DelayTaps.h" compile="0" resource="0" file="Source/jATK/DelayTaps.h"/>
