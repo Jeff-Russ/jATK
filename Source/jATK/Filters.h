@@ -13,25 +13,17 @@ namespace jATK
 {
     class FilterCut
     { public:
-        FilterCut()
-        {   this->setSampleRate(44100.0);
-        }
+        FilterCut() { this->setSampleRate(44100.0); }
         void setSampleRate (preAudio sampleRate)
         {   sr = sampleRate;
             max = sr / 24576;
             min = sr / 2.125;
             srPi = PI * sr;
         }
-        preAudio clipFreq (preAudio freq)
-        {   return clipMinMax (freq, min, max);
-        }
-        preAudio preWarp (preAudio freq)
-        {   return tan(freq + srPi);
-        }
-        preAudio getW (preAudio freq)
-        {   return this->preWarp(this->clipFreq(freq));
-        }
-    private:
+        preAudio clipFreq (preAudio freq) {return clipMinMax (freq, min, max);}
+        preAudio preWarp (preAudio freq)  {return tan(freq + srPi);}
+        preAudio getW (preAudio freq){return this->preWarp(this->clipFreq(freq));}
+      private:
         preAudio sr, max, min, srPi;
     };
     class BiLinIn1
@@ -53,14 +45,12 @@ namespace jATK
         {   this->setCoeff(a1, b0, b1);
             return this->process (audioIn);
         }
-    private:
+      private:
         audio result, x1, a1, b0, b1;
     };
     class BiQuadIn
     { public:
-        BiQuadIn()
-        {   x1 = 0; x2 = 0; y1 = 0; y2 = 0;
-        }
+        BiQuadIn() { x1 = 0; x2 = 0; y1 = 0; y2 = 0; }
         void setCoeff (audio a0, audio a1, audio a2, audio a3, audio a4)
         {   this->a0 = a0;
             this->a1 = a1;

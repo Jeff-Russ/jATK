@@ -8,7 +8,6 @@
 
 namespace jATK
 {   ///=== CAArray class implementation ========================================
-    
     CAArray::CAArray()                { this->setSize(44100);      }
     CAArray::CAArray (int bufferSize) { this->setSize(bufferSize); }
     CAArray::~CAArray()               { this->deleteBuffer();      }
@@ -27,8 +26,8 @@ namespace jATK
         writeIdx = 0;
     }
     void CAArray::writeRT (audio sample)
-    {   if (writeIdx < bufN) { writeIdx++; }
-        else { writeIdx = 0; }
+    {   if (writeIdx < bufN) { writeIdx++;   }
+         else                { writeIdx = 0; }
         array [writeIdx] = sample;
     }
     void  CAArray::write (audio sample, int index)
@@ -38,9 +37,9 @@ namespace jATK
     audio CAArray::getDelaySample (int offSet)
     {   // Check bounds:
         if (offSet <= bufSize && offSet >= 0)
-        /*  everything was fine  */{ /* do nothing */  }
-        else if (offSet > bufSize) { offSet = bufSize; }
-        else /* offSet was neg. */ { offSet = -offSet; }
+        /*  everything was fine  */ { /* do nothing */  }
+         else if (offSet > bufSize) { offSet = bufSize; }
+         else /* offSet was neg. */ { offSet = -offSet; }
         
         // return sample:
         return array [wrapMin (writeIdx - offSet, bufN)];
@@ -48,9 +47,9 @@ namespace jATK
     audio CAArray::getDelaySample2x (audio offSet)
     {   // check bounds:
         if (offSet <= max2xDly && offSet >= 0)
-        /*  everything was fine  */{ /* do nothing */  }
-        else if (offSet > max2xDly) { offSet = max2xDly; }
-        else /* offSet was neg. */ { offSet = -offSet; }
+        /*  everything was fine  */  { /* do nothing */  }
+         else if (offSet > max2xDly) { offSet = max2xDly; }
+         else /* offSet was neg. */  { offSet = -offSet; }
         
         // define corrected offset as integer + fractional:
         dlyInteger = (int)offSet;
@@ -69,9 +68,9 @@ namespace jATK
     audio CAArray::getDelaySample4x (audio offSet)
     {   // check bounds:
         if (offSet <= max4xDly && offSet >= 0)
-        /*  everything was fine  */{ /* do nothing */  }
-        else if (offSet > max4xDly) { offSet = max4xDly; }
-        else /* offSet was neg. */ { offSet = -offSet; }
+        /*  everything was fine  */  { /* do nothing */   }
+         else if (offSet > max4xDly) { offSet = max4xDly; }
+         else /* offSet was neg. */  { offSet = -offSet;  }
         
         // define corrected offset as integer + fractional:
         dlyInteger = (int)offSet;
@@ -96,8 +95,8 @@ namespace jATK
     };
     audio CAArray::getSample (int index)
     {   if (index < bufSize && index >= 0) { return array [index]; }
-    else if (index > bufN)             { return array[bufN];   }
-    else                               { return array[0];      }
+         else if (index > bufN)            { return array[bufN];   }
+         else                              { return array[0];      }
         
     }
     audio CAArray::getSample2x (audio index)
@@ -111,9 +110,8 @@ namespace jATK
         
         return xFade(readFractional, array[idxPlus0], array[idxPlus1]);
     }
-    audio CAArray::getSample4x (audio index) // this still has out of bounds
-    {                                        // issues.
-        // define corrected offset as integer + fractional:
+    audio CAArray::getSample4x (audio index) // still has out of bounds issues.
+    {   // define corrected offset as integer + fractional:
         readInteger = (int)index;
         readFractional = index - (audio)readInteger;
         
