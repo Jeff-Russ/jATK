@@ -28,9 +28,7 @@ namespace jATK
     };
     class BiLinIn1
     { public:
-        BiLinIn1()
-        {   x1 = 0;
-        }
+        BiLinIn1() { x1 = 0; }
         void setCoeff (audio a1, audio b0, audio b1)
         {   this->a1 = a1;
             this->b0 = b0;
