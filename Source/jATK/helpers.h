@@ -10,14 +10,63 @@
 
 namespace jATK
 {
-    /// classes: ===============================================================
-    
-    
     /// typedefs: ==============================================================
     typedef float audio;
     typedef float audioHQ;
     typedef double preAudio;
     
+    /// classes: ===============================================================
+    class BiLinIn1
+    { public:
+        BiLinIn1 ()
+        {   x1 = 0;
+        }
+        void setCoeff (audio a1, audio b0, audio b1)
+        {   this->a1 = a1;
+            this->b0 = b0;
+            this->b1 = b1;
+        }
+        audio process (audio audioIn)
+        {   result = (x1 * b1) + (audioIn * b0) + (result * a1);
+            x1 = audioIn;
+            return result;
+        }
+        audio process (audio audioIn, audio a1, audio b0, audio b1)
+        {   this->setCoeff(a1, b0, b1);
+            return this->process (audioIn);
+        }
+      private:
+        audio result, x1, a1, b0, b1;
+    };
+    class BiQuadIn
+    { public:
+        BiQuadIn ()
+        {   x1 = 0; x2 = 0; y1 = 0; y2 = 0;
+        }
+        void setCoeff (audio a0, audio a1, audio a2, audio a3, audio a4)
+        {   this->a0 = a0;
+            this->a1 = a1;
+            this->a2 = a2;
+            this->a3 = a3;
+            this->a4 = a4;
+        }
+        audio process (audio audioIn)
+        {
+            result = a0 * audioIn + a1 * x1 + a2 * x2 - a3 * y1 - a4 * y2;
+            x2 = x1;        // shift x1 to x2, sample to x1 
+            x1 = audioIn;
+            y2 = y1;        // shift y1 to y2, result to y1
+            y1 = result;
+            return result;
+        }
+        audio process (audio audioIn,
+                       audio a0, audio a1, audio a2, audio a3, audio a4)
+        {   this->setCoeff (a0, a1, a2, a3, a4);
+            return this->process (audioIn);
+        }
+    private:
+        audio a0, a1, a2, a3, a4, result, x1, x2, y1, y2;
+    };
     ///  template inline functions: ============================================
     template<typename T> inline T clipMin (T inlet, T min = 0)
     {   if (inlet >= min) { return inlet; }
@@ -45,6 +94,7 @@ namespace jATK
          else
              return -(L - ( ( L / (L + abs(inlet)) ) * L ));
     }
+
 //    template<typename T> class polySat31 
 
     ///  audio inline functions: ===============================================
