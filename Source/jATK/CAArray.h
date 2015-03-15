@@ -21,6 +21,7 @@ namespace jATK
         void setSize (int bufferSize);
         void clear();
         void  writeRT (audio sample);
+        void  write (audio sample, int index);
         audio getDelaySample  (int offSet);
         audio getDelaySample4x  (audio offSet);
         audio getSample (int index);

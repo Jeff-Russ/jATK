@@ -8,14 +8,78 @@
 
 #include <cmath>
 
+namespace
+{   double TWOPI = 6.283185307179586476925286766559;
+    double PI = 6.283185307179586476925286766559 * 0.5;
+    float TWOPIf = 6.283185307179586476925286766559;
+    float PIf = 6.283185307179586476925286766559 * 0.5;
+}
+
 namespace jATK
 {
     /// typedefs: ==============================================================
     typedef float audio;
     typedef float audioHQ;
     typedef double preAudio;
+
+    ///  template inline functions: ============================================
+    template<typename T> inline T clipMin (T inlet, T min = 0)
+    {   if (inlet >= min) { return inlet; }
+         else             { return min;   }
+    }
+    template<typename T> inline T clipMax (T inlet, T max)
+    {   if (inlet <= max) { return inlet; }
+         else             { return max;   }
+    }
+    template<typename T> inline T clipMinMax (T inlet, T min, T max)
+    {   if (inlet <= max && inlet >= min) { return inlet; }
+        else if ( inlet > max)            { return max;   }
+        else                              { return min;   }
+    }
+    template<typename T> inline T wrapMax (T inlet, T max)
+    {   if (inlet <= max) { return inlet;       }
+         else             { return inlet - max; }
+    }
+    template<typename T> inline T wrapMax (T inlet, T max, T size)
+    {   if (inlet <= max) { return inlet;        }
+         else             { return inlet - size; }
+    }
+    template<typename T> inline T wrapMin (T inlet, T size, T min = 0)
+    {   if (inlet >= min) { return inlet;        }
+         else             { return inlet + size; }
+    }
+    template<typename T> inline T hyperbolSat (T inlet, T L)
+    {   if (inlet >= 0)
+            return L - ( ( L / (L + abs(inlet)) ) * L );
+        else
+            return -(L - ( ( L / (L + abs(inlet)) ) * L ));
+    }
+    //    template<typename T> class polySat31
     
     /// classes: ===============================================================
+    class FilterCut
+    { public:
+        FilterCut()
+        {   this->setSampleRate(44100.0);
+        }
+        void setSampleRate (preAudio sampleRate)
+        {   sr = sampleRate;
+            max = sr / 24576;
+            min = sr / 2.125;
+            srPi = PI * sr;
+        }
+        preAudio clipFreq (preAudio freq)
+        {   return clipMinMax (freq, min, max);
+        }
+        preAudio preWarp (preAudio freq)
+        {   return tan(freq + srPi);
+        }
+        preAudio getW (preAudio freq)
+        {   return this->preWarp(this->clipFreq(freq));
+        }
+      private:
+        preAudio sr, max, min, srPi;
+    };
     class BiLinIn1
     { public:
         BiLinIn1 ()
@@ -51,8 +115,7 @@ namespace jATK
             this->a4 = a4;
         }
         audio process (audio audioIn)
-        {
-            result = a0 * audioIn + a1 * x1 + a2 * x2 - a3 * y1 - a4 * y2;
+        {   result = a0 * audioIn + a1 * x1 + a2 * x2 - a3 * y1 - a4 * y2;
             x2 = x1;        // shift x1 to x2, sample to x1 
             x1 = audioIn;
             y2 = y1;        // shift y1 to y2, result to y1
@@ -67,36 +130,6 @@ namespace jATK
     private:
         audio a0, a1, a2, a3, a4, result, x1, x2, y1, y2;
     };
-    ///  template inline functions: ============================================
-    template<typename T> inline T clipMin (T inlet, T min = 0)
-    {   if (inlet >= min) { return inlet; }
-         else             { return min;   }
-    }
-    template<typename T> inline T clipMax (T inlet, T max)
-    {   if (inlet <= max) { return inlet; }
-         else             { return max;   }
-    }
-    template<typename T> inline T wrapMax (T inlet, T max)
-    {   if (inlet <= max) { return inlet;       }
-         else             { return inlet - max; }
-    }
-    template<typename T> inline T wrapMax (T inlet, T max, T size)
-    {   if (inlet <= max) { return inlet;        }
-         else             { return inlet - size; }
-    }
-    template<typename T> inline T wrapMin (T inlet, T size, T min = 0)
-    {   if (inlet >= min) { return inlet;        }
-         else             { return inlet + size; }
-    }
-    template<typename T> inline T hyperbolSat (T inlet, T L)
-    {   if (inlet >= 0)
-            return L - ( ( L / (L + abs(inlet)) ) * L );
-         else
-             return -(L - ( ( L / (L + abs(inlet)) ) * L ));
-    }
-
-//    template<typename T> class polySat31 
-
     ///  audio inline functions: ===============================================
     inline audio Interp4_AudioArr (audio index, audio iMinus1Sample, audio iSample,
                                    audio iPlus1Sample, audio iPlus2Sample )

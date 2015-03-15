@@ -31,6 +31,10 @@ namespace jATK
         else { writeIdx = 0; }
         array [writeIdx] = sample;
     }
+    void  CAArray::write (audio sample, int index)
+    {   index = clipMinMax(index, 0, bufN);
+        array [index] = sample;
+    }
     audio CAArray::getDelaySample (int offSet)
     {   // Check bounds:
         if (offSet <= bufSize && offSet >= 0)
@@ -58,7 +62,7 @@ namespace jATK
         dlyInteger = (int)offSet;
         dlyFractional = offSet - (audio)dlyInteger;
         
-        // get offset for each interpolated line:
+        // get offset for each pre-interpolated sample:
         idxMin1Offs = (clipMin (dlyInteger - 1));
         idxPlus0Offs = dlyInteger;
         idxPlus1Offs = dlyInteger + 1;
