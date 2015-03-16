@@ -15,42 +15,42 @@ namespace jATK
     {
     public:
         PhaseUni();                     // constructor
-        PhaseUni (preAudio samplerate); // constructor with float samplerate
+        PhaseUni (PreAudio samplerate); // constructor with float samplerate
         ~PhaseUni();                    // destructor
         
-        void setSR   (preAudio samplerate);// set sample rate
-        void setFreq (preAudio freqency);  // set freq but don't advance
-        void setPhase(audio phase);        // set phase but don't advance
-        audio next   (preAudio frequency); // set freq, advance and get
-        audio next();				  	   // get next phase position
-        audio get();                       // get phase without advancement
+        void setSR   (PreAudio samplerate);// set sample rate
+        void setFreq (PreAudio freqency);  // set freq but don't advance
+        void setPhase(Audio phase);        // set phase but don't advance
+        Audio next   (PreAudio frequency); // set freq, advance and get
+        Audio next();				  	   // get next phase position
+        Audio get();                       // get phase without advancement
     private: 			// private variables
-        audio ph;		// current state
-        audio sr; 		// sample rate
-        audio fq;		// frequency
-        audio srX;		// srX * fq = incr
-        audio incr;     // increment value per sample
+        Audio ph;		// current state
+        Audio sr; 		// sample rate
+        Audio fq;		// frequency
+        Audio srX;		// srX * fq = incr
+        Audio incr;     // increment value per sample
     };
     ///=========================================================================
     class PhaseBip 	// -0.5...0.5 phasor
     {
     public:
         PhaseBip();                     // constructor
-        PhaseBip (preAudio samplerate); // constructor with float samplerate
+        PhaseBip (PreAudio samplerate); // constructor with float samplerate
         ~PhaseBip();                    // destructor
         
-        void setSR   (preAudio samplerate); // set sample rate
-        void setFreq (preAudio freqency);   // set freq but don't advance
-        void setPhase(audio phase);         // set phase but don't advance
-        audio next   (preAudio frequency);  // set freq, advance and get
-        audio next();				  	    // get next phase position
-        audio get();                        // get phase without advancement
+        void setSR   (PreAudio samplerate); // set sample rate
+        void setFreq (PreAudio freqency);   // set freq but don't advance
+        void setPhase(Audio phase);         // set phase but don't advance
+        Audio next   (PreAudio frequency);  // set freq, advance and get
+        Audio next();				  	    // get next phase position
+        Audio get();                        // get phase without advancement
     private: 			// private variables
-        audio ph;		// current state
-        audio sr; 		// sample rate
-        audio fq;		// frequency
-        audio srX;		// srX * fq = incr
-        audio incr;     // increment value per sample
+        Audio ph;		// current state
+        Audio sr; 		// sample rate
+        Audio fq;		// frequency
+        Audio srX;		// srX * fq = incr
+        Audio incr;     // increment value per sample
     };
     ///=========================================================================
 } // end namespace jATK

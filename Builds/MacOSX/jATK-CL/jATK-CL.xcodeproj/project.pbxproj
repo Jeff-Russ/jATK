@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70936AF11AB7353900349353 /* CAArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70936AE71AB7345300349353 /* CAArray.cpp */; };
 		70AC77BF1AB7316200DCF6C5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70AC77BE1AB7316200DCF6C5 /* main.cpp */; };
 		70AC77C11AB7316200DCF6C5 /* jATK_CL.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 70AC77C01AB7316200DCF6C5 /* jATK_CL.1 */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		70936AE71AB7345300349353 /* CAArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAArray.cpp; sourceTree = "<group>"; };
+		70936AE81AB7345300349353 /* CAArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAArray.h; sourceTree = "<group>"; };
+		70936AE91AB7345300349353 /* DelayTaps.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DelayTaps.cpp; sourceTree = "<group>"; };
+		70936AEA1AB7345300349353 /* DelayTaps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelayTaps.h; sourceTree = "<group>"; };
+		70936AEB1AB7345300349353 /* Filters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Filters.cpp; sourceTree = "<group>"; };
+		70936AEC1AB7345300349353 /* Filters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Filters.h; sourceTree = "<group>"; };
+		70936AED1AB7345300349353 /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
+		70936AEE1AB7345300349353 /* helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
+		70936AEF1AB7345300349353 /* Phase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Phase.cpp; sourceTree = "<group>"; };
+		70936AF01AB7345300349353 /* Phase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Phase.h; sourceTree = "<group>"; };
 		70AC77BB1AB7316200DCF6C5 /* jATK-CL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "jATK-CL"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70AC77BE1AB7316200DCF6C5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		70AC77C01AB7316200DCF6C5 /* jATK_CL.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = jATK_CL.1; sourceTree = "<group>"; };
@@ -41,11 +52,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70936AE61AB7345300349353 /* jATK */ = {
+			isa = PBXGroup;
+			children = (
+				70936AE71AB7345300349353 /* CAArray.cpp */,
+				70936AE81AB7345300349353 /* CAArray.h */,
+				70936AE91AB7345300349353 /* DelayTaps.cpp */,
+				70936AEA1AB7345300349353 /* DelayTaps.h */,
+				70936AEB1AB7345300349353 /* Filters.cpp */,
+				70936AEC1AB7345300349353 /* Filters.h */,
+				70936AED1AB7345300349353 /* helpers.cpp */,
+				70936AEE1AB7345300349353 /* helpers.h */,
+				70936AEF1AB7345300349353 /* Phase.cpp */,
+				70936AF01AB7345300349353 /* Phase.h */,
+			);
+			name = jATK;
+			path = ../../../Source/jATK;
+			sourceTree = "<group>";
+		};
 		70AC77B21AB7316200DCF6C5 = {
 			isa = PBXGroup;
 			children = (
 				70AC77BD1AB7316200DCF6C5 /* jATK-CL */,
 				70AC77BC1AB7316200DCF6C5 /* Products */,
+				70936AE61AB7345300349353 /* jATK */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70AC77BF1AB7316200DCF6C5 /* main.cpp in Sources */,
+				70936AF11AB7353900349353 /* CAArray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +245,7 @@
 				70AC77C61AB7316200DCF6C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

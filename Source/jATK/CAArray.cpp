@@ -16,26 +16,26 @@ namespace jATK
     int  CAArray::getSize()           { return bufSize;            }
     void CAArray::setSize (int bufferSize)
     {   bufSize = bufferSize;
-        bufSizeFlt = (audio)bufSize;
+        bufSizeFlt = (Audio)bufSize;
         bufN = bufSize - 1;
-        max4xDly = (audio)(bufN - 2);
-        array = new audio [bufSize];
+        max4xDly = (Audio)(bufN - 2);
+        array = new Audio [bufSize];
         this->clear();
     }
     void CAArray::clear()
     {   for (int i = 0; i < bufSize; i++) array[i] = 0.0;
         writeIdx = 0;
     }
-    void CAArray::writeRT (audio sample)
+    void CAArray::record (Audio sample)
     {   if (writeIdx < bufN) { writeIdx++;   }
          else                { writeIdx = 0; }
         array [writeIdx] = sample;
     }
-    void  CAArray::write (audio sample, int index)
+    void  CAArray::write (Audio sample, int index)
     {   index = clipMinMax(index, 0, bufN);
         array [index] = sample;
     }
-    audio CAArray::getDelaySample (int offSet)
+    Audio CAArray::getDelaySample (int offSet)
     {   // Check bounds:
         if (offSet <= bufSize && offSet >= 0)
         /*  everything was fine  */ { /* do nothing */  }
@@ -45,7 +45,7 @@ namespace jATK
         // return sample:
         return array [wrapMin (writeIdx - offSet, bufN)];
     }
-    audio CAArray::getDelaySample2x (audio offSet)
+    Audio CAArray::getDelaySample (Audio offSet)
     {   // check bounds:
         if (offSet <= max2xDly && offSet >= 0)
         /*  everything was fine  */  { /* do nothing */  }
@@ -54,7 +54,7 @@ namespace jATK
         
         // define corrected offset as integer + fractional:
         dlyInteger = (int)offSet;
-        dlyFractional = offSet - (audio)dlyInteger;
+        dlyFractional = offSet - (Audio)dlyInteger;
         
         // get offset for each pre-interpolated sample:
         idxPlus0Offs = dlyInteger;
@@ -66,7 +66,7 @@ namespace jATK
         
         return xFade(dlyFractional, array[idxPlus0], array[idxPlus1]);
     }
-    audio CAArray::getDelaySample4x (audio offSet)
+    Audio CAArray::getDelaySample4x (Audio offSet)
     {   // check bounds:
         if (offSet <= max4xDly && offSet >= 0)
         /*  everything was fine  */  { /* do nothing */   }
@@ -75,7 +75,7 @@ namespace jATK
         
         // define corrected offset as integer + fractional:
         dlyInteger = (int)offSet;
-        dlyFractional = offSet - (audio)dlyInteger;
+        dlyFractional = offSet - (Audio)dlyInteger;
         
         // get offset for each pre-interpolated sample:
         idxMin1Offs = (clipMin (dlyInteger - 1));
@@ -94,16 +94,16 @@ namespace jATK
                                             array[idxPlus1],
                                             array[idxPlus2]);
     };
-    audio CAArray::getSample (int index)
+    Audio CAArray::getSample (int index)
     {   if (index < bufSize && index >= 0) { return array [index]; }
          else if (index > bufN)            { return array[bufN];   }
          else                              { return array[0];      }
         
     }
-    audio CAArray::getSample2x (audio index)
+    Audio CAArray::getSample (Audio index)
     {   // define corrected offset as integer + fractional:
         readInteger = (int)index;
-        readFractional = index - (audio)readInteger;
+        readFractional = index - (Audio)readInteger;
         
         // get indexes from those offsets:
         idxPlus0 = wrapMin (readInteger,     bufSize);
@@ -111,10 +111,10 @@ namespace jATK
         
         return xFade(readFractional, array[idxPlus0], array[idxPlus1]);
     }
-    audio CAArray::getSample4x (audio index) // still has out of bounds issues.
+    Audio CAArray::getSample4x (Audio index) // still has out of bounds issues.
     {   // define corrected offset as integer + fractional:
         readInteger = (int)index;
-        readFractional = index - (audio)readInteger;
+        readFractional = index - (Audio)readInteger;
         
         // get indexes from those offsets:
         idxMin1  = wrapMin (readInteger - 1, bufSize);

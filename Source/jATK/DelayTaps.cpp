@@ -4,7 +4,6 @@
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
  =============================================================================*/
 #include "DelayTaps.h"
-#include "AudioBuffer.h"
 
 namespace jATK
 {
@@ -25,16 +24,16 @@ namespace jATK
     void DelayTaps::toggleInterp (bool interpolation, int tap)
     {   interp[tap] = interpolation;
     };
-    void DelayTaps::record (audio audioIn)
-    {   delayBuffer.write(audioIn);
+    void DelayTaps::record (Audio AudioIn)
+    {   delayBuffer.write(AudioIn);
         currentIdx = wrapMax(currentIdx, bufSize);
         delayBuffer.index(currentIdx);
     };
-    void DelayTaps::setDelayTapInMs (audio millisec, int tap)
+    void DelayTaps::setDelayTapInMs (Audio millisec, int tap)
     {   iOffsets[tap] = millisec * 1000 * srate;
         this->setDelayLineByIdx(iOffsets[tap], tap);
     };
-    void DelayTaps::setDelayLineByIdx (audio indexOffset, int tap)
+    void DelayTaps::setDelayLineByIdx (Audio indexOffset, int tap)
     {   iOffsets[tap] = indexOffset;
     };
     void DelayTaps::resize (int bufferSize)
@@ -61,7 +60,7 @@ namespace jATK
     {   this->setNumOfTaps(numberOfTaps);
         this->resize(bufferSize);
     };
-    audio DelayTaps::getDelayedSample (int tap)
+    Audio DelayTaps::getDelayedSample (int tap)
     {   if (!interp[tap])
         {   
             return delayBuffer.read ( (int)iOffsets[tap] ); // change this

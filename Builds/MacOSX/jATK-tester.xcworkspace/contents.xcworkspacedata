@@ -5,6 +5,9 @@
       location = "group:jATK-CL/jATK-CL.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../../Source/Testing/MainCL.cpp">
+   </FileRef>
+   <FileRef
       location = "container:jATK-tester.xcodeproj">
    </FileRef>
 </Workspace>

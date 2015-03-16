@@ -10,32 +10,32 @@ namespace jATK
     ///=========================================================================
     PhaseUni::PhaseUni() { sr = 0; fq = 0; ph = 0; }
     PhaseUni::~PhaseUni() {}
-    void PhaseUni::setPhase (audio phase) { ph = phase;}
+    void PhaseUni::setPhase (Audio phase) { ph = phase;}
     float PhaseUni::get() { return ph; }
 
-    PhaseUni::PhaseUni (preAudio samplerate)
+    PhaseUni::PhaseUni (PreAudio samplerate)
     {	sr = samplerate;
         fq = 0;
         ph = 0.5;
         srX = 1 / samplerate;
         incr = (float)(srX * fq);
     }
-    void PhaseUni::setSR (preAudio samplerate)
+    void PhaseUni::setSR (PreAudio samplerate)
     {	sr = samplerate;
         srX = 1 / samplerate;
         incr = (float)(srX * fq);
     }
-    void PhaseUni::setFreq (preAudio frequency)
+    void PhaseUni::setFreq (PreAudio frequency)
     {	fq = frequency;
         incr = (float)(srX * fq);
     }
-    audio PhaseUni::next()
+    Audio PhaseUni::next()
     {	ph += incr;
         if (ph > 1.0f)
             ph -= 1.0f;
         return ph;
     }
-    audio PhaseUni::next (preAudio frequency)
+    Audio PhaseUni::next (PreAudio frequency)
     {	fq = frequency;
         incr = (float)(srX * fq);
         return ph;
@@ -44,8 +44,8 @@ namespace jATK
     
     PhaseBip::PhaseBip() { sr = 0; fq = 0; ph = 0; }
     PhaseBip::~PhaseBip() {}
-    void PhaseBip::setPhase (audio phase) {ph = phase; }
-    audio PhaseBip::get() { return ph; }
+    void PhaseBip::setPhase (Audio phase) {ph = phase; }
+    Audio PhaseBip::get() { return ph; }
 
     PhaseBip::PhaseBip (double samplerate)
     {	sr = samplerate;
@@ -54,22 +54,22 @@ namespace jATK
         srX = 1 / samplerate;
         incr = srX * fq;
     }
-    void PhaseBip::setSR (preAudio samplerate)
+    void PhaseBip::setSR (PreAudio samplerate)
     {	sr = samplerate;
         srX = 1 / samplerate;
         incr = srX * fq;
     }
-    void PhaseBip::setFreq (preAudio frequency)
+    void PhaseBip::setFreq (PreAudio frequency)
     {	fq = frequency;
         incr = srX * fq;
     }
-    audio PhaseBip::next()
+    Audio PhaseBip::next()
     {	ph += incr;
         if (ph > 0.5)
             ph -= 1.0;
         return ph;
     }
-    audio PhaseBip::next (preAudio frequency)
+    Audio PhaseBip::next (PreAudio frequency)
     {	fq = frequency;
         incr = srX * fq;
         return ph;

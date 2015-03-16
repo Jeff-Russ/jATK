@@ -27,16 +27,16 @@ namespace jATK
         ~DelayTaps();
         
         void toggleInterp      (bool interpolation, int tap = 1);
-        void record            (audio audioIn);
-        void setDelayTapInMs   (audio millisec,    int tap = 1);
-        void setDelayLineByIdx (audio indexOffset, int tap = 1);
+        void record            (Audio AudioIn);
+        void setDelayTapInMs   (Audio millisec,    int tap = 1);
+        void setDelayLineByIdx (Audio indexOffset, int tap = 1);
         
         void resize (int bufferSize);                   // resize+clear all buffers
         void setNumOfTaps (int numberOfTaps);           // create+clear or delete taps
         void clear();                                   // zero out the buffer
         void initialize(int bufferSize, int numberOfTaps); // all in one
         
-        audio getDelayedSample (int tap = 1);
+        Audio getDelayedSample (int tap = 1);
         
     private:
         int MaxBufSize;
@@ -47,7 +47,7 @@ namespace jATK
         int numOfTaps;
         int currentIdx;
         vector<bool> interp;
-        vector<audio> iOffsets;
+        vector<Audio> iOffsets;
     };
     
     ///=========================================================================
