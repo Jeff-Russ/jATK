@@ -24,14 +24,14 @@
    These will be based on the base class CAArray which is a circular audio array:
 
  
-                          OscLUT---SineLUT---AdditiveSineLUT
- CAArray--|--LookupTable_/
-          |              l_SamplerLUT
-          |
-          |--Delay---MultiTapDelay
-          |
-          \-Interpolator   APFilter
-           \             /
-            CALattice---|-DiffDelay
-                         \
-                          CombFilter
+                             OscLUT---SineLUT---AdditiveSineLUT
+    CAArray--|--LookupTable_/
+             |              l_SamplerLUT
+             |
+             |--Delay---MultiTapDelay
+             |
+             \-Interpolator   APFilter
+              \             /
+               CALattice---|-DiffDelay
+                            \
+                             CombFilter
