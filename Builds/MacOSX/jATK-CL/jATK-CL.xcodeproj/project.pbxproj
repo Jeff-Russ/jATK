@@ -1,0 +1,221 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		70AC77BF1AB7316200DCF6C5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70AC77BE1AB7316200DCF6C5 /* main.cpp */; };
+		70AC77C11AB7316200DCF6C5 /* jATK_CL.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 70AC77C01AB7316200DCF6C5 /* jATK_CL.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		70AC77B91AB7316200DCF6C5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				70AC77C11AB7316200DCF6C5 /* jATK_CL.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		70AC77BB1AB7316200DCF6C5 /* jATK-CL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "jATK-CL"; sourceTree = BUILT_PRODUCTS_DIR; };
+		70AC77BE1AB7316200DCF6C5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		70AC77C01AB7316200DCF6C5 /* jATK_CL.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = jATK_CL.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		70AC77B81AB7316200DCF6C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		70AC77B21AB7316200DCF6C5 = {
+			isa = PBXGroup;
+			children = (
+				70AC77BD1AB7316200DCF6C5 /* jATK-CL */,
+				70AC77BC1AB7316200DCF6C5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		70AC77BC1AB7316200DCF6C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70AC77BB1AB7316200DCF6C5 /* jATK-CL */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		70AC77BD1AB7316200DCF6C5 /* jATK-CL */ = {
+			isa = PBXGroup;
+			children = (
+				70AC77BE1AB7316200DCF6C5 /* main.cpp */,
+				70AC77C01AB7316200DCF6C5 /* jATK_CL.1 */,
+			);
+			path = "jATK-CL";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		70AC77BA1AB7316200DCF6C5 /* jATK-CL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70AC77C41AB7316200DCF6C5 /* Build configuration list for PBXNativeTarget "jATK-CL" */;
+			buildPhases = (
+				70AC77B71AB7316200DCF6C5 /* Sources */,
+				70AC77B81AB7316200DCF6C5 /* Frameworks */,
+				70AC77B91AB7316200DCF6C5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "jATK-CL";
+			productName = "jATK-CL";
+			productReference = 70AC77BB1AB7316200DCF6C5 /* jATK-CL */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		70AC77B31AB7316200DCF6C5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Jeff-Russ";
+			};
+			buildConfigurationList = 70AC77B61AB7316200DCF6C5 /* Build configuration list for PBXProject "jATK-CL" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 70AC77B21AB7316200DCF6C5;
+			productRefGroup = 70AC77BC1AB7316200DCF6C5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				70AC77BA1AB7316200DCF6C5 /* jATK-CL */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		70AC77B71AB7316200DCF6C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70AC77BF1AB7316200DCF6C5 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		70AC77C21AB7316200DCF6C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		70AC77C31AB7316200DCF6C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		70AC77C51AB7316200DCF6C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		70AC77C61AB7316200DCF6C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		70AC77B61AB7316200DCF6C5 /* Build configuration list for PBXProject "jATK-CL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70AC77C21AB7316200DCF6C5 /* Debug */,
+				70AC77C31AB7316200DCF6C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70AC77C41AB7316200DCF6C5 /* Build configuration list for PBXNativeTarget "jATK-CL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70AC77C51AB7316200DCF6C5 /* Debug */,
+				70AC77C61AB7316200DCF6C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 70AC77B31AB7316200DCF6C5 /* Project object */;
+}
