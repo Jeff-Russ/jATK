@@ -13,7 +13,8 @@ namespace jATK
 
 {   ///=========================================================================
     class CAArray
-    {  public:
+    {
+    public:
         CAArray();                  // default will set size to 44100
         CAArray (int bufferSize);   // set # of samples in array and clear
         ~CAArray();

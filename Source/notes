@@ -20,4 +20,12 @@ modules:
     AdditiveCarrier
     EnvelopeFollower
 
+delay networks:
 
+(bool feedback, bool feedforward, bool fbAfterFF, bool ffAfterFb)
+
+feedbackOnly (audio fbAmt)
+lateFfEarlyFb   (audio ffAmt, audio fbAmt)
+earlyFfLateFb   (audio ffAmt, audio fbAmt)
+earlyFfEarlyFb (audio ffAmt, audio fbAmt)
+lateFfLateFb (audio ffAmt, audio fbAmt)
