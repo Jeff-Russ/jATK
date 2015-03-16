@@ -29,3 +29,16 @@ lateFfEarlyFb   (audio ffAmt, audio fbAmt)
 earlyFfLateFb   (audio ffAmt, audio fbAmt)
 earlyFfEarlyFb (audio ffAmt, audio fbAmt)
 lateFfLateFb (audio ffAmt, audio fbAmt)
+
+                    
+           Interpolate
+          /             
+CAArray--|_OscArray---SineArray---MultiSineArray        
+         |          
+         |_Delay---MultiTapDelay
+          \
+           \           APFilter
+            CALattice_/
+                      |-DiffDelay
+                      \
+                       CombFilter

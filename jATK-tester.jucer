@@ -8,10 +8,10 @@
     <GROUP id="{8AE64A1E-E308-26CC-F50D-C3555A69BA49}" name="Source">
       <GROUP id="{585D5710-B78A-700D-99EC-91EBE1C384DE}" name="jATK">
         <GROUP id="{9679692E-FB53-A5A0-700B-69A85F052D89}" name="sources">
-          <FILE id="CBd7SD" name="CALattice.cpp" compile="1" resource="0" file="Source/jATK/CALattice.cpp"/>
-          <FILE id="hc351L" name="Filters.cpp" compile="1" resource="0" file="Source/jATK/Filters.cpp"/>
+          <FILE id="LU5w7T" name="CALattice.cpp" compile="1" resource="0" file="Source/jATK/CALattice.cpp"/>
+          <FILE id="ZRubIX" name="Filters.cpp" compile="1" resource="0" file="Source/jATK/Filters.cpp"/>
+          <FILE id="Po2DDU" name="helpers.cpp" compile="1" resource="0" file="Source/jATK/helpers.cpp"/>
           <FILE id="ywIXSp" name="CAArray.cpp" compile="1" resource="0" file="Source/jATK/CAArray.cpp"/>
-          <FILE id="D8UAk3" name="helpers.cpp" compile="1" resource="0" file="Source/jATK/helpers.cpp"/>
           <FILE id="uhb0Ng" name="DelayTaps.cpp" compile="1" resource="0" file="Source/jATK/DelayTaps.cpp"/>
           <FILE id="bqgBBH" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
         </GROUP>
