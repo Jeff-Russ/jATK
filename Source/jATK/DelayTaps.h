@@ -8,7 +8,7 @@
 #define DELAYTAPS_H_INCLUDED
 
 #include "helpers.h"
-#include "AudioBuffer.h"
+#include "CAArray.h"
 
 #include <vector>
 using namespace std;
@@ -16,7 +16,6 @@ using namespace std;
 namespace jATK
 {
     ///=========================================================================
-    
     class DelayTaps
     {
     public:
@@ -42,7 +41,7 @@ namespace jATK
     private:
         int MaxBufSize;
         int bufSize;
-        AudioBuffer delayBuffer;
+        CAArray delayBuffer;
         //DelayInterpolator bufferShell;
         float srate;
         int numOfTaps;

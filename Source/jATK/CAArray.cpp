@@ -7,7 +7,8 @@
 #include "CAArray.h"
 
 namespace jATK
-{   ///=== CAArray class implementation ========================================
+{
+    ///=== CAArray class implementation ========================================
     CAArray::CAArray()                { this->setSize(44100);      }
     CAArray::CAArray (int bufferSize) { this->setSize(bufferSize); }
     CAArray::~CAArray()               { this->deleteBuffer();      }
@@ -116,10 +117,10 @@ namespace jATK
         readFractional = index - (audio)readInteger;
         
         // get indexes from those offsets:
-        idxMin1  = wrapMin (readInteger - 1,  bufSize);
-        idxPlus0 = wrapMin (readInteger,      bufSize);
-        idxPlus1 = wrapMin (readInteger + 1,  bufSize);
-        idxPlus2 = wrapMin (readInteger + 2,  bufSize);
+        idxMin1  = wrapMin (readInteger - 1, bufSize);
+        idxPlus0 = wrapMin (readInteger,     bufSize);
+        idxPlus1 = wrapMin (readInteger + 1, bufSize);
+        idxPlus2 = wrapMin (readInteger + 2, bufSize);
         
         return interpolate4 (readFractional, array[idxMin1],
                                  array[idxPlus0],
