@@ -16,6 +16,7 @@
           <FILE id="bqgBBH" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
         </GROUP>
         <GROUP id="{932B9368-2C4D-68FB-719D-D5BF2B44FEC0}" name="include">
+          <FILE id="N1cmA8" name="Interpolate.h" compile="0" resource="0" file="Source/jATK/Interpolate.h"/>
           <FILE id="AOkCpL" name="CALattice.h" compile="0" resource="0" file="Source/jATK/CALattice.h"/>
           <FILE id="lUD7oF" name="Filters.h" compile="0" resource="0" file="Source/jATK/Filters.h"/>
           <FILE id="yzIzaM" name="CAArray.h" compile="0" resource="0" file="Source/jATK/CAArray.h"/>

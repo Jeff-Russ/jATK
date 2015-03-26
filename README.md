@@ -30,7 +30,7 @@
           |
           |--Delay---MultiTapDelay
           |
-          \-Interpolator   APFilter
+          \-Interpolate   APFilter
            \             /
             CALattice---|-DiffDelay
                          \

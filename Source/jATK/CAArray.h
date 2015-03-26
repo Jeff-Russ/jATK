@@ -2,6 +2,19 @@
  CAArray.h  :   Jeff's (Juce) Audio ToolKit
  Created: 15 Mar 2015 11:46:40am
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
+ ===============================================================================
+ Array based classes:
+                          OscLUT---SineLUT---AdditiveSineLUT
+ CAArray--|--LookupTable_/
+          |              l_SamplerLUT
+          |
+          |--Delay---MultiTapDelay
+          |
+          \-Interpolate   APFilter
+           \             /
+            CALattice---|-DiffDelay
+                         \
+                          CombFilter
  =============================================================================*/
 
 #ifndef CAARRAY_H_INCLUDED

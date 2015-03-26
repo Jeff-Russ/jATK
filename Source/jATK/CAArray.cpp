@@ -68,9 +68,10 @@ namespace jATK
     }
     Audio CAArray::getDelaySample4x (Audio offSet)
     {   // check bounds:
-        if (offSet <= max4xDly && offSet >= 0)
+        if (offSet <= max4xDly && offSet >= 1)
         /*  everything was fine  */  { /* do nothing */   }
          else if (offSet > max4xDly) { offSet = max4xDly; }
+         else if (offSet == 0)       { offSet = 1;        }
          else /* offSet was neg. */  { offSet = -offSet;  }
         
         // define corrected offset as integer + fractional:

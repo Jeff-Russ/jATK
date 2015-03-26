@@ -535,6 +535,7 @@
 		89A1F1F0CDC57EFDC1A6D291 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_LagrangeInterpolator.cpp"; path = "../../../../../../usr/include/juce/modules/juce_audio_basics/effects/juce_LagrangeInterpolator.cpp"; sourceTree = "SOURCE_ROOT"; };
 		89C05F434C1F7BC7B0AE5AEE = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_NamedPipe.h"; path = "../../../../../../usr/include/juce/modules/juce_core/network/juce_NamedPipe.h"; sourceTree = "SOURCE_ROOT"; };
 		89F342156934322166CADDD6 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_ComponentAnimator.h"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/layout/juce_ComponentAnimator.h"; sourceTree = "SOURCE_ROOT"; };
+		8A9EFF2147748ADF27633019 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Interpolate.h; path = ../../Source/jATK/Interpolate.h; sourceTree = "SOURCE_ROOT"; };
 		8ACE6388F871F3DDC345C0A1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_AudioProcessor.h"; path = "../../../../../../usr/include/juce/modules/juce_audio_processors/processors/juce_AudioProcessor.h"; sourceTree = "SOURCE_ROOT"; };
 		8AD08E4AC2FABAA97DCA209C = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		8B590DF70DCDAF0D50E9764D = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DelayTaps.h; path = ../../Source/jATK/DelayTaps.h; sourceTree = "SOURCE_ROOT"; };
@@ -960,6 +961,7 @@
 					4A0F889463901B43C95EB077,
 					CD65BBFE2EB5F4A1F7A912BB, ); name = sources; sourceTree = "<group>"; };
 		61A247B59CDE3814C308BD0B = {isa = PBXGroup; children = (
+					8A9EFF2147748ADF27633019,
 					6A4C4EC01B0BC5CB1E41CDF0,
 					24D8F0ACE4E4F701A2B70F2E,
 					7A8251F305624B4E6D883648,
