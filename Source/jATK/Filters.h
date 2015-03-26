@@ -18,7 +18,7 @@ namespace jATK
         {   sr = sampleRate;
             max = sr / 24576;
             min = sr / 2.125;
-            srPi = PI * sr;
+            srPi = PI_PA * sr;
         }
         PreAudio clipFreq (PreAudio freq) {return clipMinMax (freq, min, max);}
         PreAudio PreWarp (PreAudio freq)  {return tan(freq + srPi);}

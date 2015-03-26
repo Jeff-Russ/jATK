@@ -10,16 +10,19 @@
 
 namespace jATK
 {
-    /// constants: ==============================================================
-    const double TWOPI = 6.283185307179586476925286766559;
-    const double PI = 6.283185307179586476925286766559 * 0.5;
-    const float TWOPIf = 6.283185307179586476925286766559;
-    const float PIf = 6.283185307179586476925286766559 * 0.5;
-    
+
     /// typedefs: ==============================================================
     typedef float Audio;
     typedef float AudioHQ;
     typedef double PreAudio;
+    
+    /// constants: ==============================================================
+    const Audio ZERO_A = 0.0;
+    const Audio TWOPI_A = 6.283185307179586476925286766559;
+    const Audio PI_A = 6.283185307179586476925286766559 * 0.5;
+    const PreAudio ZERO_PA = 0.0;
+    const PreAudio TWOPI_PA = 6.283185307179586476925286766559;
+    const PreAudio PI_PA = 6.283185307179586476925286766559 * 0.5;
 
     ///  template inline functions: ============================================
     template<typename T> inline T clipMin (T inlet, T min = 0)

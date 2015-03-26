@@ -16,7 +16,8 @@ namespace jATK
     int  CAArray::getSize()           { return bufSize;            }
     void CAArray::setSize (int bufferSize)
     {   bufSize = bufferSize;
-        bufSizeFlt = (Audio)bufSize;
+        bufSize_A = (Audio)bufSize;
+        bufSizeFlt = bufSize_A;
         bufN = bufSize - 1;
         max4xDly = (Audio)(bufN - 2);
         array = new Audio [bufSize];
@@ -102,31 +103,35 @@ namespace jATK
         
     }
     Audio CAArray::getSample (Audio index)
-    {   // define corrected offset as integer + fractional:
-        readInteger = (int)index;
-        readFractional = index - (Audio)readInteger;
-        
-        // get indexes from those offsets:
-        idxPlus0 = wrapMin (readInteger,     bufSize);
-        idxPlus1 = wrapMin (readInteger + 1, bufSize);
-        
-        return xFade(readFractional, array[idxPlus0], array[idxPlus1]);
+    {   if (index < bufSize_A && index >= ZERO_A)
+        {  // define corrected offset as integer + fractional:
+            readInteger = (int)index;
+            readFractional = index - (Audio)readInteger;
+            
+            // get indexes from those offsets:
+            idxPlus0 = wrapMin (readInteger,     bufSize);
+            idxPlus1 = wrapMin (readInteger + 1, bufSize);
+            
+            return xFade(readFractional, array[idxPlus0], array[idxPlus1]);
+        } else return 0.0;
     }
-    Audio CAArray::getSample4x (Audio index) // still has out of bounds issues.
-    {   // define corrected offset as integer + fractional:
-        readInteger = (int)index;
-        readFractional = index - (Audio)readInteger;
-        
-        // get indexes from those offsets:
-        idxMin1  = wrapMin (readInteger - 1, bufSize);
-        idxPlus0 = wrapMin (readInteger,     bufSize);
-        idxPlus1 = wrapMin (readInteger + 1, bufSize);
-        idxPlus2 = wrapMin (readInteger + 2, bufSize);
-        
-        return interpolate4 (readFractional, array[idxMin1],
-                                 array[idxPlus0],
-                                 array[idxPlus1],
-                                 array[idxPlus2]);
+    Audio CAArray::getSample4x (Audio index) 
+    {   if (index < bufSize_A && index >= ZERO_A)
+        {   // define corrected offset as integer + fractional:
+            readInteger = (int)index;
+            readFractional = index - (Audio)readInteger;
+            
+            // get indexes from those offsets:
+            idxMin1  = wrapMin (readInteger - 1, bufSize);
+            idxPlus0 = wrapMin (readInteger,     bufSize);
+            idxPlus1 = wrapMin (readInteger + 1, bufSize);
+            idxPlus2 = wrapMin (readInteger + 2, bufSize);
+            
+            return interpolate4 (readFractional, array[idxMin1],
+                                     array[idxPlus0],
+                                     array[idxPlus1],
+                                     array[idxPlus2]);
+        } else return 0.0;
     };
     ///=== END CAArray class implementation ====================================
 } // end namespace jATK

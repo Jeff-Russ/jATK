@@ -56,6 +56,7 @@ namespace jATK
         
         Audio bufSizeFlt, max2xDly, max4xDly, writeIdxFlt,
                 dlyFractional, readFractional;
+        Audio bufSize_A, bufN_A;
     };
     ///=========================================================================
 } // end namespace jATK
