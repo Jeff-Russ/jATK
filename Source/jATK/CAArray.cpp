@@ -35,6 +35,7 @@ namespace jATK
     {   index = clipMinMax(index, 0, bufN);
         array [index] = sample;
     }
+
     Audio CAArray::getDelaySample (int offSet)
     {   // Check bounds:
         if (offSet <= bufSize && offSet >= 0)
@@ -90,6 +91,12 @@ namespace jATK
          else if (index > bufN)            { return array[bufN];   }
          else                              { return array[0];      }
     }
+    Audio CAArray::operator[] (int index)
+    {   // check bounds:
+        if (index < bufSize && index >= 0) { return array [index]; }
+         else if (index > bufN)            { return array[bufN];   }
+         else                              { return array[0];      }
+    }
     Audio CAArray::getSample (Audio index)
     {   // check bounds:
         if (index < bufSize_A && index >= ZERO_A)
@@ -116,6 +123,22 @@ namespace jATK
             return interpolate4 (readFractional, array[idxMin1], array[idxPlus0],
                                 array[idxPlus1], array[idxPlus2]);
         } else return 0.0;
-    };
+    }
+    Audio CAArray::operator[] (Audio index)
+    {   // check bounds:
+        if (index < bufSize_A && index >= ZERO_A)
+        {   // define corrected offset as integer + fractional:
+            readInteger = (int)index;
+            readFractional = index - (Audio)readInteger;
+            // get indexes from those offsets:
+            idxMin1  = wrapMin (readInteger - 1, bufSize);
+            idxPlus0 = wrapMin (readInteger,     bufSize);
+            idxPlus1 = wrapMin (readInteger + 1, bufSize);
+            idxPlus2 = wrapMin (readInteger + 2, bufSize);
+            return interpolate4 (readFractional, array[idxMin1], array[idxPlus0],
+                                 array[idxPlus1], array[idxPlus2]);
+        } else return 0.0;
+        
+    }
     ///=== END CAArray class implementation ====================================
 } // end namespace jATK

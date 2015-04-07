@@ -40,8 +40,10 @@ namespace jATK
         Audio getDelaySample  (Audio offSet);  // same but with 2x interpolation
         Audio getDelaySample4x  (Audio offSet);// same but with 4x interpolation
         Audio getSample (int index);           // get sample directly but index
+        Audio operator[] (int index);          /// some sugar
         Audio getSample (Audio index);         // same but with 2x interpolation
         Audio getSample4x (Audio index);       // same but with 4x interpolation
+        Audio operator[] (Audio index);          /// some sugar
     private: // stuff that doesn't concern you:
         int getIndexMin1();     // just some varibles that
         int getIndexPlus0();    // are used internally
