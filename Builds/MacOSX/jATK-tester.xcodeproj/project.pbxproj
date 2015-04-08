@@ -680,6 +680,7 @@
 		B222A697466337219D9DCE4E = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_OutputStream.h"; path = "../../../../../../usr/include/juce/modules/juce_core/streams/juce_OutputStream.h"; sourceTree = "SOURCE_ROOT"; };
 		B236406765E4502615E11F35 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_ComponentMovementWatcher.cpp"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/layout/juce_ComponentMovementWatcher.cpp"; sourceTree = "SOURCE_ROOT"; };
 		B256F768CBAAF222CE2AA222 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_win32_DragAndDrop.cpp"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/native/juce_win32_DragAndDrop.cpp"; sourceTree = "SOURCE_ROOT"; };
+		B29BC968567FD97D3806D0D8 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MidiProcessor.h; path = ../../Source/jATK/MidiProcessor.h; sourceTree = "SOURCE_ROOT"; };
 		B392DC759C58908EF5FF6D2F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_NSViewComponent.h"; path = "../../../../../../usr/include/juce/modules/juce_gui_extra/embedding/juce_NSViewComponent.h"; sourceTree = "SOURCE_ROOT"; };
 		B4330F7F79B93A262333D592 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_AudioSampleBuffer.cpp"; path = "../../../../../../usr/include/juce/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.cpp"; sourceTree = "SOURCE_ROOT"; };
 		B4485CDC6482F36A377A8126 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_FileBrowserComponent.cpp"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/filebrowser/juce_FileBrowserComponent.cpp"; sourceTree = "SOURCE_ROOT"; };
@@ -961,6 +962,7 @@
 					4A0F889463901B43C95EB077,
 					CD65BBFE2EB5F4A1F7A912BB, ); name = sources; sourceTree = "<group>"; };
 		61A247B59CDE3814C308BD0B = {isa = PBXGroup; children = (
+					B29BC968567FD97D3806D0D8,
 					8A9EFF2147748ADF27633019,
 					6A4C4EC01B0BC5CB1E41CDF0,
 					24D8F0ACE4E4F701A2B70F2E,
