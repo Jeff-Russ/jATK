@@ -21,27 +21,18 @@ class SlewLimiter
         add = up / sr;
         sub = dn / sr;
     }
-    
-    Audio operator=()(Audio in)
-    {   if (in != prevIn)
-    {   if (in == internal) out = in
-        else
-        {   if ( (in - out) > 0 ) // we need to incr.
-        {   if (internal < in)
-            
+    Audio operator()(Audio in)
+    {   if (in != prevIn)       // test1: duplicate filter
+        {   if (in != internal) // test2: are not at goal and need to ramp?
+            {   // test2 shows we are not at our goal:
+                if ((in - out) > 0) { internal += add; } // we need to ramp up
+                else                { internal -= sub; } // we need to ramp down
+                out = internal;                          // set result to out var
             }
-        else                  // we need to decr.
-        {
-            
+            else { out = in: } //test2 failed. we are at our goal
         }
-            
-        }
-        
-    }
-    else out = in;
-        
+        else out = in;  // test1 found duplicate
         return out;
-        
     }
 private:
     
