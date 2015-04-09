@@ -38,9 +38,9 @@ namespace jATK
                         activeNote = n;        // set our flag
                     else if (n != activeNote){ // dissimilar note overlap (legato)
                         glide (activeNote, n); // process glide
-                        midiMessages.clear (sample_number, 1) /* block new note
-                                                               the receiving device will still thinks it's playing
-                                                               activeNote so we have to make sure to kill it eventually*/
+                        midiMessages.clear (sample_number, 1) // block note
+                        /* the receiving device will still thinks it's playing
+                        activeNote so we have to make sure to kill it eventually*/
                     }
                     // else would mean two on's in a row of same pitch. let it pass?
                 }
