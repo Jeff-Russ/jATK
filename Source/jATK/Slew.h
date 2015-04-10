@@ -9,19 +9,10 @@
 
 class Slew
 { public:
-        
-    Slew (Audio down = 80, Audio up = 80, Audio sRate = 44100.0 )
-    { this->set (down, up, sRate) }
-    void set (Audio down, Audio up, Audio sRate)
-    {   sr = sRate;
-        this->set (down, up);
-    }
-    void set(Audio downAndUp) { this->set (downAndUp, downAndUp); }
-    void set(Audio down, Audio up)
-    {   dn = down; this->up = up;
-        add = up / sr;
-        sub = dn / sr;
-    }
+    Slew (Audio subt = 0.001,Audio add = 0.001) { this->set (subt, add)        }
+    
+    void set(Audio subt = 0.001, Audio add)     { sub = subt; this->add = add; }
+    
     Audio operator()(Audio in)
     {   if (in != prevIn)       // test1: duplicate filter
         {   if (in != internal) // test2: are not at goal and need to ramp?
@@ -35,7 +26,6 @@ class Slew
         else out = in;  // test1 found duplicate
         return out;
     }
-private:
-    Audio dn, up, sr, add, sub, internal = 0, prevIn = 0.0, out = 0.0;
+private: Audio add, sub, internal = 0, prevIn = 0.0, out = 0.0;
 };
 #endif  // SLEW_H_INCLUDED
