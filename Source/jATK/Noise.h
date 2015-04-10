@@ -12,23 +12,23 @@
 namespace jATK
 {
 
-class DigitalNoise
-{   int internal;
-    Audio temp;
-  public:
-    DigitalNoise (int seed) { internal = seed; }
-    
-    Audio operator()()
-    {   return ( (Audio)(internal * 1103515245 + 12345) ) * 4.6567E-10;
-    }
-    Audio binary()
-    {   temp = this->();
-        if (temp > 0) return 0.5;
-        else          return -0.5;
+    class DigitalNoise
+    {   int internal;
+        Audio temp;
+      public:
+        DigitalNoise (int seed) { internal = seed; }
         
-    }
-    Audio seed (int seed) { internal = seed; }
-};
+        Audio operator()()
+        {   return ( (Audio)(internal * 1103515245 + 12345) ) * 4.6567E-10;
+        }
+        Audio binary()
+        {   temp = this->();
+            if (temp > 0) return 0.5;
+            else          return -0.5;
+            
+        }
+        Audio seed (int seed) { internal = seed; }
+    };
 
 } // end namespace jATK
 

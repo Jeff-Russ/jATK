@@ -32,7 +32,7 @@ namespace jATK
     {   if (! (inlet < -1.0e-8 || inlet > 1.0e-8)) return 0;
          else return inlet;
     }
-    template<typename T> inline T clipMax (T inlet, T max)
+    template<typename T> inline T clipMax (T inlet, T max = 1)
     {   if (inlet <= max) { return inlet; }
          else             { return max;   }
     }

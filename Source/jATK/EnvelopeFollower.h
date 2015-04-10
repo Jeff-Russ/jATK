@@ -38,7 +38,6 @@ namespace jATK
             dMult = (clipMin (d * sr, Audio(1)) / 0.693147);
         }
         Audio sr, a, d, aMult, dMult, prevOut = 0;
-        
     };
 } // end namespace jATK
 #endif  // ENVELOPEFOLLOWER_H_INCLUDED

@@ -11,15 +11,15 @@
 namespace jATK
 {
 
-class DCFilter  // do to: add DNC to both in and prevOut
-{   Audio outlet, prevIn = 0.0, prevOut = 0.0;
-public:
-    Audio operator() (Audio in)
-    {   outlet = DNC( (prevOut * 0.9999) + (in - prevIn) );
-        prevIn = in; prevOut = outlet;
-        return outlet;
-    }
-};
+    class DCFilter  // do to: add DNC to both in and prevOut
+    {   Audio outlet, prevIn = 0.0, prevOut = 0.0;
+    public:
+        Audio operator() (Audio in)
+        {   outlet = DNC( (prevOut * 0.9999) + (in - prevIn) );
+            prevIn = in; prevOut = outlet;
+            return outlet;
+        }
+    };
 
 
 } // end namespace jATK
