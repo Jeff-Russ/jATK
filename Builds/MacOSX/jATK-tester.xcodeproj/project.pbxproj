@@ -388,6 +388,7 @@
 		610959813653813B4E192831 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_ImageButton.h"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/buttons/juce_ImageButton.h"; sourceTree = "SOURCE_ROOT"; };
 		6121C2B31F562F0AEE81EE57 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_QuickTimeAudioFormat.h"; path = "../../../../../../usr/include/juce/modules/juce_audio_formats/codecs/juce_QuickTimeAudioFormat.h"; sourceTree = "SOURCE_ROOT"; };
 		6127AF0EE697825057BE4468 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_ApplicationCommandManager.cpp"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/commands/juce_ApplicationCommandManager.cpp"; sourceTree = "SOURCE_ROOT"; };
+		619DC680E5A7CB90260BAE4A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Slew.h; path = ../../Source/jATK/Slew.h; sourceTree = "SOURCE_ROOT"; };
 		61A9EF1A5ABC7D6F557A0DEB = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_ResizableWindow.h"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/windows/juce_ResizableWindow.h"; sourceTree = "SOURCE_ROOT"; };
 		61B8999494B402CF574BEDD1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_FFT.h"; path = "../../../../../../usr/include/juce/modules/juce_audio_basics/effects/juce_FFT.h"; sourceTree = "SOURCE_ROOT"; };
 		62201D06EC3EEDA872BFB833 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_KeyboardFocusTraverser.cpp"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/keyboard/juce_KeyboardFocusTraverser.cpp"; sourceTree = "SOURCE_ROOT"; };
@@ -487,7 +488,6 @@
 		7A8251F305624B4E6D883648 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAArray.h; path = ../../Source/jATK/CAArray.h; sourceTree = "SOURCE_ROOT"; };
 		7A835E2ABA85510C8E02FB48 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_win32_AudioCDBurner.cpp"; path = "../../../../../../usr/include/juce/modules/juce_audio_devices/native/juce_win32_AudioCDBurner.cpp"; sourceTree = "SOURCE_ROOT"; };
 		7A8B907C505BCC1FC82E1C41 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_MidiMessageCollector.cpp"; path = "../../../../../../usr/include/juce/modules/juce_audio_devices/midi_io/juce_MidiMessageCollector.cpp"; sourceTree = "SOURCE_ROOT"; };
-		7AD4C9AAEAC1C385763C50FD = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SlewLimiter.h; path = ../../Source/jATK/SlewLimiter.h; sourceTree = "SOURCE_ROOT"; };
 		7AE559B4C9C4050AD377F477 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_WindowsMediaAudioFormat.h"; path = "../../../../../../usr/include/juce/modules/juce_audio_formats/codecs/juce_WindowsMediaAudioFormat.h"; sourceTree = "SOURCE_ROOT"; };
 		7B836A6BF17A1A204C49C0A0 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_ReadWriteLock.cpp"; path = "../../../../../../usr/include/juce/modules/juce_core/threads/juce_ReadWriteLock.cpp"; sourceTree = "SOURCE_ROOT"; };
 		7BE6E2E2FF4AAAD05822C669 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_KeyListener.h"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/keyboard/juce_KeyListener.h"; sourceTree = "SOURCE_ROOT"; };
@@ -963,7 +963,7 @@
 					4A0F889463901B43C95EB077,
 					CD65BBFE2EB5F4A1F7A912BB, ); name = sources; sourceTree = "<group>"; };
 		61A247B59CDE3814C308BD0B = {isa = PBXGroup; children = (
-					7AD4C9AAEAC1C385763C50FD,
+					619DC680E5A7CB90260BAE4A,
 					B29BC968567FD97D3806D0D8,
 					8A9EFF2147748ADF27633019,
 					6A4C4EC01B0BC5CB1E41CDF0,

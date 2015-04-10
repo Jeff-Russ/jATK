@@ -16,7 +16,7 @@
           <FILE id="bqgBBH" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
         </GROUP>
         <GROUP id="{932B9368-2C4D-68FB-719D-D5BF2B44FEC0}" name="include">
-          <FILE id="JC69pC" name="SlewLimiter.h" compile="0" resource="0" file="Source/jATK/SlewLimiter.h"/>
+          <FILE id="JC69pC" name="Slew.h" compile="0" resource="0" file="Source/jATK/Slew.h"/>
           <FILE id="uiwF60" name="MidiProcessor.h" compile="0" resource="0" file="Source/jATK/MidiProcessor.h"/>
           <FILE id="N1cmA8" name="Interpolate.h" compile="0" resource="0" file="Source/jATK/Interpolate.h"/>
           <FILE id="AOkCpL" name="CALattice.h" compile="0" resource="0" file="Source/jATK/CALattice.h"/>
