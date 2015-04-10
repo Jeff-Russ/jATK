@@ -52,7 +52,7 @@ class SlewLimiter
     }
 };
 
-class PeakDetector
+class PeakDetector // my version
 {   SlewLimiter slewLimiter;
   public:
     PeakDetector(Audio sRate)  { SlewLimiter slewLimiter (1500, 20, sRate); }

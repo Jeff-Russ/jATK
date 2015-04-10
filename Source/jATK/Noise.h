@@ -29,10 +29,6 @@ class DigitalNoise
     }
     Audio seed (int seed) { internal = seed; }
 };
-class BinaryNoise
-
-
-
 
 } // end namespace jATK
 

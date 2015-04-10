@@ -59,6 +59,13 @@ namespace jATK
         else
             return -(L - ( ( L / (L + abs(inlet)) ) * L ));
     }
+    template<typename T> inline T CltrShaper (T inlet, T one, T half, T zero)
+    {   if (inlet >= 0.0)
+            return (one - half) * 2.0 * (inlet - 0.5) + half;
+        else
+            return (half - zero) * 2.0 * inlet + zero;
+        
+    }
     //    template<typename T> class polySat31
     
     ///  Audio inline functions: ===============================================

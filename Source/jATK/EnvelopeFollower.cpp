@@ -32,7 +32,7 @@ namespace jATK
                 return aMult * inlet;
             else return dMult * inlet;
         }
-    private:
+      private:
         void calc()
         {   aMult = (clipMin (a * sr, Audio(1)) / 0.693147);
             dMult = (clipMin (d * sr, Audio(1)) / 0.693147);
