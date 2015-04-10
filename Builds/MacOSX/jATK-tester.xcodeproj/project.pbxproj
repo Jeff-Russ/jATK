@@ -379,6 +379,7 @@
 		5F40C72A4CD4FE56EE58D568 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_DrawableRectangle.cpp"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/drawables/juce_DrawableRectangle.cpp"; sourceTree = "SOURCE_ROOT"; };
 		5FA2E6BC208C5C71E2CE2338 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_ThreadPool.cpp"; path = "../../../../../../usr/include/juce/modules/juce_core/threads/juce_ThreadPool.cpp"; sourceTree = "SOURCE_ROOT"; };
 		600DE0F2CEC9174A24C161A6 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_AnimatedPosition.h"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/layout/juce_AnimatedPosition.h"; sourceTree = "SOURCE_ROOT"; };
+		6098DF12BAC5DDE5CF4E6A2D = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DCFilter.h; path = ../../Source/jATK/DCFilter.h; sourceTree = "SOURCE_ROOT"; };
 		60B0156D82F384A532333C1D = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_SVGParser.cpp"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/drawables/juce_SVGParser.cpp"; sourceTree = "SOURCE_ROOT"; };
 		60FABF8BCE13CB42B4477F5E = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_HashMap.h"; path = "../../../../../../usr/include/juce/modules/juce_core/containers/juce_HashMap.h"; sourceTree = "SOURCE_ROOT"; };
 		610959813653813B4E192831 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_ImageButton.h"; path = "../../../../../../usr/include/juce/modules/juce_gui_basics/buttons/juce_ImageButton.h"; sourceTree = "SOURCE_ROOT"; };
@@ -953,6 +954,7 @@
 					4A0F889463901B43C95EB077,
 					CD65BBFE2EB5F4A1F7A912BB, ); name = sources; sourceTree = "<group>"; };
 		61A247B59CDE3814C308BD0B = {isa = PBXGroup; children = (
+					6098DF12BAC5DDE5CF4E6A2D,
 					619DC680E5A7CB90260BAE4A,
 					B29BC968567FD97D3806D0D8,
 					6A4C4EC01B0BC5CB1E41CDF0,
