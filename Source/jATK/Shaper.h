@@ -30,7 +30,7 @@ namespace jATK
     class Shaper123  // Provides controllable shaping of 2nd and 3rd order
     {  public:
         Shaper123 (Audio sRate, Audio clean, Audio firstOrder, Audio thirdOrder)
-        {   Filter1p filter (sRate, Audio(5) ); // this line gets error
+        {   Filter1p filter (sRate, FIVE_A ); // this line gets error
             _1 = clean; _2 = firstOrder; _3 = thirdOrder;
         }
         void setShape (Audio clean, Audio firstOrder, Audio thirdOrder)
@@ -54,7 +54,7 @@ namespace jATK
     class Shaper312 // Shaper with variable amount of 2nd or 3rd order shaping
     {   
         Shaper312 (Audio sRate, Audio shape)
-        {   Filter1p filter (sRate, Audio(5) ); // this line gets error
+        {   Filter1p filter (sRate, FIVE_A ); // this line gets error
             shp = shape; shpAbs = fabs(shp);
         }
         void setShape (Audio shape)

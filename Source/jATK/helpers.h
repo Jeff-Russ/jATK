@@ -17,6 +17,8 @@ namespace jATK
     
     /// constants: ==============================================================
     const Audio ZERO_A = 0.0;
+    const Audio ONE_A = 1.0;
+    const Audio FIVE_A = 5.0;
     const Audio TWOPI_A = 6.283185307179586476925286766559;
     const Audio PI_A = 6.283185307179586476925286766559 * 0.5;
     const PreAudio ZERO_PA = 0.0;
@@ -64,7 +66,9 @@ namespace jATK
             return (one - half) * 2.0 * (inlet - 0.5) + half;
         else
             return (half - zero) * 2.0 * inlet + zero;
-        
+    }
+    template<typename T> inline T dB2AF (T inlet)
+    {   return pow(1.12202, inlet);
     }
     //    template<typename T> class polySat31
     

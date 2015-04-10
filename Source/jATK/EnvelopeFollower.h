@@ -34,8 +34,8 @@ namespace jATK
         }
       private:
         void calc()
-        {   aMult = (clipMin (a * sr, Audio(1)) / 0.693147);
-            dMult = (clipMin (d * sr, Audio(1)) / 0.693147);
+        {   aMult = (clipMin (a * sr, ONE_A) / 0.693147);
+            dMult = (clipMin (d * sr, ONE_A) / 0.693147);
         }
         Audio sr, a, d, aMult, dMult, prevOut = 0;
     };

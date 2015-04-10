@@ -13,6 +13,7 @@
           <FILE id="bqgBBH" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
         </GROUP>
         <GROUP id="{932B9368-2C4D-68FB-719D-D5BF2B44FEC0}" name="include">
+          <FILE id="NVU7KH" name="SimpleADSR.h" compile="0" resource="0" file="Source/jATK/SimpleADSR.h"/>
           <FILE id="KPxfMK" name="Shaper.h" compile="0" resource="0" file="Source/jATK/Shaper.h"/>
           <FILE id="TuEU1t" name="EnvelopeFollower.h" compile="0" resource="0"
                 file="Source/jATK/EnvelopeFollower.h"/>
