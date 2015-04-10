@@ -10,7 +10,6 @@
 
 namespace jATK
 {
-
     /// typedefs: ==============================================================
     typedef float Audio;
     typedef float AudioHQ;

@@ -26,7 +26,7 @@ namespace jATK
 {
     class CALattice : public CAArray
     {
-    public:
+      public:
         CALattice();
         CALattice (int bufferSize, PreAudio sampleRate, PreAudio delayInMs,
                    Audio factor,      // factor is FFwrdAmt, -factor is FBackAmt
@@ -58,7 +58,7 @@ namespace jATK
         Audio processEE  (Audio audioIn, Audio delayInMs, Audio factor);
         Audio getOutput();
         
-    private:
+      private:
     };
 } // end namespace jATK
 #endif  // CALATTICE_H_INCLUDED

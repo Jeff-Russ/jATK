@@ -18,7 +18,7 @@ namespace jATK
     ///=========================================================================
     class DelayTaps
     {
-    public:
+      public:
         DelayTaps (int maxBufferSize,
                    int bufferSize,
                    float samplerate,
@@ -38,7 +38,7 @@ namespace jATK
         
         Audio getDelayedSample (int tap = 1);
         
-    private:
+      private:
         int MaxBufSize;
         int bufSize;
         CAArray delayBuffer;

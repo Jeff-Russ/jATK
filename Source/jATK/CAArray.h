@@ -23,11 +23,11 @@
 #include "helpers.h"
 
 namespace jATK
-
-{   ///=========================================================================
+{
+    ///=========================================================================
     class CAArray
     {
-    public:
+      public:
         CAArray();                  // default will set size to 44100
         CAArray (int bufferSize);   // set # of samples in array and clear
         ~CAArray();
@@ -44,7 +44,7 @@ namespace jATK
         Audio getSample (Audio index);         // same but with 2x interpolation
         Audio getSample4x (Audio index);       // same but with 4x interpolation
         Audio operator[] (Audio index);          /// some sugar
-    private: // stuff that doesn't concern you:
+      private: // stuff that doesn't concern you:
         int getIndexMin1();     // just some varibles that
         int getIndexPlus0();    // are used internally
         int getIndexPlus1();    // by the interpolation

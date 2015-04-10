@@ -9,20 +9,16 @@
 
 namespace jATK
 {
-    
     class MidiProcessor
     { private:
         int outNote,sample_number, activeNote = -1;
         uint8 outVelo = 0;
         MidiMessage midi_message, midi_insert;
-        
         void glide (int startNote, int endNote)
-        {
-            // add slew limiter to pitch bend
+        {   // add slew limiter to pitch bend
         }
         void glide (int zero)
-        {
-            // clean up when done
+        {   // clean up when done
         }
     public:
         void MonolegatoGlide(MidiBuffer& midiMessages)
@@ -33,7 +29,6 @@ namespace jATK
                 /*__________________ NOTE ON _________________________________*/
                 if (midi_message.isNoteOn())
                 {   int n = midi_message.getNoteNumber();
-                    
                     if (activeNote == -1)      // all is clear; new note w/gate
                         activeNote = n;        // set our flag
                     else if (n != activeNote){ // dissimilar note overlap (legato)
@@ -47,8 +42,7 @@ namespace jATK
                 /*__________________ NOTE OFF ________________________________*/
                 else if (midi_message.isNoteOff())
                 {   int n = midi_message.getNoteNumber();
-                    
-                    if (n = activeNote){  // we were not in legato state. we can
+                    if (n = activeNote){ // we were not in legato state. we can
                         activeNote = -1; // let note off pass and clear our flag
                         glide (0);       // tell glide we are done
                     }else /* we were in legato mode and this is an old note
