@@ -7,6 +7,8 @@
 #ifndef SLEW_H_INCLUDED
 #define SLEW_H_INCLUDED
 
+#include <cmath>
+
 class Slew
 { public:
     Slew (Audio subt = 0.001,Audio add = 0.001) { this->set (subt, add)        }
@@ -35,14 +37,23 @@ class SlewLimiter
     void set (Audio down, Audio up) { dn = down; this->up = up; calc(); }
     void set (Audio downAndUp)      { this->set(downAndUp, downAndUp)   }
     void setSRate (Audio sRate)     { sr = sRate; calc();               }
-    Audio (Audio in)                { return slew (in);                 }
+    Audio operator()(Audio in)      { return slew (in);                 }
     
-  private: Audio dn, up, sr, add, sub;
+  private:
+    Audio dn, up, sr, add, sub;
+    Slew slew;
     void calc()
     {   sub = down / sr;
         add = up / sr;
         slew(sub, add);
     }
+};
+
+class PeakDetector
+{   SlewLimiter slewLimiter;
+  public:
+    PeakDetector(Audio sRate)  { SlewLimiter slewLimiter (1500, 20, sRate); }
+    Audio operator()(Audio in) { return slewLimiter (fabs (in));            }
 };
 
 
