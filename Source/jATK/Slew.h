@@ -9,6 +9,9 @@
 
 #include <cmath>
 
+namespace jATK
+{
+
 class Slew
 { public:
     Slew (Audio subt = 0.001,Audio add = 0.001) { this->set (subt, add)        }
@@ -57,13 +60,7 @@ class PeakDetector
 };
 
 
-
-
-
-
-
-
-
+} // end namespace jATK
 
 #endif  // SLEW_H_INCLUDED
 

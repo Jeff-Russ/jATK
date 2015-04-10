@@ -8,16 +8,20 @@
 #ifndef DCFILTER_H_INCLUDED
 #define DCFILTER_H_INCLUDED
 
+namespace jATK
+{
+
 class DCFilter  // do to: add DNC to both in and prevOut
-{   Audio out, prevIn = 0.0, prevOut = 0.0;
+{   Audio outlet, prevIn = 0.0, prevOut = 0.0;
 public:
     Audio operator() (Audio in)
-    {   out = (prevOut * 0.9999) + (in - prevIn);
-        prevIn = in; prevOut = out;
-        return out;
+    {   outlet = (prevOut * 0.9999) + (in - prevIn);
+        prevIn = in; prevOut = outlet;
+        return outlet;
     }
 };
 
 
+} // end namespace jATK
 
 #endif  // DCFILTER_H_INCLUDED
