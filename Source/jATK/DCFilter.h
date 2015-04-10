@@ -15,7 +15,7 @@ class DCFilter  // do to: add DNC to both in and prevOut
 {   Audio outlet, prevIn = 0.0, prevOut = 0.0;
 public:
     Audio operator() (Audio in)
-    {   outlet = (prevOut * 0.9999) + (in - prevIn);
+    {   outlet = DNC( (prevOut * 0.9999) + (in - prevIn) );
         prevIn = in; prevOut = outlet;
         return outlet;
     }

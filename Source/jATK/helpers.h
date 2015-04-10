@@ -28,6 +28,10 @@ namespace jATK
     {   if (inlet >= min) { return inlet; }
          else             { return min;   }
     }
+    template<typename T> inline T DNC (T inlet) // denormal number cancel
+    {   if (! (inlet < -1.0e-8 || inlet > 1.0e-8)) return 0;
+         else return inlet;
+    }
     template<typename T> inline T clipMax (T inlet, T max)
     {   if (inlet <= max) { return inlet; }
          else             { return max;   }
