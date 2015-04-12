@@ -18,21 +18,23 @@ namespace jATK
     private:
         Audio bp, bpRecip;
     public:
-        PhaseDistort (Audio breakPoint)
-        {
-            bp = clipMinMax (breakPoint, 0.00001f, 0.999999f);
+        PhaseDistort (Audio knee)
+        {   bp = clipMinMax (knee, 0.00001f, 0.999999f);
             bpRecip = 1 / bp; 
         }
-        Audio operator()(Audio inlet)
-        {
-            if (inlet > bp) { return bpRecip / inlet / 2; }
-            else { return ((((inlet - bp) * (1 / (1 - bp))) / 2) + 0.5); }
+        Audio operator()(Audio phase)
+        {   if (phase < bp) return (bpRecip)* phase * 0.5f;
+            else return ((1 / (1 - bp)) * (phase - bp) * 0.5f) + 0.5f;
         }
-        Audio operator()(Audio inlet, Audio breakPoint)
-        {
-            bp = clipMinMax (breakPoint, 0.00001f, 0.999999f);
+        Audio operator()(Audio phase, Audio knee)
+        {   bp = clipMinMax (knee, 0.00001f, 0.999999f);
             bpRecip = 1 / bp;
-            this->operator()(inlet);
+            this->operator()(phase);
+        }
+
+        inline Audio phaseDistort (Audio phase, Audio knee)
+        {   if (phase < knee) return (bpRecip) * phase * 0.5f;
+            else return ((1 / (1 - knee)) * (phase - knee) * 0.5f) + 0.5f;
         }
     };
     // [expr~ if($v1<$v2, ($v1*(1/$v2))/2, ((($v1-$v2)*(1/(1-$v2)))/2)+0.5)]
