@@ -18,7 +18,11 @@ namespace jATK
     private:
         Audio bp, bpRecip;
     public:
-        PhaseDistort (Audio breakPoint){ bp = breakPoint; bpRecip = 1 / bp; }
+        PhaseDistort (Audio breakPoint)
+        {
+            bp = clipMinMax (breakPoint, 0.00001f, 0.999999f);
+            bpRecip = 1 / bp; 
+        }
         Audio operator()(Audio inlet)
         {
             if (inlet > bp) { return bpRecip / inlet / 2; }
@@ -26,7 +30,8 @@ namespace jATK
         }
         Audio operator()(Audio inlet, Audio breakPoint)
         {
-            bp = breakPoint; bpRecip = 1 / bp;
+            bp = clipMinMax (breakPoint, 0.00001f, 0.999999f);
+            bpRecip = 1 / bp;
             this->operator()(inlet);
         }
     };
