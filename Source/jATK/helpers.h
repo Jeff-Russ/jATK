@@ -38,7 +38,7 @@ namespace jATK
     {   if (inlet <= max) { return inlet; }
          else             { return max;   }
     }
-    template<typename T> inline T clipMinMax (T inlet, T min, T max)
+    template<typename T> inline T clipMinMax (T inlet, T min, T max = ONE_A)
     {   if (inlet <= max && inlet >= min) { return inlet; }
         else if ( inlet > max)            { return max;   }
         else                              { return min;   }
