@@ -25,10 +25,9 @@ namespace jATK
             this->release(rel);
         }
         void veloGate(Audio veloGate) // new note
-        {   if (veloGate > ZERO_A)   // SET GATE BOOL HERE
-            upL = veloGate; dnL = veloGate * s;
-            if (vg > 0) { up = 1;  dnT = b1; }
-            else        { upT = 0; dnT = b0; }
+        {   upL = veloGate; dnL = veloGate * s;
+            if (veloGate > ZERO_A) { up = 1;  dnT = b1; }
+            else                   { upT = 0; dnT = b0; }
         }
         Audio operator()() // process sample
         {   if(l)
