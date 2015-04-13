@@ -26,13 +26,16 @@ namespace jATK
         }
         void veloGate(Audio veloGate) // new note
         {   if (veloGate > ZERO_A)   // SET GATE BOOL HERE
-            upL = veloGate; dnL = veloGate * s;
-            if (vg > 0) { up = 1;  dnT = b1; }
-            else        { upT = 0; dnT = b0; }
+            gateOn = true;
+            g = veloGate; upL = veloGate; dnL = veloGate * s;
+            if (gateOn) { up = 1;  dnT = b1; }
+            else      { upT = 0; dnT = b0; }
         }
         Audio operator()() // process sample
-        {   if(l)
-            {                   
+        {
+            if (!l)
+            {   if (gateOn ) { upMode = true;  }
+                else         { upMode = false; }
             }
             
         }
@@ -43,9 +46,9 @@ namespace jATK
         void legato  (Audio leg) { l = leg; }
         
     private:
-        Audio sr, upL, dnL, Z = 0, upT, dnT, up, a, d, s, r, l, b1, b0;
-        bool attMode, gate;
-
+        Audio g, sr, upL, dnL, z = 0, upT, dnT, up, a, d, s, r, l, b1, b0;
+        bool attMode, gateOn, prevGate = false, upMode;
+        
         Audio time2CoefL (Audio tExp)
         {   return ONE_A / (clipMin( dB2AF(tExp) * sr * 0.001) , ONE_A);
         }
@@ -53,14 +56,14 @@ namespace jATK
         {   return ONE_A / (clipMin( dB2AF(tExp) * sr * 0.000693147), ONE_A);
         }
         Audio upLinear()
-        {   up = Z + upT;
+        {   up = z + upT;
             if (up < upL) { return up;  }
             else          { return upL; }
         }
         Audio dnExpon()
-        {   return (dnL - Z) * dnT + Z;
+        {   return (dnL - z) * dnT + z;
         }
     };
-
+    
 } // end namespace jATK
 #endif  // SIMPLEADSR_H_INCLUDED

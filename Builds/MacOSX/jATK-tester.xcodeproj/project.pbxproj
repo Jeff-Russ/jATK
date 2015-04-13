@@ -19,7 +19,7 @@
 		618435B2218137D01F64F218 /* juce_gui_basics.mm in Sources */ = {isa = PBXBuildFile; fileRef = E92FF0BA59447B65EEF89F85 /* juce_gui_basics.mm */; };
 		61AE09F417E6D65744A5DF45 /* juce_opengl.mm in Sources */ = {isa = PBXBuildFile; fileRef = CCF60EC7AFF0C530601762B2 /* juce_opengl.mm */; };
 		63A146AA974BA214BBBE6D81 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFED74A4FC592AB225976AA /* CoreMIDI.framework */; };
-		70938B7C1AD8642A00E8D11D /* SimpleADSR.h in Sources */ = {isa = PBXBuildFile; fileRef = EB04D885FD39B76F3FFDF08E /* SimpleADSR.h */; };
+		70938B7C1AD8642A00E8D11D /* SimpleADSR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB04D885FD39B76F3FFDF08E /* SimpleADSR.cpp */; };
 		75192BE639691000338A8B0A /* CAArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE95B34EBA44F1CED105F03E /* CAArray.cpp */; };
 		7B88A003B29B1E4764483090 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719E78B78498C0709A604C77 /* OpenGL.framework */; };
 		7E9D15AE29C6619C21CF421C /* juce_core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 728A5EAA1052FA308BE365CA /* juce_core.mm */; };
@@ -883,7 +883,7 @@
 		EA6D958A00560CF9F2067EDE /* juce_ApplicationCommandInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ApplicationCommandInfo.cpp; path = ../../../../../../usr/include/juce/modules/juce_gui_basics/commands/juce_ApplicationCommandInfo.cpp; sourceTree = SOURCE_ROOT; };
 		EA7A1700DAB4CDC5D07AE936 /* juce_IIRFilter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_IIRFilter.cpp; path = ../../../../../../usr/include/juce/modules/juce_audio_basics/effects/juce_IIRFilter.cpp; sourceTree = SOURCE_ROOT; };
 		EAE8BE857C1D24FE9976F269 /* juce_NamedValueSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_NamedValueSet.cpp; path = ../../../../../../usr/include/juce/modules/juce_core/containers/juce_NamedValueSet.cpp; sourceTree = SOURCE_ROOT; };
-		EB04D885FD39B76F3FFDF08E /* SimpleADSR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleADSR.h; path = ../../Source/jATK/SimpleADSR.h; sourceTree = SOURCE_ROOT; };
+		EB04D885FD39B76F3FFDF08E /* SimpleADSR.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleADSR.cpp; path = ../../Source/jATK/SimpleADSR.cpp; sourceTree = SOURCE_ROOT; };
 		EB2CC553BF99772741584E0D /* juce_CodeDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_CodeDocument.h; path = ../../../../../../usr/include/juce/modules/juce_gui_extra/code_editor/juce_CodeDocument.h; sourceTree = SOURCE_ROOT; };
 		EB523EEE45C2DA5E7AB3EB38 /* juce_MidiFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_MidiFile.cpp; path = ../../../../../../usr/include/juce/modules/juce_audio_basics/midi/juce_MidiFile.cpp; sourceTree = SOURCE_ROOT; };
 		EBE431072B3E6A0AB6BCA18F /* juce_OpenGLImage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_OpenGLImage.cpp; path = ../../../../../../usr/include/juce/modules/juce_opengl/opengl/juce_OpenGLImage.cpp; sourceTree = SOURCE_ROOT; };
@@ -1552,7 +1552,7 @@
 		61A247B59CDE3814C308BD0B /* include */ = {
 			isa = PBXGroup;
 			children = (
-				EB04D885FD39B76F3FFDF08E /* SimpleADSR.h */,
+				EB04D885FD39B76F3FFDF08E /* SimpleADSR.cpp */,
 				AA4EAFA8C318EADECCC98DC7 /* Shaper.h */,
 				96C31A7F9F41C72D876A481B /* EnvelopeFollower.h */,
 				1458CD152AD919CC395836FE /* Noise.h */,
@@ -2857,7 +2857,7 @@
 				9E173EF05DE99AE14CEF5573 /* juce_gui_extra.mm in Sources */,
 				61AE09F417E6D65744A5DF45 /* juce_opengl.mm in Sources */,
 				0000FD3B484B06413ECD3ACF /* juce_video.mm in Sources */,
-				70938B7C1AD8642A00E8D11D /* SimpleADSR.h in Sources */,
+				70938B7C1AD8642A00E8D11D /* SimpleADSR.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
