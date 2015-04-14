@@ -11,7 +11,6 @@
 
 namespace jATK
 {
-
     class DigitalNoise
     {   int internal;
         Audio temp;
@@ -19,16 +18,17 @@ namespace jATK
         DigitalNoise (int seed) { internal = seed; }
         
         Audio operator()()
-        {   return ( (Audio)(internal * 1103515245 + 12345) ) * 4.6567E-10;
+        {   internal = internal * 1103515245 + 12345;
+            return ( (Audio)internal) * 4.6567E-10;
         }
         Audio binary()
-        {   temp = this->();
+        {   temp = this->operator()();
             if (temp > 0) return 0.5;
             else          return -0.5;
         }
-        Audio seed (int seed) { internal = seed; }
+        void seed (int seed) { internal = seed; }
     };
-
+    
 } // end namespace jATK
 
 #endif  // NOISE_H_INCLUDED

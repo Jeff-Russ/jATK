@@ -5,6 +5,24 @@
               jucerVersion="3.1.0">
   <MAINGROUP id="rpEXbi" name="jATK-console">
     <GROUP id="{CE65A489-6A55-5549-C8BA-A3357487E757}" name="Source">
+      <FILE id="oGrHyE" name="test.h" compile="0" resource="0" file="../Source/jATK/test.h"/>
+      <FILE id="ALMNk9" name="CAArray.cpp" compile="1" resource="0" file="../Source/jATK/CAArray.cpp"/>
+      <FILE id="gAHqrE" name="Phase.cpp" compile="1" resource="0" file="../Source/jATK/Phase.cpp"/>
+      <FILE id="E0YqmW" name="AHDSR.h" compile="0" resource="0" file="../Source/jATK/AHDSR.h"/>
+      <FILE id="hPdyTI" name="CAArray.h" compile="0" resource="0" file="../Source/jATK/CAArray.h"/>
+      <FILE id="sQMSvL" name="CALattice.h" compile="0" resource="0" file="../Source/jATK/CALattice.h"/>
+      <FILE id="MESx3e" name="DCFilter.h" compile="0" resource="0" file="../Source/jATK/DCFilter.h"/>
+      <FILE id="a2PjzR" name="EnvelopeFollower.h" compile="0" resource="0"
+            file="../Source/jATK/EnvelopeFollower.h"/>
+      <FILE id="LQgxYk" name="Filters.h" compile="0" resource="0" file="../Source/jATK/Filters.h"/>
+      <FILE id="qcBFp0" name="helpers.h" compile="0" resource="0" file="../Source/jATK/helpers.h"/>
+      <FILE id="vZG3gc" name="MidiProcessor.h" compile="0" resource="0" file="../Source/jATK/MidiProcessor.h"/>
+      <FILE id="PX2n3d" name="Noise.h" compile="0" resource="0" file="../Source/jATK/Noise.h"/>
+      <FILE id="uer5It" name="Phase.h" compile="0" resource="0" file="../Source/jATK/Phase.h"/>
+      <FILE id="nZx2G7" name="PhaseDistort.h" compile="0" resource="0" file="../Source/jATK/PhaseDistort.h"/>
+      <FILE id="wUSgKW" name="Shapers.h" compile="0" resource="0" file="../Source/jATK/Shapers.h"/>
+      <FILE id="gmLqrV" name="SimpleADSR.h" compile="0" resource="0" file="../Source/jATK/SimpleADSR.h"/>
+      <FILE id="EiQqmG" name="Slew.h" compile="0" resource="0" file="../Source/jATK/Slew.h"/>
       <FILE id="yVZLUM" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
   </MAINGROUP>
