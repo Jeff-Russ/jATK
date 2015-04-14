@@ -2,7 +2,7 @@
  AHDSR.h  :   Jeff's (Juce) Audio ToolKit
  Created: 12 Apr 2015 7:26:18pm
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
-=============================================================================*/
+ =============================================================================*/
 
 
 #ifndef AHDSR_H_INCLUDED
@@ -15,57 +15,88 @@ namespace jATK
 {
     class AHDSR // analog capacitor based envelope emulation from Reaktor
     {           // original module "AHDSR Capacitor V3.4"
-        Audio sr, a, h = 0, d, s = 0, r, vc, vin, tau, z = 0, ssA;
-        int rm, sI, ssI;
+        Audio sr, onV, offV, a, a1, h = 0, d, s = 0, r, vc, vGate, up = 0, tau = 0, z = 0, incr, coef, adder, output;
+        int rm, sI, upI = 0;
+        
+        void updateCircuit()
+        {   adder = pow ( 2.71828f, 1 / tau * sr * -5.f );
+            coef = 1 - adder;
+        }
+        void delaySustain()
+        {   vGate = onV; tau = d; sI = 1;
+            updateCircuit();
+        }
     public:
         AHDSR (Audio sRate) { sr = sRate; }
         void set (Audio attack, Audio hold, Audio decay, Audio sustain,
                   Audio release, int retrigMode = 0)
         {   this->attack (attack); this->hold (hold); this->decay (decay);
-            this->sustain (sustain); this->release (release); 
-            this->retrig (retrigMode); 
+            this->sustain (sustain); this->release (release);
+            this->retrig (retrigMode);
         }
-        void setSRate (Audio sRate)  { sr = sRate; }
-        void attack (Audio seconds) { a = seconds; }
-        void hold (Audio seconds) { h = seconds;  }
-        void decay (Audio seconds) { d = clipMin (seconds, Audio(1E-012)); }
-        void sustain (Audio zeroTo1) { s = clipMinMax (zeroTo1, ZERO_A); }
-        void release (Audio seconds) { r = clipMin (seconds, Audio (1E-012)); }
-        void retrig (int zeroTo3) { rm = clipMinMax(zeroTo3, 0, 3); }
-        Audio on (){}
-        Audio off (){}
-
-    private:
-        Audio a1, a2, a3;
+        void setSRate (Audio sRate)  { sr = sRate; } // set sample rate
+        void attack (Audio seconds)                  // set attack in seconds
+        {   a = seconds;
+            this->setOn();
+        } 
+        void hold (Audio seconds)                    // set hold time in seconds
+        {   h = seconds;
+            this->setOn();
+        }  
+        void decay (Audio seconds)                   // set decay in seconds
+        {   d = clipMin (seconds, Audio(1E-012));
+            if (sI == 1) { this->delaySustain(); }
+        }
+        void sustain (Audio zeroTo1)                // set sustain level 0...1
+        {   s = clipMinMax (zeroTo1, ZERO_A);
+            if (sI == 1) { this->delaySustain(); }
+        }
+        void release (Audio seconds)               // set release in seconds
+        {   r = clipMin (seconds, Audio (1E-012));
+            if (sI == 0) { this->setOff(); }
+        }                     // set retrigger mode:      0 = analog retrigger
+        void retrig (int zeroTo3)                      // 1 = analog legato
+        {   rm = clipMinMax (zeroTo3, 0, 3);           // 2 = digital retrigger
+        }                                              // 3 = digital legato
+        Audio noteOn()
+        {   onV = vGate;
+            if (  ((rm & 1) == 0)  ||  (sI == 0)   )
+            {   a = vGate;
+                if (rm & 2) { z = 0.f; } // this might have to happen later
+                this->setOn();
+            }
+            /*___advance location____*/
+            if ( (up + incr) >= 1)
+            {   if (++upI > 1 && s == 1)
+                delaySustain();
+            }
+            /*___process output____*/
+            output = vGate * coef + adder;
+            z = output;
+            return output;
+        }
+        Audio noteOff()
+        {   offV = vGate;
+            this->setOff();
+            
+            /*___process output____*/
+            output = vGate * coef + adder;
+            z = output;
+            return output;
+        }
+        void setOn()
+        {   up = 0.f; upI = 0; vGate = onV;
+            tau  = a1 = (1 - z / onV) * a;
+            incr = 1 / (a1 + h) * sr;
+            this->updateCircuit();
+        }
+        void setOff()
+        {   vGate = 0;
+            tau = r;
+            sI = 0;
+            updateCircuit();
+        }
         
-        Audio rcEnv()
-        {   a1 = pow ( 2.71828f, 1 / tau * sr * -5.f );
-            a2 = vin * (1 - a1);
-            a3 = a1 * z;
-            z = a2 + a3;
-            return z;
-        }
-        void gate(Audio GVel)
-        {   if (GVel)
-            {   if (  ((rm & 1) == 0)  ||  (sI == 0)   )
-                vin = GVel;
-                this->attackHold();
-            }else { this->release(); }
-        }
-        void attackHold()
-        {   ssA = 0.f; ssI = 0;
-            tau = (1 - z / vin) * a;
-            incr = 1 / ((tau + h) * sr)
-            
-        }
-        void delaySustain()
-        {
-            
-        }
-        void release()
-        {
-            
-        }
     };
 } // end namespace jATK
 #endif  // AHDSR_H_INCLUDED
