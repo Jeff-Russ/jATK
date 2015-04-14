@@ -5,15 +5,15 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include <iostream>
+#include "test.h"
 
-using namespace std;
+
 //==============================================================================
 int main (int argc, char* argv[])
 {
 
     // ..your code goes here!
-    
-    cout << "PISS";
+    testNoise();
 
-    return 0;
+    return 0; 
 }
