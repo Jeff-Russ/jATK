@@ -25,7 +25,6 @@ namespace jATK
         {   temp = this->();
             if (temp > 0) return 0.5;
             else          return -0.5;
-            
         }
         Audio seed (int seed) { internal = seed; }
     };

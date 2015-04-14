@@ -11,6 +11,15 @@
     <Filter Include="jATK-tester\Source\jATK">
       <UniqueIdentifier>{47285889-7857-E2B0-BECF-1DD99D67D8E6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="jATK-tester\Source\jATK\Defined but not tested">
+      <UniqueIdentifier>{F9D46106-9A8D-9764-2460-D5BD5B68E3C5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jATK-tester\Source\jATK\Defined but not tested\sources">
+      <UniqueIdentifier>{41512809-B2E1-93EC-C772-1FED0D527EE9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jATK-tester\Source\jATK\Defined but not tested\headers">
+      <UniqueIdentifier>{3B540218-6AAC-AE26-5ADD-18588F6DB59D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="jATK-tester\Source\jATK\sources">
       <UniqueIdentifier>{0C6B9D39-D680-5BD8-E55A-EF90A530D0FC}</UniqueIdentifier>
     </Filter>
@@ -322,13 +331,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\jATK\Phase.cpp">
+      <Filter>jATK-tester\Source\jATK\Defined but not tested\sources</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\jATK\CAArray.cpp">
-      <Filter>jATK-tester\Source\jATK\sources</Filter>
+      <Filter>jATK-tester\Source\jATK\Defined but not tested\sources</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\jATK\DelayTaps.cpp">
-      <Filter>jATK-tester\Source\jATK\sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\jATK\Phase.cpp">
       <Filter>jATK-tester\Source\jATK\sources</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Testing\Main.cpp">
@@ -1566,25 +1575,31 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\jATK\AHDSR.h">
-      <Filter>jATK-tester\Source\jATK\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\jATK\PhaseDistort.h">
-      <Filter>jATK-tester\Source\jATK\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\jATK\SimpleADSR.h">
-      <Filter>jATK-tester\Source\jATK\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\jATK\Shaper.h">
-      <Filter>jATK-tester\Source\jATK\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\jATK\EnvelopeFollower.h">
-      <Filter>jATK-tester\Source\jATK\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\jATK\Noise.h">
-      <Filter>jATK-tester\Source\jATK\include</Filter>
+    <ClInclude Include="..\..\Source\jATK\helpers.h">
+      <Filter>jATK-tester\Source\jATK\Defined but not tested\headers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\jATK\DCFilter.h">
+      <Filter>jATK-tester\Source\jATK\Defined but not tested\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\jATK\Shapers.h">
+      <Filter>jATK-tester\Source\jATK\Defined but not tested\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\jATK\Noise.h">
+      <Filter>jATK-tester\Source\jATK\Defined but not tested\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\jATK\Phase.h">
+      <Filter>jATK-tester\Source\jATK\Defined but not tested\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\jATK\CAArray.h">
+      <Filter>jATK-tester\Source\jATK\Defined but not tested\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\jATK\EnvelopeFollower.h">
+      <Filter>jATK-tester\Source\jATK\Defined but not tested\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\jATK\AHDSR.h">
+      <Filter>jATK-tester\Source\jATK\Defined but not tested\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\jATK\SimpleADSR.h">
       <Filter>jATK-tester\Source\jATK\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\jATK\Slew.h">
@@ -1597,15 +1612,6 @@
       <Filter>jATK-tester\Source\jATK\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\jATK\Filters.h">
-      <Filter>jATK-tester\Source\jATK\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\jATK\CAArray.h">
-      <Filter>jATK-tester\Source\jATK\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\jATK\helpers.h">
-      <Filter>jATK-tester\Source\jATK\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\jATK\Phase.h">
       <Filter>jATK-tester\Source\jATK\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\jATK\DelayTaps.h">

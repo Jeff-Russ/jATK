@@ -131,9 +131,9 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\jATK\Phase.cpp"/>
     <ClCompile Include="..\..\Source\jATK\CAArray.cpp"/>
     <ClCompile Include="..\..\Source\jATK\DelayTaps.cpp"/>
-    <ClCompile Include="..\..\Source\jATK\Phase.cpp"/>
     <ClCompile Include="..\..\Source\Testing\Main.cpp"/>
     <ClCompile Include="..\..\Source\Testing\MainComponent.cpp"/>
     <ClCompile Include="..\..\..\..\..\..\usr\include\juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
@@ -1260,20 +1260,19 @@
     <ClCompile Include="..\..\..\..\..\..\usr\include\juce\modules\juce_video\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\jATK\AHDSR.h"/>
-    <ClInclude Include="..\..\Source\jATK\PhaseDistort.h"/>
-    <ClInclude Include="..\..\Source\jATK\SimpleADSR.h"/>
-    <ClInclude Include="..\..\Source\jATK\Shaper.h"/>
-    <ClInclude Include="..\..\Source\jATK\EnvelopeFollower.h"/>
-    <ClInclude Include="..\..\Source\jATK\Noise.h"/>
+    <ClInclude Include="..\..\Source\jATK\helpers.h"/>
     <ClInclude Include="..\..\Source\jATK\DCFilter.h"/>
+    <ClInclude Include="..\..\Source\jATK\Shapers.h"/>
+    <ClInclude Include="..\..\Source\jATK\Noise.h"/>
+    <ClInclude Include="..\..\Source\jATK\Phase.h"/>
+    <ClInclude Include="..\..\Source\jATK\CAArray.h"/>
+    <ClInclude Include="..\..\Source\jATK\EnvelopeFollower.h"/>
+    <ClInclude Include="..\..\Source\jATK\AHDSR.h"/>
+    <ClInclude Include="..\..\Source\jATK\SimpleADSR.h"/>
     <ClInclude Include="..\..\Source\jATK\Slew.h"/>
     <ClInclude Include="..\..\Source\jATK\MidiProcessor.h"/>
     <ClInclude Include="..\..\Source\jATK\CALattice.h"/>
     <ClInclude Include="..\..\Source\jATK\Filters.h"/>
-    <ClInclude Include="..\..\Source\jATK\CAArray.h"/>
-    <ClInclude Include="..\..\Source\jATK\helpers.h"/>
-    <ClInclude Include="..\..\Source\jATK\Phase.h"/>
     <ClInclude Include="..\..\Source\jATK\DelayTaps.h"/>
     <ClInclude Include="..\..\..\..\..\..\usr\include\juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\..\..\..\..\usr\include\juce\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
