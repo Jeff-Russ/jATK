@@ -8,55 +8,57 @@
 #define SLEW_H_INCLUDED
 
 #include <cmath>
+#include "helpers.h"
 
 namespace jATK
 {
     class Slew
     { public:
-        Slew (Audio subt = 0.001,Audio add = 0.001) { this->set (subt, add)        }
-        void set (Audio subt, Audio add)            { sub = subt; this->add = add; }
-        Audio operator() (Audio in)
-        {   if (in != prevIn)       // test1: duplicate filter
-            {   if (in != internal) // test2: are not at goal and need to ramp?
-                {   // test2 shows we are not at our goal:
-                    if ((in - out) > 0) { internal += add; } // we need to ramp up
-                    else                { internal -= sub; } // we need to ramp down
-                    out = internal;                          // set result to out var
-                }else { out = in: } //test2 failed. we are at our goal
-            }else out = in;  // test1 found duplicate
-            return out;
-        }
-      private: Audio add, sub, internal = 0, prevIn = 0.0, out = 0.0;
-    };
-
-    class SlewLimiter
-    { public:
-        SlewLimiter (Audio down = 80, Audio up = 80, Audio sRate = 44100)
-        {   sr = sRate;
-            this->set(down, up);
-            Slew slew(sub, add)
-        }
-        void set (Audio down, Audio up) { dn = down; this->up = up; calc(); }
-        void set (Audio downAndUp)      { this->set(downAndUp, downAndUp)   }
-        void setSRate (Audio sRate)     { sr = sRate; calc();               }
-        Audio operator()(Audio in)      { return slew (in);                 }
+        Slew (Audio init, Audio adder = 0.001, Audio subt = 0.001)
+            : add(adder),sub(subt), internal(init), prevIn(init), output(init){}
+        void reset (Audio init) { output = prevIn = internal = init; }
+        void set (Audio adder, Audio subt) {add = adder; sub = subt; }
         
-      private:
-        Audio dn, up, sr, add, sub;
-        Slew slew;
-        void calc()
-        {   sub = down / sr;
-            add = up / sr;
-            slew(sub, add);
+        Audio operator()(Audio input)
+        {   if (input != output)
+            {
+                // determine direction:
+                if (input != prevIn) // a new input value is the only time we
+                {   diff = input - internal;  // want to find difference and
+                    if (diff > 0) { goUp = true; }  // determine direction.
+                } // else we will use the current direction
+                
+                if (goUp)   // process rising output
+                {   if (internal < input) { output = internal = internal + add; }
+                    else { output = internal = input; } // went too far. set to goal.
+                }else       // process falling output
+                {   if (internal > input) { output = internal = internal - sub; }
+                    else { output = internal = input; } // went too far. set to goal.
+                }
+            } // else we will use the previous output
+            return output;
         }
+      protected: Audio add, sub;
+      private:   Audio diff, internal, prevIn, output;  bool goUp;
     };
 
-    class PeakDetector // my version
-    {   SlewLimiter slewLimiter;
-      public:
-        PeakDetector(Audio sRate)  { SlewLimiter slewLimiter (1500, 20, sRate); }
-        Audio operator()(Audio in) { return slewLimiter (fabs (in));            }
+    class SlewLimiter : public Slew
+    { public:
+        SlewLimiter (Audio sRate, Audio initValue) : Slew(initValue) { msPerSample = 1000 / sRate; }
+        void setSRate (Audio sRate) { msPerSample = 1000 / sRate; }
+        void set (Audio upMsPer1, Audio dnMsPer1)
+        {   up = upMsPer1; dn = dnMsPer1; this->calc(); }
+      private:
+        void calc() { Slew::add = msPerSample / up; Slew::sub = msPerSample / dn; }
+        Audio msPerSample, up, dn;
     };
+
+    class PeakDetector : public SlewLimiter
+    { public:
+        PeakDetector (Audio sRate) : SlewLimiter(sRate, 0.0) { SlewLimiter::set (0.6f, 50); }
+        Audio operator()(Audio input) { return SlewLimiter::operator()( fabs(input) ); }
+    };
+
 } // end namespace jATK
 
 #endif  // SLEW_H_INCLUDED
