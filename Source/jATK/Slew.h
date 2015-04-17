@@ -27,6 +27,8 @@ namespace jATK
             } // else we will use the previous output
             return output;
         }
+        bool notArrived() { return input != output; }
+        
       protected:
         void calc (Audio input)
         {   diff = input - internal;  // want to find difference and
