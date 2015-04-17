@@ -1608,7 +1608,7 @@
     <ClInclude Include="..\..\Source\jATK\Slew.h">
       <Filter>jATK-tester\Source\jATK\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\jATK\MidiProcessor.h">
+    <ClInclude Include="..\..\Source\jATK\MidiProcessing.h">
       <Filter>jATK-tester\Source\jATK\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\jATK\CALattice.h">

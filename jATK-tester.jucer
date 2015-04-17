@@ -31,7 +31,8 @@
           <FILE id="QWXHwG" name="MidiRate.h" compile="0" resource="0" file="Source/jATK/MidiRate.h"/>
           <FILE id="NVU7KH" name="SimpleADSR.h" compile="0" resource="0" file="Source/jATK/SimpleADSR.h"/>
           <FILE id="JC69pC" name="Slew.h" compile="0" resource="0" file="Source/jATK/Slew.h"/>
-          <FILE id="uiwF60" name="MidiProcessor.h" compile="0" resource="0" file="Source/jATK/MidiProcessor.h"/>
+          <FILE id="uiwF60" name="MidiProcessing.h" compile="0" resource="0"
+                file="Source/jATK/MidiProcessing.h"/>
           <FILE id="AOkCpL" name="CALattice.h" compile="0" resource="0" file="Source/jATK/CALattice.h"/>
           <FILE id="lUD7oF" name="Filters.h" compile="0" resource="0" file="Source/jATK/Filters.h"/>
           <FILE id="coLhCj" name="DelayTaps.h" compile="0" resource="0" file="Source/jATK/DelayTaps.h"/>
