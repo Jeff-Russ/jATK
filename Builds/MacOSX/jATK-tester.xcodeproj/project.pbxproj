@@ -19,7 +19,7 @@
 		618435B2218137D01F64F218 /* juce_gui_basics.mm in Sources */ = {isa = PBXBuildFile; fileRef = E92FF0BA59447B65EEF89F85 /* juce_gui_basics.mm */; };
 		61AE09F417E6D65744A5DF45 /* juce_opengl.mm in Sources */ = {isa = PBXBuildFile; fileRef = CCF60EC7AFF0C530601762B2 /* juce_opengl.mm */; };
 		63A146AA974BA214BBBE6D81 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFED74A4FC592AB225976AA /* CoreMIDI.framework */; };
-		70A4B3541ADF520A00CEE953 /* Slew.h in Sources */ = {isa = PBXBuildFile; fileRef = 619DC680E5A7CB90260BAE4A /* Slew.h */; };
+		707994841AE0AC3C00E4A931 /* MidiRate.h in Sources */ = {isa = PBXBuildFile; fileRef = A3A99636C73627CA80DDD318 /* MidiRate.h */; };
 		75192BE639691000338A8B0A /* CAArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE95B34EBA44F1CED105F03E /* CAArray.cpp */; };
 		7B88A003B29B1E4764483090 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719E78B78498C0709A604C77 /* OpenGL.framework */; };
 		7E9D15AE29C6619C21CF421C /* juce_core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 728A5EAA1052FA308BE365CA /* juce_core.mm */; };
@@ -613,6 +613,7 @@
 		A278595527049640366478F3 /* juce_cryptography.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_cryptography.h; path = ../../../../../../usr/include/juce/modules/juce_cryptography/juce_cryptography.h; sourceTree = SOURCE_ROOT; };
 		A3334DF7B931B590AB4AFDB8 /* juce_String.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_String.h; path = ../../../../../../usr/include/juce/modules/juce_core/text/juce_String.h; sourceTree = SOURCE_ROOT; };
 		A3A726E22DA734AE27414822 /* juce_MouseInactivityDetector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_MouseInactivityDetector.cpp; path = ../../../../../../usr/include/juce/modules/juce_gui_basics/mouse/juce_MouseInactivityDetector.cpp; sourceTree = SOURCE_ROOT; };
+		A3A99636C73627CA80DDD318 /* MidiRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MidiRate.h; path = ../../Source/jATK/MidiRate.h; sourceTree = SOURCE_ROOT; };
 		A3B47DEEB886588DE23CB38F /* juce_win32_Network.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_win32_Network.cpp; path = ../../../../../../usr/include/juce/modules/juce_core/native/juce_win32_Network.cpp; sourceTree = SOURCE_ROOT; };
 		A3C7167021B8C1DE849DEFF2 /* juce_ArrayAllocationBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ArrayAllocationBase.h; path = ../../../../../../usr/include/juce/modules/juce_core/containers/juce_ArrayAllocationBase.h; sourceTree = SOURCE_ROOT; };
 		A3DD1C86F055B25A71742884 /* juce_LeakedObjectDetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_LeakedObjectDetector.h; path = ../../../../../../usr/include/juce/modules/juce_core/memory/juce_LeakedObjectDetector.h; sourceTree = SOURCE_ROOT; };
@@ -1553,6 +1554,7 @@
 		61A247B59CDE3814C308BD0B /* include */ = {
 			isa = PBXGroup;
 			children = (
+				A3A99636C73627CA80DDD318 /* MidiRate.h */,
 				EB04D885FD39B76F3FFDF08E /* SimpleADSR.h */,
 				619DC680E5A7CB90260BAE4A /* Slew.h */,
 				B29BC968567FD97D3806D0D8 /* MidiProcessor.h */,
@@ -2883,7 +2885,7 @@
 				9E173EF05DE99AE14CEF5573 /* juce_gui_extra.mm in Sources */,
 				61AE09F417E6D65744A5DF45 /* juce_opengl.mm in Sources */,
 				0000FD3B484B06413ECD3ACF /* juce_video.mm in Sources */,
-				70A4B3541ADF520A00CEE953 /* Slew.h in Sources */,
+				707994841AE0AC3C00E4A931 /* MidiRate.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
