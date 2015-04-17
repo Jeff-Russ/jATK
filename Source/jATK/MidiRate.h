@@ -14,17 +14,16 @@ namespace jATK
     class MidiRate
     { public:
         MidiRate (Audio sRate, int bufferSize ) : sr(sRate), bSize(bufferSize)
-        { this->calc(); }
+        { mBufsize = 1000; this->calc(); }
         
-        void setSRate (Audio sRate) { sr = sRate; this->calc(); }
-        void setBufferSize (int bufferSize) { bSize = bufferSize; this->calc();}
-        void setMidiRate (int midiRate) { mRate = midiRate; this->calc(); }
-        int operator()() { return mBufSize; }
+        void setSRate      (Audio sRate)    { sr = sRate;        this->calc(); }
+        void setBufferSize (int bufferSize) { bSize = bufferSize;this->calc(); }
+        void setMidiRate   (int midiRate)   { mRate = midiRate;  this->calc(); }
+        int operator() ( )                  { return mBufSize;                 }
         
       private:
         void calc() { mBufSize = mRate / sr * bSize; }
         Audio sr; int bSize, mRate, mBufSize;
- 
     };
 
 } // end namespace jATK
