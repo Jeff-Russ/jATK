@@ -21,44 +21,69 @@ namespace jATK
         
         Audio operator()(Audio input)
         {   if (input != output)
-            {
-                // determine direction only upon new input value:
+            {   // determine direction only upon new input value:
                 if (input != prevIn) { this->calc(input); }
-                
-                if (goUp)   // process rising output
-                {   if (internal < input) { output = internal = internal + add; }
-                    else { output = internal = input; } // went too far. set to goal.
-                }else       // process falling output
-                {   if (internal > input) { output = internal = internal - sub; }
-                    else { output = internal = input; } // went too far. set to goal.
-            }
-        } // else we will use the previous output
+                this->process(input); // process input
+            } // else we will use the previous output
             return output;
         }
-    protected:
+      protected:
         void calc (Audio input)
         {   diff = input - internal;  // want to find difference and
             if (diff > 0) { goUp = true; }  // determine direction.
         }
+        void process(Audio input)
+        {   if (goUp)   // process rising output
+            {   if (internal < input) { output = internal = internal + add; }
+                else { output = internal = input; } // went too far. set to goal.
+            }else       // process falling output
+            {   if (internal > input) { output = internal = internal - sub; }
+                else { output = internal = input; } // went too far. set to goal.
+            }
+        }
         Audio add, sub, diff, internal; bool goUp;
-    private:   Audio prevIn, output;
+      protected:
+        Audio prevIn, output;
+    };
+    
+    class NonlinearRamp : public Slew
+    { public:
+        NonlinearRamp (Audio sRate, Audio initValue) : Slew(initValue)
+        { msPerSample = 1000 / sRate; }
+        void setSRate (Audio sRate) { msPerSample = 1000 / sRate; }
+        void set (Audio upMs, Audio dnMs)
+        {   upCoef = msPerSample * upMs; dnCoef = msPerSample * dnMs;  }
+        Audio operator()(Audio input)
+        {   if (input != Slew::output)
+            {   // determine direction only upon new input value:
+                if (input != Slew::prevIn)
+                { Slew::calc(input); }
+                Slew::process(input); // process input
+                } // else we will use the previous output
+                return Slew::output;
+        }
+      private:
+        
+        Audio msPerSample, upCoef, dnCoef;
     };
     
     class SlewLimiter : public Slew
     { public:
-        SlewLimiter (Audio sRate, Audio initValue) : Slew(initValue) { msPerSample = 1000 / sRate; }
+        SlewLimiter (Audio sRate, Audio initValue) : Slew(initValue)
+        { msPerSample = 1000 / sRate; }
         void setSRate (Audio sRate) { msPerSample = 1000 / sRate; }
         void set (Audio upMsPer1, Audio dnMsPer1)
         {   this->addsub (upMsPer1, dnMsPer1); }
-    protected:
-        void addsub(Audio upMsPer1, Audio dnMsPer1) { Slew::add = msPerSample / upMsPer1; Slew::sub = msPerSample / dnMsPer1; }
+      protected:
+        void addsub(Audio upMsPer1, Audio dnMsPer1)
+        { Slew::add = msPerSample / upMsPer1; Slew::sub = msPerSample / dnMsPer1;}
         Audio msPerSample;
     };
     
     class LinearRamp : public SlewLimiter
     { public:
-        LinearRamp (Audio sRate, Audio initValue) : SlewLimiter (sRate, initValue) {}
-        
+        LinearRamp (Audio sRate, Audio initValue) : SlewLimiter (sRate, initValue)
+        {}
         void set (Audio upMs, Audio dnMs) { this->upMs = upMs; this->dnMs = dnMs; }
         void calc (Audio input)
         {   diff = input - internal;
