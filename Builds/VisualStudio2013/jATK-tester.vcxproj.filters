@@ -1599,9 +1599,6 @@
     <ClInclude Include="..\..\Source\jATK\AHDSR.h">
       <Filter>jATK-tester\Source\jATK\Defined but not tested\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\jATK\MidiRate.h">
-      <Filter>jATK-tester\Source\jATK\include</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\jATK\SimpleADSR.h">
       <Filter>jATK-tester\Source\jATK\include</Filter>
     </ClInclude>

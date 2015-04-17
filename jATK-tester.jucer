@@ -28,7 +28,6 @@
           <FILE id="uhb0Ng" name="DelayTaps.cpp" compile="1" resource="0" file="Source/jATK/DelayTaps.cpp"/>
         </GROUP>
         <GROUP id="{932B9368-2C4D-68FB-719D-D5BF2B44FEC0}" name="include">
-          <FILE id="QWXHwG" name="MidiRate.h" compile="0" resource="0" file="Source/jATK/MidiRate.h"/>
           <FILE id="NVU7KH" name="SimpleADSR.h" compile="0" resource="0" file="Source/jATK/SimpleADSR.h"/>
           <FILE id="JC69pC" name="Slew.h" compile="0" resource="0" file="Source/jATK/Slew.h"/>
           <FILE id="uiwF60" name="MidiProcessing.h" compile="0" resource="0"

@@ -1268,7 +1268,6 @@
     <ClInclude Include="..\..\Source\jATK\CAArray.h"/>
     <ClInclude Include="..\..\Source\jATK\EnvelopeFollower.h"/>
     <ClInclude Include="..\..\Source\jATK\AHDSR.h"/>
-    <ClInclude Include="..\..\Source\jATK\MidiRate.h"/>
     <ClInclude Include="..\..\Source\jATK\SimpleADSR.h"/>
     <ClInclude Include="..\..\Source\jATK\Slew.h"/>
     <ClInclude Include="..\..\Source\jATK\MidiProcessing.h"/>

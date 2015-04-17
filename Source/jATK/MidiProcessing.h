@@ -65,7 +65,8 @@ namespace jATK
         void setSRate      (Audio sRate)    { sr = sRate;        this->calc(); }
         void setBufferSize (int bufferSize) { bSize = bufferSize;this->calc(); }
         void setMidiRate   (int midiRate)   { mRate = midiRate;  this->calc(); }
-        int operator() ( )                  { return mBufSize;                 }
+        int  getMidiBufferSize()            { return mBufSize;                 }
+        //        int  getSamplesPerMidiMessage()     {
         
     private:
         void calc() { mBufSize = mRate / sr * bSize; }
