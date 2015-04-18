@@ -16,11 +16,14 @@ namespace jATK
     { public:
         Slew (Audio init, Audio adder = 0.001, Audio subt = 0.001)
         : add(adder),sub(subt), internal(init), prevIn(init), output(init){}
+        
         void reset (Audio init) { output = prevIn = internal = init; }
+        
         void set (Audio adder, Audio subt) {add = adder; sub = subt; }
         
         Audio operator()(Audio input)
-        {   if (input != output)
+        {   this->input = input;
+            if (input != output)
             {   // determine direction only upon new input value:
                 if (input != prevIn) { this->calc(input); }
                 this->process(input); // process input
@@ -45,33 +48,12 @@ namespace jATK
         }
         Audio add, sub, diff, internal; bool goUp;
       protected:
-        Audio prevIn, output;
-    };
-    
-    class NonlinearRamp : public Slew
-    { public:
-        NonlinearRamp (Audio sRate, Audio initValue) : Slew(initValue)
-        { msPerSample = 1000 / sRate; }
-        void setSRate (Audio sRate) { msPerSample = 1000 / sRate; }
-        void set (Audio upMs, Audio dnMs)
-        {   upCoef = msPerSample * upMs; dnCoef = msPerSample * dnMs;  }
-        Audio operator()(Audio input)
-        {   if (input != Slew::output)
-            {   // determine direction only upon new input value:
-                if (input != Slew::prevIn)
-                { Slew::calc(input); }
-                Slew::process(input); // process input
-                } // else we will use the previous output
-                return Slew::output;
-        }
-      private:
-        
-        Audio msPerSample, upCoef, dnCoef;
+        Audio prevIn, output, input;
     };
     
     class SlewLimiter : public Slew
     { public:
-        SlewLimiter (Audio sRate, Audio initValue) : Slew(initValue)
+        SlewLimiter (Audio sRate, Audio initValue = 0.f) : Slew(initValue)
         { msPerSample = 1000 / sRate; }
         void setSRate (Audio sRate) { msPerSample = 1000 / sRate; }
         void set (Audio upMsPer1, Audio dnMsPer1)
@@ -102,6 +84,28 @@ namespace jATK
         PeakDetector (Audio sRate) : SlewLimiter(sRate, 0.0) { SlewLimiter::set (0.6f, 50); }
         Audio operator()(Audio input) { return SlewLimiter::operator()( fabs(input) ); }
     };
+    
+    
+    //    class NonlinearRamp : public Slew
+    //    { public:
+    //        NonlinearRamp (Audio sRate, Audio initValue) : Slew(initValue)
+    //        { msPerSample = 1000 / sRate; }
+    //        void setSRate (Audio sRate) { msPerSample = 1000 / sRate; }
+    //        void set (Audio upMs, Audio dnMs)
+    //        {   upCoef = msPerSample * upMs; dnCoef = msPerSample * dnMs;  }
+    //        Audio operator()(Audio input)
+    //        {   if (input != Slew::output)
+    //            {   // determine direction only upon new input value:
+    //                if (input != Slew::prevIn)
+    //                { Slew::calc(input); }
+    //                Slew::process(input); // process input
+    //                } // else we will use the previous output
+    //                return Slew::output;
+    //        }
+    //      private:
+    //        
+    //        Audio msPerSample, upCoef, dnCoef;
+    //    };
     
 } // end namespace jATK
 

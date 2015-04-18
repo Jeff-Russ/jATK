@@ -9,24 +9,37 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "helpers.h"
+#include "Slew.h"
 
 namespace jATK
 {
     class MidiNoteProcessor
     { private:
-        int outNote,sample_number, activeNote = -1;
+        LinearRamp ramp;
+        int bufSize, num_of_events,sample_number, next_sample, activeNote = -1;
         uint8 outVelo = 0;
-        MidiMessage midi_message, midi_insert;
-        void glide (int startNote, int endNote)
+        double sr;
+        MidiMessage midi_message, next_message;
+        void glide (int startNote, int endNote, int nextSample)
         {   // add slew limiter to pitch bend
         }
         void glide (int zero)
         {   // clean up when done
         }
     public:
+        MidiNoteProcessor (double sRate, int bufferSize) : bufSize(bufferSize),sr(sRate)
+        {   LinearRamp ramp ( Audio(sr), 0.f); }
         void MonolegatoGlide(MidiBuffer& midiMessages)
         {
+            sample_number = 0;
+            
             MidiBuffer::Iterator midi_buffer_iterator (midiMessages);
+            num_of_events = midiMessages.getNumEvents();
+            
+            // so we know where to stop inserting new events:
+            MidiBuffer::Iterator midi_iterator_next (midiMessages);
+            midi_iterator_next.getNextEvent (next_message, next_sample);
+            
             while (midi_buffer_iterator.getNextEvent (midi_message,sample_number))
             {
                 /*__________________ NOTE ON _________________________________*/
@@ -35,7 +48,7 @@ namespace jATK
                     if (activeNote == -1)      // all is clear; new note w/gate
                         activeNote = n;        // set our flag
                     else if (n != activeNote){ // dissimilar note overlap (legato)
-                        glide (activeNote, n); // process glide
+                        glide (activeNote, n, next_sample - sample_number); // process glide
                         midiMessages.clear (sample_number, 1); // block note
                         /* the receiving device will still thinks it's playing
                          activeNote so we have to make sure to kill it eventually*/
@@ -52,6 +65,9 @@ namespace jATK
                            that never made it's way out anyway. clear it.*/
                         midiMessages.clear (sample_number, 1); // it's irrelevant
                 }
+                midi_iterator_next.getNextEvent (next_message, next_sample);
+                
+
             }
         }
         
