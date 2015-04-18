@@ -4,6 +4,8 @@
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
  =============================================================================*/
 
+///  THIS FILE IS NOT NEARLY COMPLETE ========================================
+
 
 #ifndef AHDSR_H_INCLUDED
 #define AHDSR_H_INCLUDED

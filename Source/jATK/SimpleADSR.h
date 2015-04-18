@@ -5,6 +5,8 @@
  based on a Reaktor Core module by salamanderanagram
  =============================================================================*/
 
+///  THIS FILE IS NOT NEARLY COMPLETE =========================================
+
 #ifndef SIMPLEADSR_H_INCLUDED
 #define SIMPLEADSR_H_INCLUDED
 

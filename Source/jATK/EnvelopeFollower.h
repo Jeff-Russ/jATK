@@ -4,6 +4,8 @@
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
  =============================================================================*/
 
+///  this file is nearly complete but needs separate implementation and testing
+
 #ifndef ENVELOPEFOLLOWER_H_INCLUDED
 #define ENVELOPEFOLLOWER_H_INCLUDED
 

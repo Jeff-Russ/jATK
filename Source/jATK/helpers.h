@@ -3,6 +3,9 @@
  Created: 8 Mar 2015 2:22:45pm
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
  =============================================================================*/
+
+///  this file is nearly complete but needs testing ===========================
+
 #ifndef HELPERS_H_INCLUDED
 #define HELPERS_H_INCLUDED
 

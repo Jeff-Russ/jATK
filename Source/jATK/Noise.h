@@ -4,6 +4,8 @@
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
  =============================================================================*/
 
+/// THIS FILE IS NOT COMPLETE ================================================
+
 #ifndef NOISE_H_INCLUDED
 #define NOISE_H_INCLUDED
 

@@ -4,6 +4,7 @@
   Author:  Jeff-Russ     https://github.com/Jeff-Russ
  =============================================================================*/
 
+/// this file is nearly complete but needs separate implementation and testing
 
 #ifndef DCFILTER_H_INCLUDED
 #define DCFILTER_H_INCLUDED

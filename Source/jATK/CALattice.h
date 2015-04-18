@@ -17,6 +17,8 @@
                           CombFilter
  =============================================================================*/
 
+///  THIS FILE IS NOT NEARLY COMPLETE =========================================
+
 #ifndef CALATTICE_H_INCLUDED
 #define CALATTICE_H_INCLUDED
 

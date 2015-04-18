@@ -3,6 +3,9 @@
  Created: 20 Feb 2015 12:24:49pm
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
  =============================================================================*/
+
+/// this file is nearly complete but needs testing ============================
+
 #ifndef PHASE_H_INCLUDED
 #define PHASE_H_INCLUDED
 

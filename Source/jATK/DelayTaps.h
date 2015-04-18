@@ -4,6 +4,8 @@
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
  =============================================================================*/
 
+/// THIS FILE IS NOT NEARLY COMPLETE =========================================
+
 #ifndef DELAYTAPS_H_INCLUDED
 #define DELAYTAPS_H_INCLUDED
 

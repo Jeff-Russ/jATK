@@ -17,6 +17,8 @@
                           CombFilter
  =============================================================================*/
 
+///  this file is nearly complete but needs testing ==========================
+
 #ifndef CAARRAY_H_INCLUDED
 #define CAARRAY_H_INCLUDED
 
