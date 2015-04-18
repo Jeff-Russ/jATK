@@ -113,5 +113,85 @@ namespace jATK
     {   if (phase < knee) return (1 / knee) * phase * 0.5f;
          else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
     }
+    
+    
+    ///  template classes: =================================================
+    //-- Slew --------------------------------------------------------------
+    template <class SNum> class Slew
+    { public:
+        Slew (SNum init, SNum adder = 0.001, SNum subt = 0.001)
+        : add(adder),sub(subt), internal(init), prevIn(init), output(init){}
+        
+        void reset (SNum init) { output = prevIn = internal = init; }
+        
+        void set (SNum adder, SNum subt) {add = adder; sub = subt; }
+        
+        SNum operator()(SNum input)
+        {   this->input = input;
+            if (input != output)
+            {   // determine direction only upon new input value:
+                if (input != prevIn) { this->calc(input); }
+                this->process(input); // process input
+            } // else we will use the previous output
+            return output;
+        }
+        bool notArrived() { return input != output; }
+        
+    protected:
+        void calc (SNum input)
+        {   diff = input - internal;  // want to find difference and
+            if (diff > 0) { goUp = true; }  // determine direction.
+        }
+        void process(SNum input)
+        {   if (goUp)   // process rising output
+        {   if (internal < input) { output = internal = internal + add; }
+        else { output = internal = input; } // went too far. set to goal.
+        }else       // process falling output
+        {   if (internal > input) { output = internal = internal - sub; }
+        else { output = internal = input; } // went too far. set to goal.
+        }
+        }
+        SNum add, sub, diff, internal; bool goUp;
+    protected:
+        SNum prevIn, output, input;
+    };
+    //-- SlewLimiter -----------------------------------------------------------
+    template <class SNum> class SlewLimiter : public Slew<SNum>
+    { public:
+        SlewLimiter (SNum sRate, SNum initValue = 0.f) : Slew<SNum>(initValue)
+        { msPerSample = 1000 / sRate; }
+        void setSRate (SNum sRate) { msPerSample = 1000 / sRate; }
+        void set (SNum upMsPer1, SNum dnMsPer1)
+        {   this->addsub (upMsPer1, dnMsPer1); }
+    protected:
+        void addsub(SNum upMsPer1, SNum dnMsPer1)
+        {   Slew<SNum>::add = msPerSample / upMsPer1;
+            Slew<SNum>::sub = msPerSample / dnMsPer1;
+        }
+        SNum msPerSample;
+    };
+    //-- LinearRamp -----------------------------------------------------------
+    template <class SNum> class LinearRamp : public SlewLimiter<SNum>
+    { public:
+        LinearRamp (SNum sRate, SNum initValue) : SlewLimiter<SNum>(sRate,initValue)
+        {}
+        void set (SNum upMs, SNum dnMs) { this->upMs = upMs; this->dnMs = dnMs; }
+        void calc (SNum input)
+        {   diff = input - Slew<SNum>::internal;
+            if (diff > 0) { Slew<SNum>::goUp = true; }
+            Slew<SNum>::add =       diff  * SlewLimiter<SNum>::msPerSample / upMs;
+            Slew<SNum>::sub = fabsf(diff) * SlewLimiter<SNum>::msPerSample / dnMs;
+        }
+    private:
+        SNum upMs, dnMs, diff;
+    };
+    //-- PeakDetector -----------------------------------------------------------
+    template <class SNum> class PeakDetector : public SlewLimiter<SNum>
+    { public:
+        PeakDetector<SNum> (SNum sRate) : SlewLimiter<SNum>(sRate, 0.0)
+        {   SlewLimiter<SNum>::set (0.6f, 50); }
+        SNum operator()(SNum input) {return SlewLimiter<SNum>::operator() (fabs(input));}
+    };
+    //    class NonlinearRamp : public Slew
 } // end namespace jATK
 #endif  // INLINE_H_INCLUDED
