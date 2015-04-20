@@ -1,5 +1,5 @@
 /*==============================================================================
- helpers.h  :   Jeff's (Juce) SNum ToolKit
+ helpers.h  :   Jeff's (Juce) Audio ToolKit
  Created: 8 Mar 2015 2:22:45pm
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
  =============================================================================*/
@@ -27,64 +27,61 @@ namespace jATK
     const PreAudio ZERO_PA = 0.0;
     const PreAudio TWOPI_PA = 6.283185307179586476925286766559;
     const PreAudio PI_PA = 6.283185307179586476925286766559 * 0.5;
-
-    ///  template inline functions: ============================================
-    template<typename SNum> inline SNum clipMin (SNum inlet, SNum min = 0)
-    {   if (inlet >= min) { return inlet; }
-         else             { return min;   }
-    }
-    template<typename SNum> inline SNum DNC (SNum inlet) // denormal number cancel
-    {   if (! (inlet < -1.0e-8 || inlet > 1.0e-8)) return 0;
-         else return inlet;
-    }
-    template<typename SNum> inline SNum clipMax (SNum inlet, SNum max = 1)
-    {   if (inlet <= max) { return inlet; }
-         else             { return max;   }
-    }
-    template<typename SNum> inline SNum clipMinMax (SNum inlet, SNum min,
-                                                    SNum max = ONE_A)
-    {   if (inlet <= max && inlet >= min) { return inlet; }
-        else if ( inlet > max)            { return max;   }
-        else                              { return min;   }
-    }
-    template<typename SNum> inline SNum wrapMax(SNum inlet, SNum max)
-    {   if (inlet <= max) { return inlet;       }
-         else             { return inlet - max; }
-    }
-    template<typename SNum> inline SNum wrapMax (SNum inlet, SNum max,
-                                                 SNum size)
-    {   if (inlet <= max) { return inlet;        }
-         else             { return inlet - size; }
-    }
-    template<typename SNum> inline SNum wrapMin (SNum inlet, SNum size,
-                                                 SNum min = 0)
-    {   if (inlet >= min) { return inlet;        }
-         else             { return inlet + size; }
-    }
-    template<typename SNum> inline SNum hyperbolSat (SNum inlet, SNum L)
-    {   if (inlet >= 0)
-            return L - ( ( L / (L + abs(inlet)) ) * L );
-        else
-            return -(L - ( ( L / (L + abs(inlet)) ) * L ));
-    }
-    template<typename SNum> inline SNum CltrShaper (SNum inlet, SNum one,
-                                                    SNum half, SNum zero)
-    {   if (inlet >= 0.0)
-            return (one - half) * 2.0 * (inlet - 0.5) + half;
-        else
-            return (half - zero) * 2.0 * inlet + zero;
-    }
-    template<typename SNum> inline SNum dB2AF(SNum inlet)
-    {   return pow(1.12202, inlet);
-    }
-    template<typename SNum> inline SNum xFade (SNum x, SNum in0, SNum in1)
-    {   return ( (1 - x) * in0 ) + (x * in1);
-    }
-    //    template<typename T> class polySat31
     
+    ///  template inline functions: ============================================
+    template<typename SNum> inline SNum DNC_ref (SNum& inlet)
+        { if (!(inlet < -1.0e-8 || inlet > 1.0e-8)) { inlet = 0; } return inlet; }
+    template<typename SNum> inline SNum DNC (SNum inlet)
+        { if (!(inlet < -1.0e-8 || inlet > 1.0e-8)) { inlet = 0; } return inlet; }
+    /// clippers ===============================================================
+    template<typename SNum> inline SNum clipMin    (SNum inlet, SNum min = 0)
+        { if (inlet < min) { inlet = min; } return inlet; }
+    template<typename SNum> inline SNum clipMin_ref (SNum& inlet, SNum min = 0)
+        { if (inlet < min) { inlet = min; } return inlet; }
+    template<typename SNum> inline SNum clipMax     (SNum inlet, SNum max = 1)
+        { if (inlet > max) { inlet = max; } return inlet; }
+    template<typename SNum> inline SNum clipMax_ref (SNum& inlet, SNum max = 1)
+        { if (inlet > max) { inlet = max; } return inlet; }
+    template<typename SNum> inline SNum clipMinMax     (SNum inlet, SNum min, SNum max = 1)
+        { if (inlet < min) {inlet = min;} else if (inlet > max) {inlet = max;} return inlet;}
+    template<typename SNum> inline SNum clipMinMax_ref (SNum& inlet, SNum min, SNum max = 1)
+        { if (inlet < min) {inlet = min;} else if (inlet > max) {inlet = max;} return inlet;}
+    /// wrappers -  maintain a range with a modulo-like action ==================
+    template<typename SNum> inline SNum wrapMax     (SNum inlet, SNum max)
+        { if (inlet > max) { inlet = inlet - max; } return inlet; }
+    template<typename SNum> inline SNum wrapMax_ref (SNum& inlet, SNum max)
+        { if (inlet > max) { inlet = inlet - max; } return inlet; }
+    template<typename SNum> inline SNum wrapMax     (SNum inlet, SNum max, SNum size)
+        { if (inlet > max) { inlet = inlet - size; } return inlet; }
+    template<typename SNum> inline SNum wrapMax_ref (SNum& inlet, SNum max, SNum size)
+        { if (inlet > max) { inlet = inlet - size; } return inlet; }
+    template<typename SNum> inline SNum wrapMin     (SNum inlet, SNum size, SNum min = 0)
+        { if (inlet >= min) { return inlet; } else { return inlet + size; } }
+    template<typename SNum> inline SNum wrapMin_ref (SNum& inlet, SNum size, SNum min = 0)
+        { if (inlet >= min) { return inlet; } else { return inlet + size; } }
+    /// saturators  ============================================================
+    template<typename SNum> inline SNum hyperbolSat     (SNum inlet, SNum L)
+    {   if (inlet >= 0) { inlet =  L - ( ( L / (L + abs(inlet)) ) * L ); }
+        else        { inlet =  -(L - ( ( L / (L + abs(inlet)) ) * L )); } return inlet;
+    }
+    template<typename SNum> inline SNum hyperbolSat_ref (SNum& inlet, SNum L)
+    {   if (inlet >= 0) { inlet =  L - ( ( L / (L + abs(inlet)) ) * L ); }
+        else        { inlet =  -(L - ( ( L / (L + abs(inlet)) ) * L )); } return inlet;
+    }  //    add template<typename T> class polySat31
+    /// shapers usually used on control signals ====================================
+    template<typename SNum> inline SNum CltrShaper (SNum& inlet, SNum one, SNum half, SNum zero)
+    {   if (inlet >= 0.0) { inlet = (one - half) * 2.0 * (inlet - 0.5) + half; }
+        else             { inlet = (half - zero) * 2.0 * inlet + zero; } return inlet;
+    }
+    template<typename SNum> inline SNum dB2AF    (SNum inlet)
+        { inlet = pow(1.12202, inlet); return inlet; }
+    template<typename SNum> inline SNum dB2AF_ref(SNum& inlet)
+        { inlet = pow(1.12202, inlet); return inlet; }
+    template<typename SNum> inline SNum xFade (SNum x, SNum in0, SNum in1)
+        { return ( (1 - x) * in0 ) + (x * in1); }
     //== interpolation =================================================
     template<typename SNum> inline SNum interpolate4 (SNum index,
-    SNum iMinus1Sample, SNum iSample, SNum iPlus1Sample, SNum iPlus2Sample )
+                                                      SNum iMinus1Sample, SNum iSample, SNum iPlus1Sample, SNum iPlus2Sample )
     {   SNum var1 = (iPlus1Sample - iMinus1Sample) * 0.5;
         SNum var2 = iSample - iPlus1Sample;
         SNum var3 = var1 + var2;
@@ -93,7 +90,7 @@ namespace jATK
         SNum var6 = ((index * var5) - var3 - var5) * index;
         return (var6 + var1) * index + iSample;
     }
-    //== sine ==========================================================
+    //== taking input of 0 to 1 ==============================================
     template<typename SNum> inline SNum sine4 (SNum phase)
     {   float absPh = fabs(phase);
         return (phase * 68.5949) * (absPh + 0.232963) *
@@ -107,14 +104,14 @@ namespace jATK
     }
     //=======================================================================
     template<typename SNum> inline SNum wrap1 (SNum phase)
-    {   return fmodf(phase, 1.0); }
+        { return fmodf(phase, 1.0); }
     //=======================================================================
     template<typename SNum> inline SNum ratio1 (SNum phase, SNum ratio)
-    {   return fmodf((phase * ratio), 1.0); }
+        { return fmodf((phase * ratio), 1.0); }
     //=======================================================================
     template<typename SNum> inline SNum phaseDistort (SNum phase, SNum knee)
     {   if (phase < knee) return (1 / knee) * phase * 0.5f;
-         else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
+        else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
     }
     
     
@@ -198,3 +195,58 @@ namespace jATK
     //    class NonlinearRamp : public Slew
 } // end namespace jATK
 #endif  // INLINE_H_INCLUDED
+
+/*
+ #include <iostream>
+ using namespace std;
+ using namespace jATK;
+ int main(int argc, char *argv[]) {
+ 
+ int integer; double doub; float flt;
+ 
+ if (clipMin(-2) == 0) cout<<"clipMin(int)\t\t\tpassed"<<endl; else cout<<"clipMin(int)\t\t\tfailed"<<endl;
+ if (clipMin(-2.f) == 0.f) cout<<"clipMin(float)\t\t\tpassed"<<endl; else cout<<"clipMin(float)\t\t\tfailed"<<endl;
+ if (clipMin(-2.0) == 0.0) cout<<"clipMin(double)\t\t\tpassed"<<endl; else cout<<"clipMin(double)\t\t\tfailed"<<endl;
+ if (clipMin(-2, -1) == -1) cout<<"clipMin(int,-1)\t\t\tpassed"<<endl; else cout<<"clipMin(int,-1)\t\t\tfailed"<<endl;
+ if (clipMin(-2.f, -1.1f) == -1.1f) cout<<"clipMin(float,-1.1f)\tpassed"<<endl; else cout<<"clipMin(float,-1.1f)\tfailed"<<endl;
+ if (clipMin(-2.0, -1.1) == -1.1) cout<<"clipMin(double,-1.1)\tpassed"<<endl; else cout<<"clipMin(double,-1.1)\tfailed"<<endl;
+ 
+ integer = -2; clipMin_ref(integer);
+ if (integer == 0) cout<<"clipMin_ref(int)\t\tpassed"<<endl; else cout<<"clipMin_ref(int)\t\tfailed"<<endl;
+ flt = -2; clipMin_ref(flt);
+ if (flt == 0) cout<<"clipMin_ref(float)\t\tpassed"<<endl; else cout<<"clipMin_ref(float)\t\tfailed"<<endl;
+ doub = -2; clipMin_ref(doub);
+ if (doub == 0) cout<<"clipMin_ref(double)\t\tpassed"<<endl; else cout<<"clipMin_ref(double)\t\tfailed"<<endl;
+ integer = -2; clipMin_ref(integer, -1);
+ if (integer == -1) cout<<"clipMin_ref(int)\t\tpassed"<<endl; else cout<<"clipMin_ref(int)\t\tfailed"<<endl;
+ flt = -2.f; clipMin_ref(flt, -1.1f);
+ if (flt == -1.1f) cout<<"clipMin_ref(float,-1.1f)passed"<<endl; else cout<<"clipMin_ref(float,-1.1f)failed"<<endl;
+ doub = -2.0; clipMin_ref(doub, -1.1);
+ if (doub == -1.1) cout<<"clipMin_ref(double,-1.1)passed"<<endl; else cout<<"clipMin_ref(double,-1.1)failed"<<endl;
+ 
+ 
+ if (clipMax(2) == 1) cout<<"clipMax(int)\t\t\tpassed"<<endl; else cout<<"clipMax(int)\t\t\tfailed"<<endl;
+ if (clipMax(2.f) == 1.f) cout<<"clipMax(float)\t\t\tpassed"<<endl; else cout<<"clipMax(float)\t\t\tfailed"<<endl;
+ if (clipMax(2.0) == 1.0) cout<<"clipMax(double)\t\t\tpassed"<<endl; else cout<<"clipMax(double)\t\t\tfailed"<<endl;
+ if (clipMax(3, 2) == 2) cout<<"clipMax(int,2)\t\t\tpassed"<<endl; else cout<<"clipMax(int,2)\t\t\tfailed"<<endl;
+ if (clipMax(3.f, 2.1f) == 2.1f) cout<<"clipMax(float,2.1f)\t\tpassed"<<endl; else cout<<"clipMax(float,2.1f)\t\tfailed"<<endl;
+ if (clipMax(3.0, 2.1) == 2.1) cout<<"clipMax(double,2.1)\t\tpassed"<<endl; else cout<<"clipMax(double,2.1)\t\tfailed"<<endl;
+ 
+ integer = 2; clipMax_ref(integer);
+ if (integer == 1) cout<<"clipMax_ref(int)\t\tpassed"<<endl; else cout<<"clipMax_ref(int)\t\tfailed"<<endl;
+ flt = 2; clipMax_ref(flt);
+ if (flt == 1.f) cout<<"clipMax_ref(float)\t\tpassed"<<endl; else cout<<"clipMax_ref(float)\t\tfailed"<<endl;
+ doub = 2; clipMax_ref(doub);
+ if (doub == 1.0) cout<<"clipMax_ref(double)\t\tpassed"<<endl; else cout<<"clipMax_ref(double)\t\tfailed"<<endl;
+ integer = 3; clipMax_ref(integer, 2);
+ if (integer == 2) cout<<"clipMax_ref(int)\t\tpassed"<<endl; else cout<<"clipMax_ref(int)\t\tfailed"<<endl;
+ flt = 3.f; clipMax_ref(flt, 2.1f);
+ if (flt == 2.1f) cout<<"clipMax_ref(float,2.1f)passed"<<endl; else cout<<"clipMax_ref(float,2.1f)failed"<<endl;
+ doub = 3.0; clipMax_ref(doub, 2.1);
+ if (doub == 2.1) cout<<"clipMax_ref(double,2.1)passed"<<endl; else cout<<"clipMax_ref(double,2.1)failed"<<endl;
+ 
+ 
+ return 0;
+ }
+ */
+
