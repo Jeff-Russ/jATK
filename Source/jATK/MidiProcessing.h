@@ -11,13 +11,12 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "helpers.h"
-#include "Slew.h"
 
 namespace jATK
 {
     class MidiNoteProcessor
     { private:
-        LinearRamp ramp;
+        LinearRamp<int> ramp;
         int bufSize, num_of_events,sample_number, next_sample, activeNote = -1;
         uint8 outVelo = 0;
         Audio sr, mr;
@@ -29,9 +28,9 @@ namespace jATK
         {   // clean up when done
         }
     public:
-        MidiNoteProcessor (double sRate, int bufferSize, int midiRate, Audio midiRate )
-        : bufSize(bufferSize), sr ((Audio)sRate) mr(midiSRate)
-        {   LinearRamp ramp ( midiRate, 0.f);
+        MidiNoteProcessor (double sRate, int bufferSize, Audio midiRate )
+        : bufSize(bufferSize), sr ((Audio)sRate), mr(midiRate)
+        {   LinearRamp<int> ramp ( midiRate, 0.f);
         
         }
         
