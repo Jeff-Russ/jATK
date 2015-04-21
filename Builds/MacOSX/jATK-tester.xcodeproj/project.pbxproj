@@ -10,6 +10,7 @@
 		052EACBCA310FF1C89F7C9EF /* juce_audio_utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAE4F76B94A1DA1CC46D3936 /* juce_audio_utils.mm */; };
 		0E1D98D0D8B3E91521D514C7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD08E4AC2FABAA97DCA209C /* CoreAudio.framework */; };
 		10A279DC18411E4F4D25FCFD /* juce_events.mm in Sources */ = {isa = PBXBuildFile; fileRef = B29E95142A202FAB3A00726A /* juce_events.mm */; };
+		1F705E3B1AE69EAB00846112 /* helpers.h in Sources */ = {isa = PBXBuildFile; fileRef = 0EC08B9A03603AA1B58F8967 /* helpers.h */; };
 		1F92A0001AE55BAF004A257A /* MidiProcessing.h in Sources */ = {isa = PBXBuildFile; fileRef = D894DA2084571B48A1EFB769 /* MidiProcessing.h */; };
 		1FE1A5312506FCA6F59EB081 /* juce_audio_basics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1830214479AB459CFF5D1E73 /* juce_audio_basics.mm */; };
 		22374D61261CAA89B27D30AF /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D467C50B1D0B614A945B5D /* IOKit.framework */; };
@@ -2830,6 +2831,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				879367584323075F6A038395 /* Phase.cpp in Sources */,
+				1F705E3B1AE69EAB00846112 /* helpers.h in Sources */,
 				75192BE639691000338A8B0A /* CAArray.cpp in Sources */,
 				F5AB00A0E36972F8799E6B52 /* DelayTaps.cpp in Sources */,
 				1F92A0001AE55BAF004A257A /* MidiProcessing.h in Sources */,
