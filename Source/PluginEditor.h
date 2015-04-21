@@ -66,7 +66,7 @@ private:
 
     //==============================================================================
     ScopedPointer<Label> label;
-    ScopedPointer<Slider> WidthCtrlSld;
+    ScopedPointer<Slider> HorizSlider;
     ScopedPointer<TextButton> BypassBtn;
 
 

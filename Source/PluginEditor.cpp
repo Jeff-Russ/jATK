@@ -34,7 +34,7 @@ JAtkAudioProcessorEditor::JAtkAudioProcessorEditor (JAtkAudioProcessor* ownerFil
     //[/Constructor_pre]
 
     addAndMakeVisible (label = new Label ("new label",
-                                          TRANS("Stereo Width Factor:")));
+                                          TRANS("Label")));
     label->setFont (Font (15.00f, Font::plain));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
@@ -42,11 +42,11 @@ JAtkAudioProcessorEditor::JAtkAudioProcessorEditor (JAtkAudioProcessor* ownerFil
     label->setColour (TextEditor::textColourId, Colours::black);
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (WidthCtrlSld = new Slider ("Width Factor Slider"));
-    WidthCtrlSld->setRange (0, 5, 0.1);
-    WidthCtrlSld->setSliderStyle (Slider::LinearHorizontal);
-    WidthCtrlSld->setTextBoxStyle (Slider::TextBoxLeft, false, 80, 20);
-    WidthCtrlSld->addListener (this);
+    addAndMakeVisible (HorizSlider = new Slider ("Horizontal Slider"));
+    HorizSlider->setRange (0, 5, 0.1);
+    HorizSlider->setSliderStyle (Slider::LinearHorizontal);
+    HorizSlider->setTextBoxStyle (Slider::TextBoxLeft, false, 80, 20);
+    HorizSlider->addListener (this);
 
     addAndMakeVisible (BypassBtn = new TextButton ("Bypass Button"));
     BypassBtn->setButtonText (TRANS("Bypass"));
@@ -72,7 +72,7 @@ JAtkAudioProcessorEditor::~JAtkAudioProcessorEditor()
     //[/Destructor_pre]
 
     label = nullptr;
-    WidthCtrlSld = nullptr;
+    HorizSlider = nullptr;
     BypassBtn = nullptr;
 
 
@@ -98,7 +98,7 @@ void JAtkAudioProcessorEditor::resized()
     //[/UserPreResize]
 
     label->setBounds (16, 16, 150, 24);
-    WidthCtrlSld->setBounds (24, 40, 360, 24);
+    HorizSlider->setBounds (24, 40, 360, 24);
     BypassBtn->setBounds (24, 72, 360, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
@@ -110,11 +110,10 @@ void JAtkAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMoved)
 	JAtkAudioProcessor* ourProcessor = getProcessor();
     //[/UsersliderValueChanged_Pre]
 
-    if (sliderThatWasMoved == WidthCtrlSld)
+    if (sliderThatWasMoved == HorizSlider)
     {
-        //[UserSliderCode_WidthCtrlSld] -- add your slider handling code here..
-		ourProcessor->setParameterNotifyingHost(JAtkAudioProcessor::StereoWidth, (float)WidthCtrlSld->getValue());
-        //[/UserSliderCode_WidthCtrlSld]
+        //[UserSliderCode_HorizSlider] -- add your slider handling code here..
+        //[/UserSliderCode_HorizSlider]
     }
 
     //[UsersliderValueChanged_Post]
@@ -166,17 +165,16 @@ BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="JAtkAudioProcessorEditor"
                  componentName="" parentClasses="public AudioProcessorEditor, public Timer"
-                 constructorParams="JAtkAudioProcessor* ownerFilter"
-                 variableInitialisers="AudioProcessorEditor(ownerFilter)" snapPixels="8"
-                 snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="1"
-                 initialWidth="400" initialHeight="125">
+                 constructorParams="JAtkAudioProcessor* ownerFilter" variableInitialisers="AudioProcessorEditor(ownerFilter)"
+                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
+                 fixedSize="1" initialWidth="400" initialHeight="125">
   <BACKGROUND backgroundColour="ff000000"/>
   <LABEL name="new label" id="1d55c1b6b2497503" memberName="label" virtualName=""
          explicitFocusOrder="0" pos="16 16 150 24" textCol="ff808080"
-         edTextCol="ff000000" edBkgCol="0" labelText="Stereo Width Factor:"
-         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="15" bold="0" italic="0" justification="33"/>
-  <SLIDER name="Width Factor Slider" id="3256f6e24cbd10aa" memberName="WidthCtrlSld"
+         edTextCol="ff000000" edBkgCol="0" labelText="Label" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15" bold="0" italic="0" justification="33"/>
+  <SLIDER name="Horizontal Slider" id="3256f6e24cbd10aa" memberName="HorizSlider"
           virtualName="" explicitFocusOrder="0" pos="24 40 360 24" min="0"
           max="5" int="0.10000000000000000555" style="LinearHorizontal"
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="80"
