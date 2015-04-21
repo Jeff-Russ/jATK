@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="pVGpCy" name="jATK-tester" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.jATKtester" includeBinaryInAppConfig="1"
-              jucerVersion="3.1.1">
+              jucerVersion="3.1.1" companyName="JRussAudioTools">
   <MAINGROUP id="UcQUM0" name="jATK-tester">
     <FILE id="PHaYgu" name="README.md" compile="0" resource="1" file="README.md"/>
     <GROUP id="{8AE64A1E-E308-26CC-F50D-C3555A69BA49}" name="Source">

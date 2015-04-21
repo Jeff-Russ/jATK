@@ -8,20 +8,39 @@
     <key>CFBundleIconFile</key>
     <string></string>
     <key>CFBundleIdentifier</key>
-    <string>com.yourcompany.jATKtester</string>
+    <string>com.JRussAudioTools.jATK</string>
     <key>CFBundleName</key>
-    <string>jATK-tester</string>
+    <string>jATK</string>
     <key>CFBundlePackageType</key>
-    <string>APPL</string>
+    <string>TDMw</string>
     <key>CFBundleSignature</key>
-    <string>????</string>
+    <string>PTul</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0.0</string>
     <key>CFBundleVersion</key>
     <string>1.0.0</string>
     <key>NSHumanReadableCopyright</key>
-    <string></string>
+    <string>JRuss AudioTools</string>
     <key>NSHighResolutionCapable</key>
     <true/>
+    <key>AudioComponents</key>
+    <array>
+      <dict>
+        <key>name</key>
+        <string>JRuss AudioTools: jATK</string>
+        <key>description</key>
+        <string>jATK</string>
+        <key>factoryFunction</key>
+        <string>jATKAUFactory</string>
+        <key>manufacturer</key>
+        <string>JRAT</string>
+        <key>type</key>
+        <string>aumu</string>
+        <key>subtype</key>
+        <string>Xe9u</string>
+        <key>version</key>
+        <integer>65536</integer>
+      </dict>
+    </array>
   </dict>
 </plist>

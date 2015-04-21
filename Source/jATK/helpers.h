@@ -29,10 +29,9 @@ namespace jATK
     const PreAudio PI_PA = 6.283185307179586476925286766559 * 0.5;
     
     ///  template inline functions: ============================================
-    template<typename SNum> inline SNum DNC_ref (SNum& inlet)
-    {   if (!(inlet < -1.0e-8 || inlet > 1.0e-8)) { inlet = 0; } return inlet; }
-    template<typename SNum> inline SNum DNC (SNum inlet)
-    {   if (!(inlet < -1.0e-8 || inlet > 1.0e-8)) { inlet = 0; } return inlet; }
+    // Denormal Number Cancel ==================================================
+    template<typename SNum> inline SNum DNC (SNum inlet)      { if (!(inlet < -1.0e-8 || inlet > 1.0e-8)) inlet = 0; return inlet; }
+    template<typename SNum> inline void DNC_ref (SNum& inlet) { if (!(inlet < -1.0e-8 || inlet > 1.0e-8)) inlet = 0;               }
     // clippers ===============================================================
     template<typename SNum>inline SNum clipMin    (SNum inlet,  SNum min = 0) { if (inlet < min) inlet = min; return inlet; }
     template<typename SNum>inline void clipMin_ref(SNum& inlet, SNum min = 0) { if (inlet < min) inlet = min;               }
@@ -93,12 +92,12 @@ namespace jATK
     template<typename SNum> inline SNum wrap1     (SNum phase)           { return fmodf(phase, 1.0);           }
     template<typename SNum> inline void wrap1_ref (SNum phase)           { phase = fmodf(phase, 1.0);          }
     template<typename SNum> inline SNum ratio1(SNum phase,SNum ratio)    { return fmodf((phase * ratio), 1.0); }
-    template<typename SNum> inline SNum ratio1_ref(SNum phase,SNum ratio){ phase = fmodf((phase * ratio), 1.0);}
+    template<typename SNum> inline void ratio1_ref(SNum phase,SNum ratio){ phase = fmodf((phase * ratio), 1.0);}
     template<typename SNum> inline SNum phaseDistort (SNum phase, SNum knee)
     {   if (phase < knee) return (1 / knee) * phase * 0.5f;
         else return ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
     }
-    template<typename SNum> inline SNum phaseDistort_ref (SNum& phase, SNum knee)
+    template<typename SNum> inline void phaseDistort_ref (SNum& phase, SNum knee)
     {   if (phase < knee) phase = (1 / knee) * phase * 0.5f;
         else phase = ( (1 / (1 - knee)) * (phase - knee) * 0.5f ) + 0.5f;
     }
@@ -111,7 +110,7 @@ namespace jATK
         
         void reset (SNum init) { output = prevIn = internal = init; }
         
-        void set (SNum adder, SNum subt) {add = adder; sub = subt; }
+        void set (SNum adder, SNum subt) { add = adder; sub = subt; }
         
         SNum operator()(SNum input)
         {   this->input = input;
@@ -131,17 +130,19 @@ namespace jATK
         }
         void process(SNum input)
         {   if (goUp)   // process rising output
-        {   if (internal < input) { output = internal = internal + add; }
-        else { output = internal = input; } // went too far. set to goal.
-        }else       // process falling output
-        {   if (internal > input) { output = internal = internal - sub; }
-        else { output = internal = input; } // went too far. set to goal.
-        }
+            {   if (internal < input) { output = internal = internal + add; }
+                else { output = internal = input; } // went too far. set to goal.
+            }else       // process falling output
+            {   if (internal > input) { output = internal = internal - sub; }
+                else { output = internal = input; } // went too far. set to goal.
+            }
         }
         SNum add, sub, diff, internal; bool goUp;
     protected:
         SNum prevIn, output, input;
     };
+    
+    
     //-- SlewLimiter -----------------------------------------------------------
     template <class SNum> class SlewLimiter : public Slew<SNum>
     { public:
