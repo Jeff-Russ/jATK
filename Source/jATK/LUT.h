@@ -4,11 +4,16 @@
  Author:  Jeff-Russ     https://github.com/Jeff-Russ
  =============================================================================*/
 
+
 #ifndef LUT_H_INCLUDED
 #define LUT_H_INCLUDED
 
 namespace jATK
 {
+    enum SineQual {
+        LUT256, LUT1048, LUT256w2pLI, LUT1048w2pLI, LUT256w4pLI, LUT1048w4pLI
+        PARASINE, SINE4, SINE8
+    }
     ///  Lookup Table declarations: ==========================================
     static const float sineQuad256_f [256];
     static const double sineQuad256_d [256];

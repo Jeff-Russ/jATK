@@ -8,7 +8,7 @@
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="1"
               pluginSilenceInIsSilenceOut="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="jATKAU" pluginRTASCategory="" aaxIdentifier="com.yourcompany.jATK"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="3.1.1"
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="3.1.0"
               companyName="JRuss AudioTools">
   <MAINGROUP id="R6Mkhz" name="jATK">
     <GROUP id="{517B3326-250E-E7BC-0373-397BE9067ED4}" name="Source">
