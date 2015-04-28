@@ -13,12 +13,8 @@
   <MAINGROUP id="R6Mkhz" name="jATK">
     <GROUP id="{517B3326-250E-E7BC-0373-397BE9067ED4}" name="Source">
       <GROUP id="{0BC18854-3B8F-A1CB-31BC-80B0BE419D46}" name="jATK">
-        <FILE id="VuPz1U" name="sineQuad1024_d.h" compile="0" resource="0"
-              file="Source/jATK/sineQuad1024_d.h"/>
-        <FILE id="XZcs4K" name="sineQuad1024_f.h" compile="0" resource="0"
-              file="Source/jATK/sineQuad1024_f.h"/>
-        <FILE id="OyIKql" name="sineQuad256_f.h" compile="0" resource="0" file="Source/jATK/sineQuad256_f.h"/>
-        <FILE id="U44g6v" name="sineQuad256_d.h" compile="0" resource="0" file="Source/jATK/sineQuad256_d.h"/>
+        <FILE id="apMaFJ" name="LUT.h" compile="0" resource="0" file="Source/jATK/LUT.h"/>
+        <FILE id="IOkNDp" name="SineOsc.h" compile="0" resource="0" file="Source/jATK/SineOsc.h"/>
         <FILE id="kDF87c" name="AHDSR.h" compile="0" resource="0" file="Source/jATK/AHDSR.h"/>
         <FILE id="HvMUWe" name="CAArray.cpp" compile="1" resource="0" file="Source/jATK/CAArray.cpp"/>
         <FILE id="yoCgVC" name="CAArray.h" compile="0" resource="0" file="Source/jATK/CAArray.h"/>
