@@ -8,59 +8,63 @@
 #ifndef LUT_H_INCLUDED
 #define LUT_H_INCLUDED
 
+#include "helpers.h"
+
 namespace jATK
 {
-    enum SineQual {
-        LUT256, LUT1048, LUT256w2pLI, LUT1048w2pLI, LUT256w4pLI, LUT1048w4pLI,
-        PARASINE, SINE4, SINE8
-    }
-    ///  Lookup Table declarations: ==========================================
-    const static float sineQuad256_f[];
-    const static double sineQuad256_d[];
-    const static float sineQuad1024_f[];
-    const static float sineQuad1024_d[];
-    
     /// Lookup Table classes: =================================================
-    class  LutQuadrantIndexer
+    class  SineLut
     {
+    public:  // setup of object
+        // constructor
+        SineLut (int inMode, int outMode) : IMode(inMode), OMode(outMode)
+        {   this->calc();
+        }
+                
+        // sets the range of numbers expected as input. 0 means 0...tau
+        // 1 means 0...1 and anything else means -0.5...0.5
+        void setMode (int inMode, outMode) // 
+        {   IMode = inMode OMode = outMode;
+            this->calc();
+        }
+        // the quarter-size arrays:
+        static const float sineQuad256_f[];
+        static const double sineQuad256_d[];
+        static const float sineQuad1024_f[];
+        static const float sineQuad1024_d[];
+        
+    private:  // internal data and methos
         double size_d, lastIdx_d, sizeX2_d, sizeX3_d, sizeX4_d, piCoef_d;
         float size_f, lastIdx_f, sizeX2_f, sizeX3_f, sizeX4_f, piCoef_f;
-        int mode; // 0 means pi based, 1 means 0 to 1, -1 means -0.5 to 0.5
+        int IMode, OMode; // 0 means pi based, 1 means 0 to 1, -1 means -0.5 to 0.5
         bool& flip;
         
         void calc()
-        {   lastIdx_d = lastIdx_f = size_f - 1.f;
+        {
+            if (OMode == 0 || OMode == 2 || OMode == 4)
+            {   size_d = size_f = 256;
+            }
+            else if (OMode == 1 || OMode == 3 || OMode == 5)
+            {   size_d = size_f = 1024; }
+            
+            lastIdx_d = lastIdx_f = size_f - 1.f;
             sizeX2_d = sizeX2_f = size_f * 2.f;
             sizeX3_d = sizeX3_f = size_f * 3.f;
             sizeX4_d = sizeX4_f = size_f * 4.f;
             piCoef_d = sizeX4_d / TWOPI_D;
             piCoef_f = sizeX4_f / TWOPI_F;
         }
-        void ph2Idx(double& phase)
-        {   if (mode == 1)      phase *= sizeX4_d;
-        else if (mode == 0) phase *= piCoef_d;
-        else                phase = (phase + 0.5) * sizeX4_d;
-        }
-        void ph2Idx(float& phase)
-        {   if (mode == 1)      phase *= sizeX4_f;
-        else if (mode == 0) phase *= piCoef_f;
-        else                phase = (phase + 0.5f) * sizeX4_f;
-        }
-    public:
-        LutQuadrantIndexer (int quadSize, bool& flipSign, int inputMode)
-        : size_d(quadSize), size_f(quadSize), mode(inputMode), flip(flipSign)
-        {   this->calc();
-        }
-        void setQuadSize(int quadSize) { size_d = size_f = quadSize; this->calc(); }
-        void setInputMode(int inputMode) { mode = inputMode; this->calc(); }
         
+    public: // methods for accessing the sine data:
         double operator()(double x)
         {
-            this->ph2Idx(x);
+            if      (mode == 1) phase *= sizeX4_d;
+            else if (mode == 0) phase *= piCoef_d;
+            else                phase = (phase + 0.5) * sizeX4_d;
             
             if (x >= 0.0 && x < size_d)        { flip = false; }
             else if (x >= size_d && x < sizeX2_d)
-            {   x = lastIdx_d - (x - size_d); flip = false;
+            {   x = lastIdx_d - (x - size_d);  flip = false;
             }
             else if (x >= sizeX2_d && x < sizeX3_d)
             {   x -= sizeX2_d;                   flip = true;
@@ -72,7 +76,9 @@ namespace jATK
         }
         double operator()(float x)
         {
-            this->ph2Idx(x);
+            if (mode == 1)      phase *= sizeX4_f;
+            else if (mode == 0) phase *= piCoef_f;
+            else                phase = (phase + 0.5f) * sizeX4_f;
             
             if (x >= 0.0 && x < size_f)        { flip = false; }
             else if (x >= size_f && x < sizeX2_f)
@@ -89,7 +95,7 @@ namespace jATK
     };
     
     ///  Lookup Table definitions: ============================================
-    const static float sineQuad256_f [256] =
+    const float SineLut::sineQuad256_f [256] =
     {
         0.0f,
         0.0061358846724033355712890625f,
@@ -348,7 +354,7 @@ namespace jATK
         0.999924719333648681640625f,
         0.9999811649322509765625f,
     };
-    const static double sineQuad256_d [256] =
+    const double SineLut::sineQuad256_d [256] =
     {
         0.0,
         0.006135884649154475269094977107897648238576948642730712890625,
@@ -607,7 +613,7 @@ namespace jATK
         0.99992470183914450299056397852837108075618743896484375,
         0.9999811752826011090888869148329831659793853759765625
     };
-    const static float sineQuad1024_f [1024] =
+    const float SineLut::sineQuad1024_f [1024] =
     {
         0.0f,
         0.00153398024849593639373779296875f,
@@ -1634,7 +1640,7 @@ namespace jATK
         0.999995291233062744140625f,
         0.9999988079071044921875f,
     };
-    const static float sineQuad1024_d [1024] =
+    const float SineLut::sineQuad1024_d [1024] =
     {
         0.0,
         0.00153398018628476550014039236913276909035630524158477783203125,

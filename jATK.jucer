@@ -13,7 +13,7 @@
   <MAINGROUP id="R6Mkhz" name="jATK">
     <GROUP id="{517B3326-250E-E7BC-0373-397BE9067ED4}" name="Source">
       <GROUP id="{0BC18854-3B8F-A1CB-31BC-80B0BE419D46}" name="jATK">
-        <FILE id="apMaFJ" name="LUT.h" compile="0" resource="0" file="Source/jATK/LUT.h"/>
+        <FILE id="apMaFJ" name="sine.h" compile="0" resource="0" file="Source/jATK/sine.h"/>
         <FILE id="IOkNDp" name="SineOsc.h" compile="0" resource="0" file="Source/jATK/SineOsc.h"/>
         <FILE id="kDF87c" name="AHDSR.h" compile="0" resource="0" file="Source/jATK/AHDSR.h"/>
         <FILE id="HvMUWe" name="CAArray.cpp" compile="1" resource="0" file="Source/jATK/CAArray.cpp"/>
