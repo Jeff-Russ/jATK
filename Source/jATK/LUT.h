@@ -11,40 +11,40 @@
 namespace jATK
 {
     enum SineQual {
-        LUT256, LUT1048, LUT256w2pLI, LUT1048w2pLI, LUT256w4pLI, LUT1048w4pLI
+        LUT256, LUT1048, LUT256w2pLI, LUT1048w2pLI, LUT256w4pLI, LUT1048w4pLI,
         PARASINE, SINE4, SINE8
     }
     ///  Lookup Table declarations: ==========================================
-    static const float sineQuad256_f [256];
-    static const double sineQuad256_d [256];
-    static const float sineQuad1024_f [1024];
-    static const float sineQuad1024_d [1024];
+    const static float sineQuad256_f[];
+    const static double sineQuad256_d[];
+    const static float sineQuad1024_f[];
+    const static float sineQuad1024_d[];
     
     /// Lookup Table classes: =================================================
     class  LutQuadrantIndexer
     {
-        double size_d, sizeMinus1_d, sizeTimes2_d, sizeTimes3_d, sizeTimes4_d, piCoef_d;
-        float size_f, sizeMinus1_f, sizeTimes2_f, sizeTimes3_f, sizeTimes4_f, piCoef_f;
+        double size_d, lastIdx_d, sizeX2_d, sizeX3_d, sizeX4_d, piCoef_d;
+        float size_f, lastIdx_f, sizeX2_f, sizeX3_f, sizeX4_f, piCoef_f;
         int mode; // 0 means pi based, 1 means 0 to 1, -1 means -0.5 to 0.5
         bool& flip;
         
         void calc()
-        {   sizeMinus1_d = sizeMinus1_f = size_f - 1.f;
-            sizeTimes2_d = sizeTimes2_f = size_f * 2.f;
-            sizeTimes3_d = sizeTimes3_f = size_f * 3.f;
-            sizeTimes4_d = sizeTimes4_f = size_f * 4.f;
-            piCoef_d = sizeTimes4_d / TWOPI_D;
-            piCoef_f = sizeTimes4_f / TWOPI_F;
+        {   lastIdx_d = lastIdx_f = size_f - 1.f;
+            sizeX2_d = sizeX2_f = size_f * 2.f;
+            sizeX3_d = sizeX3_f = size_f * 3.f;
+            sizeX4_d = sizeX4_f = size_f * 4.f;
+            piCoef_d = sizeX4_d / TWOPI_D;
+            piCoef_f = sizeX4_f / TWOPI_F;
         }
         void ph2Idx(double& phase)
-        {   if (mode == 1)      phase *= sizeTimes4_d;
-            else if (mode == 0) phase *= piCoef_d;
-            else                phase = (phase + 0.5) * sizeTimes4_d;
+        {   if (mode == 1)      phase *= sizeX4_d;
+        else if (mode == 0) phase *= piCoef_d;
+        else                phase = (phase + 0.5) * sizeX4_d;
         }
         void ph2Idx(float& phase)
-        {   if (mode == 1)      phase *= sizeTimes4_f;
-            else if (mode == 0) phase *= piCoef_f;
-            else                phase = (phase + 0.5f) * sizeTimes4_f;
+        {   if (mode == 1)      phase *= sizeX4_f;
+        else if (mode == 0) phase *= piCoef_f;
+        else                phase = (phase + 0.5f) * sizeX4_f;
         }
     public:
         LutQuadrantIndexer (int quadSize, bool& flipSign, int inputMode)
@@ -59,14 +59,14 @@ namespace jATK
             this->ph2Idx(x);
             
             if (x >= 0.0 && x < size_d)        { flip = false; }
-                else if (x >= size_d && x < sizeTimes2_d)
-            {   x = sizeMinus1_d - (x - size_d); flip = false;
+            else if (x >= size_d && x < sizeX2_d)
+            {   x = lastIdx_d - (x - size_d); flip = false;
             }
-                else if (x >= sizeTimes2_d && x < sizeTimes3_d)
-            {   x -= sizeTimes2_d;                   flip = true;
+            else if (x >= sizeX2_d && x < sizeX3_d)
+            {   x -= sizeX2_d;                   flip = true;
             }
-                else if (x >= sizeTimes3_d && x < sizeTimes4_d)
-            {   x = sizeMinus1_d-(x-sizeTimes3_d);flip = true;
+            else if (x >= sizeX3_d && x < sizeX4_d)
+            {   x = lastIdx_d-(x-sizeX3_d);flip = true;
             }
             return x;
         }
@@ -75,21 +75,21 @@ namespace jATK
             this->ph2Idx(x);
             
             if (x >= 0.0 && x < size_f)        { flip = false; }
-                else if (x >= size_f && x < sizeTimes2_f)
-            {   x = sizeMinus1_f - (x - size_f); flip = false;
+            else if (x >= size_f && x < sizeX2_f)
+            {   x = lastIdx_f - (x - size_f); flip = false;
             }
-                else if (x >= sizeTimes2_f && x < sizeTimes3_f)
-            {   x -= sizeTimes2_f;                   flip = true;
+            else if (x >= sizeX2_f && x < sizeX3_f)
+            {   x -= sizeX2_f;                   flip = true;
             }
-                else if (x >= sizeTimes3_f && x < sizeTimes4_f)
-            {   x = sizeMinus1_f-(x-sizeTimes3_f);flip = true;
+            else if (x >= sizeX3_f && x < sizeX4_f)
+            {   x = lastIdx_f-(x-sizeX3_f);flip = true;
             }
             return x;
         }
     };
-
+    
     ///  Lookup Table definitions: ============================================
-    static const float sineQuad256_f [256] =
+    const static float sineQuad256_f [256] =
     {
         0.0f,
         0.0061358846724033355712890625f,
@@ -348,7 +348,7 @@ namespace jATK
         0.999924719333648681640625f,
         0.9999811649322509765625f,
     };
-    static const double sineQuad256_d [256] =
+    const static double sineQuad256_d [256] =
     {
         0.0,
         0.006135884649154475269094977107897648238576948642730712890625,
@@ -607,7 +607,7 @@ namespace jATK
         0.99992470183914450299056397852837108075618743896484375,
         0.9999811752826011090888869148329831659793853759765625
     };
-    static const float sineQuad1024_f [1024] =
+    const static float sineQuad1024_f [1024] =
     {
         0.0f,
         0.00153398024849593639373779296875f,
@@ -1634,7 +1634,7 @@ namespace jATK
         0.999995291233062744140625f,
         0.9999988079071044921875f,
     };
-    static const float sineQuad1024_d [1024] =
+    const static float sineQuad1024_d [1024] =
     {
         0.0,
         0.00153398018628476550014039236913276909035630524158477783203125,
