@@ -13,27 +13,37 @@
   <MAINGROUP id="R6Mkhz" name="jATK">
     <GROUP id="{517B3326-250E-E7BC-0373-397BE9067ED4}" name="Source">
       <GROUP id="{0BC18854-3B8F-A1CB-31BC-80B0BE419D46}" name="jATK">
-        <FILE id="apMaFJ" name="TrigFunc.h" compile="0" resource="0" file="Source/jATK/TrigFunc.h"/>
-        <FILE id="IOkNDp" name="SineOsc.h" compile="0" resource="0" file="Source/jATK/SineOsc.h"/>
-        <FILE id="kDF87c" name="AHDSR.h" compile="0" resource="0" file="Source/jATK/AHDSR.h"/>
-        <FILE id="HvMUWe" name="CAArray.cpp" compile="1" resource="0" file="Source/jATK/CAArray.cpp"/>
-        <FILE id="yoCgVC" name="CAArray.h" compile="0" resource="0" file="Source/jATK/CAArray.h"/>
-        <FILE id="xlH185" name="CALattice.h" compile="0" resource="0" file="Source/jATK/CALattice.h"/>
-        <FILE id="lOV7vF" name="DCFilter.h" compile="0" resource="0" file="Source/jATK/DCFilter.h"/>
-        <FILE id="oNGjvZ" name="DelayTaps.cpp" compile="1" resource="0" file="Source/jATK/DelayTaps.cpp"/>
-        <FILE id="P0lYP6" name="DelayTaps.h" compile="0" resource="0" file="Source/jATK/DelayTaps.h"/>
-        <FILE id="bcneOa" name="EnvelopeFollower.h" compile="0" resource="0"
-              file="Source/jATK/EnvelopeFollower.h"/>
-        <FILE id="DwRAfA" name="Filters.h" compile="0" resource="0" file="Source/jATK/Filters.h"/>
+        <GROUP id="{89A8636E-95AE-7622-868D-6FA968CD2225}" name="Array Based">
+          <FILE id="HvMUWe" name="CAArray.cpp" compile="1" resource="0" file="Source/jATK/CAArray.cpp"/>
+          <FILE id="yoCgVC" name="CAArray.h" compile="0" resource="0" file="Source/jATK/CAArray.h"/>
+          <FILE id="xlH185" name="CALattice.h" compile="0" resource="0" file="Source/jATK/CALattice.h"/>
+          <FILE id="oNGjvZ" name="DelayTaps.cpp" compile="1" resource="0" file="Source/jATK/DelayTaps.cpp"/>
+          <FILE id="P0lYP6" name="DelayTaps.h" compile="0" resource="0" file="Source/jATK/DelayTaps.h"/>
+        </GROUP>
+        <GROUP id="{59890102-3E17-980E-9FC2-CE5DB99A134A}" name="MIDI">
+          <FILE id="XppayL" name="MidiProcessing.h" compile="0" resource="0"
+                file="Source/jATK/MidiProcessing.h"/>
+        </GROUP>
+        <GROUP id="{6C704DC0-EBC3-3FA7-ED92-ECB973C2FDC1}" name="Envelopes">
+          <FILE id="bcneOa" name="EnvelopeFollower.h" compile="0" resource="0"
+                file="Source/jATK/EnvelopeFollower.h"/>
+          <FILE id="z8yqrn" name="SimpleADSR.h" compile="0" resource="0" file="Source/jATK/SimpleADSR.h"/>
+          <FILE id="kDF87c" name="AHDSR.h" compile="0" resource="0" file="Source/jATK/AHDSR.h"/>
+        </GROUP>
+        <GROUP id="{0E9F4297-5698-804E-82B2-0BFBE1B5E2DA}" name="Generators">
+          <FILE id="UTuVFr" name="Phase.h" compile="0" resource="0" file="Source/jATK/Phase.h"/>
+          <FILE id="kapN9K" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
+          <FILE id="q5mSs0" name="Noise.h" compile="0" resource="0" file="Source/jATK/Noise.h"/>
+          <FILE id="IOkNDp" name="SineOsc.h" compile="0" resource="0" file="Source/jATK/SineOsc.h"/>
+          <FILE id="apMaFJ" name="TrigFunc.h" compile="0" resource="0" file="Source/jATK/TrigFunc.h"/>
+        </GROUP>
+        <GROUP id="{DA1BAE6F-0C2D-28F6-A676-EDB942E4872E}" name="Filters and Shapers">
+          <FILE id="lOV7vF" name="DCFilter.h" compile="0" resource="0" file="Source/jATK/DCFilter.h"/>
+          <FILE id="bvdnDP" name="PhaseDistort.h" compile="0" resource="0" file="Source/jATK/PhaseDistort.h"/>
+          <FILE id="AVorqY" name="Shapers.h" compile="0" resource="0" file="Source/jATK/Shapers.h"/>
+          <FILE id="DwRAfA" name="Filters.h" compile="0" resource="0" file="Source/jATK/Filters.h"/>
+        </GROUP>
         <FILE id="jhZn8h" name="helpers.h" compile="0" resource="0" file="Source/jATK/helpers.h"/>
-        <FILE id="XppayL" name="MidiProcessing.h" compile="0" resource="0"
-              file="Source/jATK/MidiProcessing.h"/>
-        <FILE id="q5mSs0" name="Noise.h" compile="0" resource="0" file="Source/jATK/Noise.h"/>
-        <FILE id="kapN9K" name="Phase.cpp" compile="1" resource="0" file="Source/jATK/Phase.cpp"/>
-        <FILE id="UTuVFr" name="Phase.h" compile="0" resource="0" file="Source/jATK/Phase.h"/>
-        <FILE id="bvdnDP" name="PhaseDistort.h" compile="0" resource="0" file="Source/jATK/PhaseDistort.h"/>
-        <FILE id="AVorqY" name="Shapers.h" compile="0" resource="0" file="Source/jATK/Shapers.h"/>
-        <FILE id="z8yqrn" name="SimpleADSR.h" compile="0" resource="0" file="Source/jATK/SimpleADSR.h"/>
         <FILE id="P0Bh5j" name="test.h" compile="0" resource="0" file="Source/jATK/test.h"/>
       </GROUP>
       <FILE id="dRVGG3" name="PluginProcessor.cpp" compile="1" resource="0"
