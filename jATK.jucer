@@ -8,7 +8,7 @@
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="1"
               pluginSilenceInIsSilenceOut="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="jATKAU" pluginRTASCategory="" aaxIdentifier="com.yourcompany.jATK"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="3.1.0"
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="3.1.1"
               companyName="JRuss AudioTools">
   <MAINGROUP id="R6Mkhz" name="jATK">
     <GROUP id="{517B3326-250E-E7BC-0373-397BE9067ED4}" name="Source">
@@ -25,6 +25,10 @@
                 file="Source/jATK/MidiProcessing.h"/>
         </GROUP>
         <GROUP id="{6C704DC0-EBC3-3FA7-ED92-ECB973C2FDC1}" name="Envelopes">
+          <FILE id="KkI1h3" name="ADSR.cpp" compile="1" resource="0" file="Source/ADSR.cpp"/>
+          <FILE id="C0oLH5" name="ADSR.h" compile="0" resource="0" file="Source/ADSR.h"/>
+          <FILE id="IH7h9E" name="LearningEnv.h" compile="0" resource="0" file="Source/LearningEnv.h"/>
+          <FILE id="wWky1N" name="SimpleADSR.h" compile="0" resource="0" file="Source/SimpleADSR.h"/>
           <FILE id="bcneOa" name="EnvelopeFollower.h" compile="0" resource="0"
                 file="Source/jATK/EnvelopeFollower.h"/>
           <FILE id="z8yqrn" name="SimpleADSR.h" compile="0" resource="0" file="Source/jATK/SimpleADSR.h"/>
